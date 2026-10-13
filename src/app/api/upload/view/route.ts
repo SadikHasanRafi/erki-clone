@@ -19,9 +19,12 @@ export async function GET(request: NextRequest) {
     }
 
     // Get file from Vercel Blob
-    const blob = await get(pathname);
+    const blob = await get(pathname, {
+      access: 'public',
+      token: process.env.VERCEL_BLOB_READ_WRITE_TOKEN,
+    });
 
-    if (!blob) {
+    if (!blob || blob.statusCode !== 200) {
       return NextResponse.json(
         { error: 'File not found' },
         { status: 404 }
@@ -31,8 +34,7 @@ export async function GET(request: NextRequest) {
     // Stream the file
     return new NextResponse(blob.stream, {
       headers: {
-        'Content-Type': blob.contentType || 'application/octet-stream',
-        'Content-Length': blob.size,
+        'Content-Type': blob.blob?.contentType || 'application/octet-stream',
         'X-Content-Type-Options': 'nosniff',
         'Cache-Control': 'public, max-age=31536000, immutable',
       },

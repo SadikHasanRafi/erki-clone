@@ -29,7 +29,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     }
 
     // Upload to Vercel Blob with public access
-    const blob = await put(filename, request.body, {
+    const blob = await put(filename, request.body as ReadableStream<Uint8Array>, {
       access: 'public', // Make publicly accessible
       addRandomSuffix: true, // Add random suffix to prevent collisions
     });
