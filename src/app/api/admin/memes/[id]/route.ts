@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/api";
+import { errorResponse, requireAdmin } from "@/lib/api";
 import { deleteMeme, getMemeById, updateMeme } from "@/lib/store";
 import { deleteImage, saveImage } from "@/lib/uploads";
 import { parseMemeForm } from "@/lib/validation";
@@ -34,16 +34,20 @@ export async function PATCH(request: Request, { params }: Ctx) {
   const parsed = parseMemeForm(form, { requireImage: false });
   if (!parsed.ok) return NextResponse.json({ error: parsed.error }, { status: 400 });
 
-  let newImageUrl: string | undefined;
-  if (parsed.image) {
-    newImageUrl = await saveImage(parsed.image);
-  } else if (parsed.imageUrl) {
-    newImageUrl = parsed.imageUrl;
-  }
+  try {
+    let newImageUrl: string | undefined;
+    if (parsed.image) {
+      newImageUrl = await saveImage(parsed.image);
+    } else if (parsed.imageUrl) {
+      newImageUrl = parsed.imageUrl;
+    }
 
-  const meme = await updateMeme(id, { ...parsed.input, imageUrl: newImageUrl });
-  if (newImageUrl && newImageUrl !== existing.imageUrl) await deleteImage(existing.imageUrl);
-  return NextResponse.json({ meme });
+    const meme = await updateMeme(id, { ...parsed.input, imageUrl: newImageUrl });
+    if (newImageUrl && newImageUrl !== existing.imageUrl) await deleteImage(existing.imageUrl);
+    return NextResponse.json({ meme });
+  } catch (err) {
+    return errorResponse(err);
+  }
 }
 
 // Admin: delete the meme and its image file.

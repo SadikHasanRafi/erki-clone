@@ -1,6 +1,7 @@
 import { put } from '@vercel/blob';
 import { NextResponse } from 'next/server';
-import { requireAdmin } from '@/lib/api';
+import { errorResponse, requireAdmin } from '@/lib/api';
+import { blobToken } from '@/lib/uploads';
 
 export const runtime = 'nodejs';
 
@@ -32,6 +33,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     const blob = await put(filename, request.body as ReadableStream<Uint8Array>, {
       access: 'public', // Make publicly accessible
       addRandomSuffix: true, // Add random suffix to prevent collisions
+      token: blobToken(),
     });
 
     return NextResponse.json(
@@ -44,10 +46,6 @@ export async function POST(request: Request): Promise<NextResponse> {
       { status: 200 }
     );
   } catch (error) {
-    console.error('Upload error:', error);
-    return NextResponse.json(
-      { error: 'Failed to upload file' },
-      { status: 500 }
-    );
+    return errorResponse(error);
   }
 }

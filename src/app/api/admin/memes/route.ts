@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/api";
+import { errorResponse, requireAdmin } from "@/lib/api";
 import { createMeme, listMemes } from "@/lib/store";
 import { saveImage } from "@/lib/uploads";
 import { parseMemeForm } from "@/lib/validation";
@@ -25,9 +25,13 @@ export async function POST(request: Request) {
   if (!parsed.ok) return NextResponse.json({ error: parsed.error }, { status: 400 });
   if (!parsed.image && !parsed.imageUrl) return NextResponse.json({ error: "Please choose an image." }, { status: 400 });
 
-  const imageUrl = parsed.imageUrl || (parsed.image ? await saveImage(parsed.image) : null);
-  if (!imageUrl) return NextResponse.json({ error: "Failed to process image." }, { status: 400 });
+  try {
+    const imageUrl = parsed.imageUrl || (parsed.image ? await saveImage(parsed.image) : null);
+    if (!imageUrl) return NextResponse.json({ error: "Failed to process image." }, { status: 400 });
 
-  const meme = await createMeme(parsed.input, imageUrl);
-  return NextResponse.json({ meme }, { status: 201 });
+    const meme = await createMeme(parsed.input, imageUrl);
+    return NextResponse.json({ meme }, { status: 201 });
+  } catch (err) {
+    return errorResponse(err);
+  }
 }

@@ -151,13 +151,20 @@ export function MemeForm({ meme }: { meme?: Meme }) {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setError(data.error ?? "Something went wrong.");
+        setError(
+          data.error ??
+            (res.status === 401
+              ? "Your session expired. Please log in again."
+              : res.status === 413
+                ? "The image is too large to upload. Keep it under 5 MB."
+                : `The server returned an error (${res.status}). Check the terminal running npm run dev.`),
+        );
         return;
       }
       router.push("/dashboard");
       router.refresh();
-    } catch (err) {
-      setError("Failed to save meme. Please try again.");
+    } catch {
+      setError("Could not reach the server. Check your internet connection and that the dev server is running.");
     } finally {
       setSaving(false);
     }
