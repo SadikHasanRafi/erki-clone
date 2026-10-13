@@ -12,7 +12,11 @@
       "Bash(git commit -m ' *)",
       "Bash(git commit -m 'docs: Add comprehensive Vercel Blob storage tutorial *)",
       "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')",
-      "Bash(git commit -m 'feat: Add direct browser uploads, analytics, and comprehensive testing *)"
+      "Bash(git commit -m 'feat: Add direct browser uploads, analytics, and comprehensive testing *)",
+      "Bash(git commit -m 'docs: Add 5-minute quick testing guide *)",
+      "Bash(git commit -m 'docs: Add documentation index and navigation guide *)",
+      "Bash(git commit -m 'fix: Add parentheses for operator precedence in validateImageUrl *)",
+      "Bash(git commit -m 'fix: Remove legacy local upload route *)"
     ],
     "additionalDirectories": [
       "/tmp"
