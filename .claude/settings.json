@@ -17,7 +17,16 @@
       "Bash(git commit -m 'docs: Add documentation index and navigation guide *)",
       "Bash(git commit -m 'fix: Add parentheses for operator precedence in validateImageUrl *)",
       "Bash(git commit -m 'fix: Remove legacy local upload route *)",
-      "Bash(git commit -m 'fix: Correct Vercel Blob API types in upload routes *)"
+      "Bash(git commit -m 'fix: Correct Vercel Blob API types in upload routes *)",
+      "Bash(echo \"--- env var names ---\" && grep -hoE '^[A-Z_]+=' .env .env.local 2>/dev/null | sort -u && echo \"--- dev log tail ---\" && tail -40 /tmp/dev.log 2>/dev/null; grep -rn \"something went wrong\\\\|Something went wrong\" src | head; ls src/app/*.tsx src/app/**/error.tsx 2>/dev/null)",
+      "Bash(python3 -)",
+      "Bash(npx tsc *)",
+      "Bash(curl -s -c /tmp/c.txt -X POST localhost:3000/api/auth/login -H 'Content-Type: application/json' -d '{\"password\":\"01533\"}')",
+      "Bash(curl -s -b /tmp/c.txt -X POST localhost:3000/api/admin/memes -F image=@/tmp/t.png -F title=\"test upload\" -F category=Random -F status=draft)",
+      "Bash(curl -s -i -m 60 -b /tmp/c.txt -X POST localhost:3000/api/admin/memes -F image=@/tmp/t.png -F title=\"test upload\" -F category=Random -F status=draft)",
+      "Bash(curl -s -m 60 -b /tmp/c.txt -X POST localhost:3000/api/admin/memes -F image=@/tmp/t.png -F title=\"test upload\" -F category=Random -F status=draft)",
+      "Bash(echo \"tsc exit: $?\")",
+      "Bash(git commit -q -m 'fix: show clear errors for image upload failures and accept VERCEL_BLOB_READ_WRITE_TOKEN *)"
     ],
     "additionalDirectories": [
       "/tmp"
