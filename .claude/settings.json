@@ -8,7 +8,11 @@
       "Bash(pkill -f \"npm run dev\")",
       "Read(//tmp/**)",
       "Bash(node generate-docs.js)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git commit -m 'docs: Add comprehensive Vercel Blob storage tutorial *)",
+      "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')",
+      "Bash(git commit -m 'feat: Add direct browser uploads, analytics, and comprehensive testing *)"
     ],
     "additionalDirectories": [
       "/tmp"
