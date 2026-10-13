@@ -14,6 +14,9 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
             <Link href="/dashboard" className="rounded px-2 py-1 text-white/80 hover:bg-white/10 hover:text-white">
               All memes
             </Link>
+            <Link href="/dashboard/insights" className="rounded px-2 py-1 text-white/80 hover:bg-white/10 hover:text-white">
+              Insights
+            </Link>
             <Link href="/dashboard/new" className="rounded bg-accent px-3 py-1.5 font-semibold hover:opacity-90">
               + New meme
             </Link>
