@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { CATEGORIES, LABELS, SITE_NAME, SOCIAL_LINKS } from "@/lib/config";
+import { LABELS, SITE_NAME, SOCIAL_LINKS } from "@/lib/config";
 
-export function SiteHeader() {
+export function SiteHeader({ categories }: { categories: string[] }) {
   const active = useSearchParams().get("category");
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -19,7 +19,7 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden flex-1 items-center lg:flex" aria-label="Sections">
-          {CATEGORIES.map((c) => (
+          {categories.map((c) => (
             <Link
               key={c}
               href={`/?category=${encodeURIComponent(c)}`}
@@ -66,7 +66,7 @@ export function SiteHeader() {
 
       {menuOpen && (
         <nav className="grid grid-cols-2 border-t border-black/10 bg-sun lg:hidden" aria-label="Sections">
-          {CATEGORIES.map((c) => (
+          {categories.map((c) => (
             <Link
               key={c}
               href={`/?category=${encodeURIComponent(c)}`}

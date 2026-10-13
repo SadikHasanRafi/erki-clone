@@ -9,6 +9,7 @@ export async function GET(request: Request) {
   const limit = Math.min(Number(searchParams.get("limit")) || 24, 100);
   const memes = await listMemes({
     category: searchParams.get("category") ?? undefined,
+    tag: searchParams.get("tag") ?? undefined,
     q: searchParams.get("q") ?? undefined,
     limit,
     excludeId: searchParams.get("excludeId") ?? undefined,

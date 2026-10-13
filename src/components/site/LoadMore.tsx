@@ -9,12 +9,14 @@ export function LoadMore({
   initialSkip,
   pageSize,
   category,
+  tag,
   q,
   excludeId,
 }: {
   initialSkip: number;
   pageSize: number;
   category?: string;
+  tag?: string;
   q?: string;
   excludeId?: string;
 }) {
@@ -30,6 +32,7 @@ export function LoadMore({
     try {
       const params = new URLSearchParams({ skip: String(skip), limit: String(pageSize + 1) });
       if (category) params.set("category", category);
+      if (tag) params.set("tag", tag);
       if (q) params.set("q", q);
       if (excludeId) params.set("excludeId", excludeId);
       const res = await fetch(`/api/memes?${params}`);

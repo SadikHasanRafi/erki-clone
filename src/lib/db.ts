@@ -1,8 +1,10 @@
 import { MongoClient, type Collection, type Db } from "mongodb";
-import type { Meme } from "./types";
+import type { Category, Meme } from "./types";
 
 // Stored document: the meme's `id` lives in `_id` so MongoDB's own key is used.
 export type MemeDoc = Omit<Meme, "id"> & { _id: string };
+
+export type CategoryDoc = Omit<Category, "id"> & { _id: string };
 
 const uri = process.env.MONGODB_URI;
 const dbName = process.env.MONGODB_DB ?? "erki_clone";
@@ -32,6 +34,7 @@ export async function memesCollection(): Promise<Collection<MemeDoc>> {
     collection.createIndex({ slug: 1 }, { unique: true }),
     collection.createIndex({ status: 1, createdAt: -1 }),
     collection.createIndex({ category: 1 }),
+    collection.createIndex({ tags: 1 }),
   ]).then(() => undefined);
   await indexesReady;
   return collection;
@@ -40,4 +43,13 @@ export async function memesCollection(): Promise<Collection<MemeDoc>> {
 export function toMeme(doc: MemeDoc): Meme {
   const { _id, ...rest } = doc;
   return { id: _id, ...rest };
+}
+
+let categoryIndexReady: Promise<void> | null = null;
+
+export async function categoriesCollection(): Promise<Collection<CategoryDoc>> {
+  const collection = (await getClient()).db(dbName).collection<CategoryDoc>("categories");
+  categoryIndexReady ??= collection.createIndex({ name: 1 }, { unique: true }).then(() => undefined);
+  await categoryIndexReady;
+  return collection;
 }

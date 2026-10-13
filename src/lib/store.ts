@@ -7,6 +7,7 @@ export type MemeInput = {
   description: string;
   author: string;
   body: string;
+  sourceUrl: string;
   category: string;
   tags: string[];
   status: MemeStatus;
@@ -31,22 +32,23 @@ async function uniqueSlug(title: string, ignoreId?: string): Promise<string> {
   return slug;
 }
 
-export async function listMemes(
-  opts: {
-    includeDrafts?: boolean;
-    category?: string;
-    q?: string;
-    limit?: number;
-    skip?: number;
-    sort?: "latest" | "views";
-    featured?: boolean;
-    excludeId?: string;
-  } = {},
-): Promise<Meme[]> {
-  const collection = await memesCollection();
+type ListOpts = {
+  includeDrafts?: boolean;
+  category?: string;
+  tag?: string;
+  q?: string;
+  limit?: number;
+  skip?: number;
+  sort?: "latest" | "views";
+  featured?: boolean;
+  excludeId?: string;
+};
+
+function buildFilter(opts: ListOpts): Record<string, unknown> {
   const filter: Record<string, unknown> = {};
   if (!opts.includeDrafts) filter.status = "published";
   if (opts.category) filter.category = opts.category;
+  if (opts.tag) filter.tags = opts.tag;
   if (opts.featured) filter.featured = true;
   if (opts.excludeId) filter._id = { $ne: opts.excludeId };
 
@@ -56,6 +58,30 @@ export async function listMemes(
     const pattern = { $regex: q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), $options: "i" };
     filter.$or = [{ title: pattern }, { description: pattern }, { tags: pattern }];
   }
+  return filter;
+}
+
+export async function countMemes(opts: ListOpts = {}): Promise<number> {
+  return (await memesCollection()).countDocuments(buildFilter(opts));
+}
+
+// Every tag used by published memes with how many memes use it, most used first.
+export async function listTags(limit = 30): Promise<{ tag: string; count: number }[]> {
+  const rows = await (await memesCollection())
+    .aggregate<{ _id: string; count: number }>([
+      { $match: { status: "published" } },
+      { $unwind: "$tags" },
+      { $group: { _id: "$tags", count: { $sum: 1 } } },
+      { $sort: { count: -1, _id: 1 } },
+      { $limit: limit },
+    ])
+    .toArray();
+  return rows.map((r) => ({ tag: r._id, count: r.count }));
+}
+
+export async function listMemes(opts: ListOpts = {}): Promise<Meme[]> {
+  const collection = await memesCollection();
+  const filter = buildFilter(opts);
 
   const docs = await collection
     .find(filter)

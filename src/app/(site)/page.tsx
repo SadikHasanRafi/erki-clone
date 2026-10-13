@@ -1,28 +1,37 @@
 import Link from "next/link";
 import { LatestCard, PopularCard, SectionBar } from "@/components/site/Cards";
 import { LoadMore } from "@/components/site/LoadMore";
-import { MoreBox, RecentList, SubmitBanner } from "@/components/site/Sidebar";
-import { CATEGORIES, LABELS, LAYOUT } from "@/lib/config";
-import { listMemes } from "@/lib/store";
+import { Pagination } from "@/components/site/Pagination";
+import { MoreBox, RecentList, SubmitBanner, TagBox } from "@/components/site/Sidebar";
+import { listCategoryNames } from "@/lib/categories";
+import { LABELS, LAYOUT } from "@/lib/config";
+import { countMemes, listMemes, listTags } from "@/lib/store";
 
-type Props = { searchParams: Promise<{ category?: string; q?: string }> };
+type Props = { searchParams: Promise<{ category?: string; tag?: string; q?: string; page?: string }> };
 
 export default async function HomePage({ searchParams }: Props) {
-  const { category = "", q = "" } = await searchParams;
-  const activeCategory = CATEGORIES.includes(category) ? category : "";
-  const isFiltered = Boolean(activeCategory || q);
-  const filter = { category: activeCategory || undefined, q: q || undefined };
+  const { category = "", tag = "", q = "", page: pageParam } = await searchParams;
+  const categories = await listCategoryNames();
+  const activeCategory = categories.includes(category) ? category : "";
+  const isFiltered = Boolean(activeCategory || tag || q);
+  const filter = { category: activeCategory || undefined, tag: tag || undefined, q: q || undefined };
+  const size = LAYOUT.latestPageSize;
 
-  // The newest featured meme is pinned to the top of the latest column on the unfiltered home page.
+  // The newest featured meme is pinned to the top of the first page of the unfiltered home page.
   const pinned = isFiltered ? null : ((await listMemes({ featured: true, limit: 1 }))[0] ?? null);
-  const [latestPlus, popular, recent] = await Promise.all([
-    listMemes({ ...filter, excludeId: pinned?.id, limit: LAYOUT.latestPageSize + 1 }),
+  const total = await countMemes({ ...filter, excludeId: pinned?.id });
+  const totalPages = Math.max(1, Math.ceil(total / size));
+  const page = Math.min(Math.max(Number.parseInt(pageParam ?? "1", 10) || 1, 1), totalPages);
+
+  const [latest, popular, recent, tags] = await Promise.all([
+    listMemes({ ...filter, excludeId: pinned?.id, limit: size, skip: (page - 1) * size }),
     listMemes({ category: filter.category, sort: "views", limit: LAYOUT.popularCount }),
     listMemes({ limit: LAYOUT.sidebarRecent }),
+    listTags(),
   ]);
-  const latest = latestPlus.slice(0, LAYOUT.latestPageSize);
-  const hasMore = latestPlus.length > LAYOUT.latestPageSize;
-  const nothing = latest.length === 0 && !pinned;
+  const showPinned = pinned && page === 1;
+  const hasMore = page < totalPages;
+  const nothing = latest.length === 0 && !showPinned;
 
   return (
     <main className="px-4 pb-4">
@@ -30,7 +39,7 @@ export default async function HomePage({ searchParams }: Props) {
         <nav className="mb-4 flex flex-wrap items-center gap-2 text-sm text-sky-700">
           <Link href="/" className="hover:underline">{LABELS.home}</Link>
           <span aria-hidden>›</span>
-          <span>{q ? `“${q}”` : activeCategory}</span>
+          <span>{q ? `“${q}”` : tag ? `#${tag}` : activeCategory}</span>
         </nav>
       )}
 
@@ -45,32 +54,37 @@ export default async function HomePage({ searchParams }: Props) {
         </section>
 
         <section className="order-1 space-y-4 lg:order-none">
-          <SectionBar title={activeCategory || LABELS.latest} />
+          <SectionBar title={activeCategory || (tag ? `#${tag}` : LABELS.latest)} />
           {nothing ? (
             <p className="rounded border border-zinc-200 p-10 text-center text-zinc-500">
               {isFiltered ? "এই ফিল্টারে কোনো মিম মেলেনি।" : "এখনো কোনো মিম নেই। একটু পরে আবার দেখুন!"}
             </p>
           ) : (
             <>
-              {pinned && <LatestCard meme={pinned} priority />}
+              {showPinned && <LatestCard meme={pinned} priority />}
               {latest.map((m, i) => (
-                <LatestCard key={m.id} meme={m} priority={!pinned && i === 0} />
+                <LatestCard key={m.id} meme={m} priority={!showPinned && i === 0} />
               ))}
               {hasMore && (
+                // Keyed so that moving to another page or filter starts the button from scratch.
                 <LoadMore
-                  initialSkip={LAYOUT.latestPageSize}
-                  pageSize={LAYOUT.latestPageSize}
+                  key={`${page}|${activeCategory}|${tag}|${q}`}
+                  initialSkip={page * size}
+                  pageSize={size}
                   category={filter.category}
+                  tag={filter.tag}
                   q={filter.q}
                   excludeId={pinned?.id}
                 />
               )}
+              <Pagination page={page} totalPages={totalPages} params={{ category: activeCategory, tag, q }} />
             </>
           )}
         </section>
 
         <aside className="order-3 space-y-6 lg:order-none">
           <MoreBox />
+          <TagBox tags={tags} active={tag} />
           <SubmitBanner />
           <RecentList memes={recent} />
         </aside>

@@ -5,7 +5,8 @@ import { ArticleImage } from "@/components/MemeImage";
 import { SectionBar, SmallRow } from "@/components/site/Cards";
 import { CategoryBlocks, MoreBox } from "@/components/site/Sidebar";
 import { ViewCounter } from "@/components/ViewCounter";
-import { CATEGORIES, LABELS, LAYOUT, SITE_NAME, SITE_URL } from "@/lib/config";
+import { listCategories } from "@/lib/categories";
+import { LABELS, LAYOUT, SITE_NAME, SITE_URL } from "@/lib/config";
 import { decodeSlug, formatDate } from "@/lib/format";
 import { getMemeBySlug, listMemes } from "@/lib/store";
 import type { Meme } from "@/lib/types";
@@ -32,11 +33,13 @@ export default async function MemePage({ params }: Props) {
   const meme = await findPublished(decodeSlug((await params).slug));
   if (!meme) notFound();
 
+  const categories = await listCategories();
   const [related, blocks] = await Promise.all([
     listMemes({ category: meme.category, excludeId: meme.id, limit: 6 }),
     Promise.all(
-      CATEGORIES.map(async (category) => ({
+      categories.map(async ({ name: category, color }) => ({
         category,
+        color,
         memes: await listMemes({ category, excludeId: meme.id, limit: LAYOUT.perCategoryBlock }),
       })),
     ),
@@ -86,11 +89,25 @@ export default async function MemePage({ params }: Props) {
             ))}
           </div>
 
+          {meme.sourceUrl && (
+            <p className="mt-6 text-base">
+              <span className="text-zinc-500">{LABELS.source}: </span>
+              <a
+                href={meme.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="break-all text-sky-700 hover:underline"
+              >
+                {meme.sourceUrl}
+              </a>
+            </p>
+          )}
+
           {meme.tags.length > 0 && (
             <ul className="mt-6 flex flex-wrap gap-2">
               {meme.tags.map((tag) => (
                 <li key={tag}>
-                  <Link href={`/?q=${encodeURIComponent(tag)}`} className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-700 hover:bg-sun">
+                  <Link href={`/?tag=${encodeURIComponent(tag)}`} className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-700 hover:bg-sun">
                     #{tag}
                   </Link>
                 </li>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Breadcrumb } from "@/components/dashboard/Breadcrumb";
 import { getInsights, type Row } from "@/lib/insights";
 
 export const dynamic = "force-dynamic";
@@ -12,6 +13,7 @@ export default async function InsightsPage({ searchParams }: { searchParams: Pro
 
   return (
     <div className="space-y-6">
+      <Breadcrumb items={[{ label: "Insights" }]} />
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-bold text-brand">Site insights</h1>

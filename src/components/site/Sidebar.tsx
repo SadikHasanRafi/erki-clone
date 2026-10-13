@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CATEGORY_COLORS, CONTACT_EMAIL, LABELS, MORE_LINKS } from "@/lib/config";
+import { CONTACT_EMAIL, LABELS, MORE_LINKS } from "@/lib/config";
 import type { Meme } from "@/lib/types";
 import { SectionBar, SmallRow } from "./Cards";
 
@@ -46,7 +46,7 @@ export function RecentList({ memes }: { memes: Meme[] }) {
   );
 }
 
-export function CategoryBlocks({ blocks }: { blocks: { category: string; memes: Meme[] }[] }) {
+export function CategoryBlocks({ blocks }: { blocks: { category: string; color: string; memes: Meme[] }[] }) {
   return (
     <div className="space-y-5">
       {blocks
@@ -54,7 +54,7 @@ export function CategoryBlocks({ blocks }: { blocks: { category: string; memes: 
         .map((b) => (
           <section key={b.category}>
             <Link href={`/?category=${encodeURIComponent(b.category)}`} className="block">
-              <SectionBar title={b.category} color={CATEGORY_COLORS[b.category] ?? "#1c1917"} />
+              <SectionBar title={b.category} color={b.color} />
             </Link>
             <div className="px-1">
               {b.memes.map((m) => (
@@ -64,5 +64,26 @@ export function CategoryBlocks({ blocks }: { blocks: { category: string; memes: 
           </section>
         ))}
     </div>
+  );
+}
+
+export function TagBox({ tags, active }: { tags: { tag: string; count: number }[]; active?: string }) {
+  if (tags.length === 0) return null;
+  return (
+    <section className="overflow-hidden rounded border border-zinc-200 bg-white">
+      <h2 className="border-b border-zinc-200 bg-blue-50 px-4 py-3 text-lg text-zinc-800">{LABELS.tags}</h2>
+      <ul className="flex flex-wrap gap-2 p-4">
+        {tags.map(({ tag, count }) => (
+          <li key={tag}>
+            <Link
+              href={`/?tag=${encodeURIComponent(tag)}`}
+              className={`rounded-full px-3 py-1 text-sm hover:bg-sun ${active === tag ? "bg-sun font-semibold" : "bg-zinc-100 text-zinc-700"}`}
+            >
+              #{tag} <span className="text-zinc-400">{count}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

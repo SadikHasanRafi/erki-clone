@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { MemeImage } from "@/components/MemeImage";
+import { ConfirmModal } from "@/components/dashboard/ConfirmModal";
 import type { Meme } from "@/lib/types";
 
 type Filter = "all" | "published" | "draft";
@@ -13,6 +14,9 @@ function toFormData(meme: Meme, overrides: Partial<Pick<Meme, "status" | "featur
   const form = new FormData();
   form.set("title", meme.title);
   form.set("description", meme.description);
+  form.set("author", meme.author ?? "");
+  form.set("body", meme.body ?? "");
+  form.set("sourceUrl", meme.sourceUrl ?? "");
   form.set("category", meme.category);
   form.set("tags", meme.tags.join(", "));
   form.set("status", overrides.status ?? meme.status);
@@ -25,6 +29,7 @@ export function MemeTable({ memes }: { memes: Meme[] }) {
   const [filter, setFilter] = useState<Filter>("all");
   const [busyId, setBusyId] = useState<string | null>(null);
   const [error, setError] = useState("");
+  const [toDelete, setToDelete] = useState<Meme | null>(null);
 
   const rows = memes.filter((m) => filter === "all" || m.status === filter);
 
@@ -47,7 +52,6 @@ export function MemeTable({ memes }: { memes: Meme[] }) {
   }
 
   async function remove(meme: Meme) {
-    if (!confirm(`Delete "${meme.title}"? This cannot be undone.`)) return;
     setBusyId(meme.id);
     setError("");
     try {
@@ -59,11 +63,20 @@ export function MemeTable({ memes }: { memes: Meme[] }) {
       router.refresh();
     } finally {
       setBusyId(null);
+      setToDelete(null);
     }
   }
 
   return (
     <section className="rounded-xl bg-white shadow-sm ring-1 ring-black/5">
+      <ConfirmModal
+        open={toDelete !== null}
+        title="Delete this meme?"
+        message={toDelete ? `“${toDelete.title}” and its image will be removed. This cannot be undone.` : ""}
+        busy={toDelete !== null && busyId === toDelete.id}
+        onConfirm={() => toDelete && remove(toDelete)}
+        onCancel={() => setToDelete(null)}
+      />
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 p-4">
         <div className="flex gap-1 rounded-lg bg-zinc-100 p-1 text-sm">
           {(["all", "published", "draft"] as const).map((f) => (
@@ -157,7 +170,7 @@ export function MemeTable({ memes }: { memes: Meme[] }) {
                         </button>
                         <button
                           disabled={busy}
-                          onClick={() => remove(meme)}
+                          onClick={() => setToDelete(meme)}
                           className="rounded px-2.5 py-1.5 font-medium text-accent ring-1 ring-accent/30 hover:bg-accent/5"
                         >
                           Delete

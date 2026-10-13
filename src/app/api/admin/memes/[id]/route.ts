@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { errorResponse, requireAdmin } from "@/lib/api";
+import { listCategoryNames } from "@/lib/categories";
 import { deleteMeme, getMemeById, updateMeme } from "@/lib/store";
 import { deleteImage, saveImage } from "@/lib/uploads";
 import { parseMemeForm } from "@/lib/validation";
@@ -31,7 +32,7 @@ export async function PATCH(request: Request, { params }: Ctx) {
   const form = await request.formData().catch(() => null);
   if (!form) return NextResponse.json({ error: "Expected form data." }, { status: 400 });
 
-  const parsed = parseMemeForm(form, { requireImage: false });
+  const parsed = parseMemeForm(form, { requireImage: false, categories: await listCategoryNames() });
   if (!parsed.ok) return NextResponse.json({ error: parsed.error }, { status: 400 });
 
   try {

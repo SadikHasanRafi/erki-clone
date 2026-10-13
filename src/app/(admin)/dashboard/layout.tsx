@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { DashboardNav } from "@/components/dashboard/DashboardNav";
 import { LogoutButton } from "@/components/dashboard/LogoutButton";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
@@ -11,15 +12,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
             Meme CRM
           </Link>
           <nav className="flex flex-wrap items-center gap-2 text-sm">
-            <Link href="/dashboard" className="rounded px-2 py-1 text-white/80 hover:bg-white/10 hover:text-white">
-              All memes
-            </Link>
-            <Link href="/dashboard/insights" className="rounded px-2 py-1 text-white/80 hover:bg-white/10 hover:text-white">
-              Insights
-            </Link>
-            <Link href="/dashboard/new" className="rounded bg-accent px-3 py-1.5 font-semibold hover:opacity-90">
-              + New meme
-            </Link>
+            <DashboardNav />
             <Link href="/" target="_blank" className="rounded px-2 py-1 text-white/80 hover:bg-white/10 hover:text-white">
               View site ↗
             </Link>

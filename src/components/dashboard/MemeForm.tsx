@@ -3,13 +3,20 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type FormEvent } from "react";
-import { CATEGORIES } from "@/lib/config";
 import type { Meme } from "@/lib/types";
 
 const inputClass =
   "w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 outline-none focus:border-brand focus:ring-2 focus:ring-brand/20";
 
-export function MemeForm({ meme }: { meme?: Meme }) {
+export function MemeForm({
+  meme,
+  categories,
+  tagSuggestions = [],
+}: {
+  meme?: Meme;
+  categories: string[];
+  tagSuggestions?: string[];
+}) {
   const router = useRouter();
   const isEdit = Boolean(meme);
   const [preview, setPreview] = useState<string | null>(meme?.imageUrl ?? null);
@@ -20,6 +27,7 @@ export function MemeForm({ meme }: { meme?: Meme }) {
   const [translating, setTranslating] = useState(false);
   const [title, setTitle] = useState(meme?.title ?? "");
   const [description, setDescription] = useState(meme?.description ?? "");
+  const [tags, setTags] = useState(meme?.tags.join(", ") ?? "");
   const [imageError, setImageError] = useState<string | null>(null);
   const [imageLoading, setImageLoading] = useState(false);
   const [imageAvailable, setImageAvailable] = useState(true);
@@ -370,8 +378,8 @@ export function MemeForm({ meme }: { meme?: Meme }) {
             <label className="mb-1 block text-sm font-semibold text-zinc-700" htmlFor="category">
               Category *
             </label>
-            <select id="category" name="category" required defaultValue={meme?.category ?? CATEGORIES[0]} className={inputClass}>
-              {CATEGORIES.map((c) => (
+            <select id="category" name="category" required defaultValue={meme?.category ?? categories[0]} className={inputClass}>
+              {categories.map((c) => (
                 <option key={c}>{c}</option>
               ))}
             </select>
@@ -391,7 +399,31 @@ export function MemeForm({ meme }: { meme?: Meme }) {
           <label className="mb-1 block text-sm font-semibold text-zinc-700" htmlFor="tags">
             Tags
           </label>
-          <input id="tags" name="tags" defaultValue={meme?.tags.join(", ")} className={inputClass} placeholder="comma, separated, tags (max 10)" />
+          <input id="tags" name="tags" value={tags} onChange={(e) => setTags(e.target.value)} className={inputClass} placeholder="comma, separated, tags (max 10)" />
+          {tagSuggestions.length > 0 && (
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {tagSuggestions
+                .filter((t) => !tags.split(",").some((x) => x.trim() === t))
+                .slice(0, 20)
+                .map((t) => (
+                  <button
+                    key={t}
+                    type="button"
+                    onClick={() => setTags((cur) => (cur.trim() ? `${cur.trim().replace(/,$/, "")}, ${t}` : t))}
+                    className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs text-zinc-700 hover:bg-zinc-200"
+                  >
+                    + {t}
+                  </button>
+                ))}
+            </div>
+          )}
+        </div>
+
+        <div>
+          <label className="mb-1 block text-sm font-semibold text-zinc-700" htmlFor="sourceUrl">
+            Original post link
+          </label>
+          <input id="sourceUrl" name="sourceUrl" type="url" maxLength={500} defaultValue={meme?.sourceUrl} className={inputClass} placeholder="https://facebook.com/… (where this meme came from)" />
         </div>
 
         <label className="flex items-center gap-2 text-sm text-zinc-700">
@@ -448,7 +480,7 @@ export function MemeForm({ meme }: { meme?: Meme }) {
         </Guide>
         <Guide title="Title">Short and punchy, under about 80 characters. Bangla or English both work.</Guide>
         <Guide title="Description">Context or source in 1–3 sentences. Shown under the image.</Guide>
-        <Guide title="Category">Pick the closest section. Categories are set in src/lib/config.ts.</Guide>
+        <Guide title="Category">Pick the closest section. Add or remove categories under Categories in the top bar.</Guide>
         <Guide title="Status">Draft is saved but hidden. Published goes live immediately.</Guide>
         <Guide title="Featured">Only the newest featured meme becomes the home-page hero.</Guide>
         <Guide title="Links">The URL slug is set once from the title and never changes on edit, so shared links keep working.</Guide>

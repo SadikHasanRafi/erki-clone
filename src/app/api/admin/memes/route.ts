@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { errorResponse, requireAdmin } from "@/lib/api";
+import { listCategoryNames } from "@/lib/categories";
 import { createMeme, listMemes } from "@/lib/store";
 import { saveImage } from "@/lib/uploads";
 import { parseMemeForm } from "@/lib/validation";
@@ -21,7 +22,7 @@ export async function POST(request: Request) {
   const form = await request.formData().catch(() => null);
   if (!form) return NextResponse.json({ error: "Expected form data." }, { status: 400 });
 
-  const parsed = parseMemeForm(form, { requireImage: true });
+  const parsed = parseMemeForm(form, { requireImage: true, categories: await listCategoryNames() });
   if (!parsed.ok) return NextResponse.json({ error: parsed.error }, { status: 400 });
   if (!parsed.image && !parsed.imageUrl) return NextResponse.json({ error: "Please choose an image." }, { status: 400 });
 
