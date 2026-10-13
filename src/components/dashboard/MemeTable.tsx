@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { MemeImage } from "@/components/MemeCard";
+import { MemeImage } from "@/components/MemeImage";
 import type { Meme } from "@/lib/types";
 
 type Filter = "all" | "published" | "draft";
@@ -109,7 +109,7 @@ export function MemeTable({ memes }: { memes: Meme[] }) {
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
                         <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded bg-zinc-100">
-                          <MemeImage src={meme.imageUrl} alt="" sizes="56px" />
+                          <MemeImage src={meme.imageUrl} alt="" sizes="56px" fit="contain" />
                         </div>
                         <div className="min-w-[180px]">
                           <p className="line-clamp-2 font-semibold text-zinc-900">{meme.title}</p>

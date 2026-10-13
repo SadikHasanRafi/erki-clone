@@ -6,6 +6,9 @@
   --color-brand-dark: #0c0a09;
   --color-accent: #a16207;       /* muted amber: categories, badges, highlights */
   --color-paper: #f7f6f2;        /* warm off-white page background */
+  --color-sun: #ffe81a;          /* site header / section bars */
+  --color-sun-dark: #f2d600;
+  --color-tag: #f9a84a;          /* category badges */
   --font-sans: var(--font-hind-siliguri), system-ui, sans-serif;
 }
 

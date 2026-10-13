@@ -14,7 +14,7 @@ export async function POST(request: Request) {
       method: "HEAD",
       redirect: "follow",
       signal: AbortSignal.timeout(5000),
-    } as any);
+    });
 
     const contentType = response.headers.get("content-type");
     const isImage = contentType?.startsWith("image/");
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ ok: true });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Failed to validate image" },
       { status: 400 }

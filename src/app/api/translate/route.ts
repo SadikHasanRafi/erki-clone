@@ -14,15 +14,6 @@ export async function POST(request: Request) {
   }
 
   try {
-    // Using Google Translate API via free service
-    const response = await fetch("https://api.mymemory.translated.net/get", {
-      method: "GET",
-      headers: {
-        "User-Agent": "Mozilla/5.0",
-      },
-    } as any);
-
-    // For now, use the search params approach (GET)
     const url = new URL("https://api.mymemory.translated.net/get");
     url.searchParams.set("q", body.text);
     url.searchParams.set("langpair", `bn|${body.targetLanguage}`); // bn = Bangla, en = English
@@ -45,7 +36,7 @@ export async function POST(request: Request) {
     return NextResponse.json({
       translatedText: data.responseData.translatedText,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Failed to translate text" },
       { status: 500 }

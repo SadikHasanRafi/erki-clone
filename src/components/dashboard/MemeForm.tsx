@@ -53,7 +53,7 @@ export function MemeForm({ meme }: { meme?: Meme }) {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
       return data.translatedText;
-    } catch (err) {
+    } catch {
       setError("Translation failed. Please try again.");
       return null;
     } finally {
@@ -340,6 +340,28 @@ export function MemeForm({ meme }: { meme?: Meme }) {
             onChange={(e) => setDescription(e.target.value)}
             className={inputClass}
             placeholder="One to three sentences: context, where it came from, why it's funny."
+          />
+        </div>
+
+        <div>
+          <label className="mb-1 block text-sm font-semibold text-zinc-700" htmlFor="author">
+            Author
+          </label>
+          <input id="author" name="author" maxLength={60} defaultValue={meme?.author} className={inputClass} placeholder="Shown under the title (leave empty to use the site name)" />
+        </div>
+
+        <div>
+          <label className="mb-1 block text-sm font-semibold text-zinc-700" htmlFor="body">
+            Article text
+          </label>
+          <textarea
+            id="body"
+            name="body"
+            rows={8}
+            maxLength={20000}
+            defaultValue={meme?.body}
+            className={inputClass}
+            placeholder="Optional full text shown on the article page. Leave a blank line between paragraphs."
           />
         </div>
 

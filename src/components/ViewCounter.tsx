@@ -18,5 +18,5 @@ export function ViewCounter({ slug, initial }: { slug: string; initial: number }
       .catch(() => {});
   }, [slug]);
 
-  return <span>{views.toLocaleString("bn-BD")} views</span>;
+  return <span>{views.toLocaleString("bn-BD")} বার দেখা</span>;
 }

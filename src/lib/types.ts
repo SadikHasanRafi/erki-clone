@@ -5,6 +5,8 @@ export interface Meme {
   slug: string;
   title: string;
   description: string;
+  author?: string;
+  body?: string;
   category: string;
   tags: string[];
   imageUrl: string;

@@ -11,6 +11,8 @@ export async function GET(request: Request) {
     category: searchParams.get("category") ?? undefined,
     q: searchParams.get("q") ?? undefined,
     limit,
+    excludeId: searchParams.get("excludeId") ?? undefined,
+    skip: Math.max(Number(searchParams.get("skip")) || 0, 0),
   });
   return NextResponse.json({ memes });
 }

@@ -5,6 +5,8 @@ import type { Meme, MemeStatus } from "./types";
 export type MemeInput = {
   title: string;
   description: string;
+  author: string;
+  body: string;
   category: string;
   tags: string[];
   status: MemeStatus;
@@ -30,12 +32,23 @@ async function uniqueSlug(title: string, ignoreId?: string): Promise<string> {
 }
 
 export async function listMemes(
-  opts: { includeDrafts?: boolean; category?: string; q?: string; limit?: number } = {},
+  opts: {
+    includeDrafts?: boolean;
+    category?: string;
+    q?: string;
+    limit?: number;
+    skip?: number;
+    sort?: "latest" | "views";
+    featured?: boolean;
+    excludeId?: string;
+  } = {},
 ): Promise<Meme[]> {
   const collection = await memesCollection();
   const filter: Record<string, unknown> = {};
   if (!opts.includeDrafts) filter.status = "published";
   if (opts.category) filter.category = opts.category;
+  if (opts.featured) filter.featured = true;
+  if (opts.excludeId) filter._id = { $ne: opts.excludeId };
 
   const q = opts.q?.trim();
   if (q) {
@@ -46,7 +59,8 @@ export async function listMemes(
 
   const docs = await collection
     .find(filter)
-    .sort({ createdAt: -1 })
+    .sort(opts.sort === "views" ? { views: -1, createdAt: -1 } : { createdAt: -1 })
+    .skip(opts.skip ?? 0)
     .limit(opts.limit ?? 0)
     .toArray();
   return docs.map(toMeme);

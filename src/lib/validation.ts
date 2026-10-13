@@ -12,6 +12,8 @@ export function parseMemeForm(
 ): ParsedMemeForm {
   const title = String(form.get("title") ?? "").trim();
   const description = String(form.get("description") ?? "").trim();
+  const author = String(form.get("author") ?? "").trim();
+  const body = String(form.get("body") ?? "").trim();
   const category = String(form.get("category") ?? "");
   const status = String(form.get("status") ?? "draft");
   const tags = String(form.get("tags") ?? "")
@@ -33,6 +35,12 @@ export function parseMemeForm(
   if (description.length > 1000) {
     return { ok: false, error: "Description is too long (max 1000 characters)." };
   }
+  if (author.length > 60) {
+    return { ok: false, error: "Author name is too long (max 60 characters)." };
+  }
+  if (body.length > 20000) {
+    return { ok: false, error: "Article text is too long (max 20,000 characters)." };
+  }
   if (!CATEGORIES.includes(category)) {
     return { ok: false, error: "Pick a valid category." };
   }
@@ -52,7 +60,7 @@ export function parseMemeForm(
 
   return {
     ok: true,
-    input: { title, description, category, tags, status, featured },
+    input: { title, description, author, body, category, tags, status, featured },
     image,
     imageUrl,
   };
