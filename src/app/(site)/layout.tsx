@@ -15,13 +15,13 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
   ]);
 
   return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-[1312px]">
+    <div className="flex min-h-screen flex-col bg-white">
+      <div className="mx-auto w-full max-w-[1312px] flex-1">
         <Suspense fallback={<div className="h-[52px] bg-sun" />}>
           <SiteHeader categories={categories.map((c) => c.name)} />
         </Suspense>
         <ThumbStrip memes={strip} />
-        <div className="min-h-[60vh]">{children}</div>
+        <div>{children}</div>
       </div>
       <SiteFooter />
     </div>
