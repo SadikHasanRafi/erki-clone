@@ -17,7 +17,7 @@ export function validateImage(file: File): string | null {
 export async function validateImageUrl(url: string): Promise<boolean> {
   try {
     const response = await fetch(url, { method: "HEAD", redirect: "follow" });
-    return response.ok && response.headers.get("content-type")?.startsWith("image/") ?? false;
+    return (response.ok && response.headers.get("content-type")?.startsWith("image/")) ?? false;
   } catch {
     return false;
   }
