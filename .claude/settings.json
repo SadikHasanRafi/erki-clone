@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(curl -s http://localhost:3000/dashboard/login)",
+      "Bash(npm install *)",
+      "Bash(pkill -f \"npm run dev\")",
+      "Read(//tmp/**)",
+      "Bash(node generate-docs.js)",
+      "Bash(git add *)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
+    ]
+  }
+}
