@@ -9,7 +9,25 @@
   --color-sun: #ffe81a;          /* site header / section bars */
   --color-sun-dark: #f2d600;
   --color-tag: #f9a84a;          /* category badges */
-  --font-sans: var(--font-hind-siliguri), system-ui, sans-serif;
+
+  /* Amiami Post public site: charcoal ink, warm paper canvas, golden amber accent. */
+  --color-ink: #121316;          /* headlines, primary buttons, active pills */
+  --color-ink-2: #2d3139;        /* hover state for ink surfaces */
+  --color-muted: #6b7280;        /* metadata, bylines */
+  --color-amber: #e59819;        /* brand accent */
+  --color-amber-deep: #b86e00;   /* accent text on light surfaces */
+  --color-amber-soft: #fef3c7;   /* accent tint */
+  --color-canvas: #faf9f6;       /* page background */
+  --color-subtle: #f4f3ee;       /* recessed wells, ticker, footer */
+  --color-hairline: #e8e6df;     /* 1px borders */
+
+  --font-sans: var(--font-inter), var(--font-hind-siliguri), system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-hind-siliguri), system-ui, sans-serif;
+
+  --shadow-card: 0 1px 3px rgba(18, 19, 22, 0.04), 0 1px 2px rgba(18, 19, 22, 0.02);
+  --shadow-lift: 0 12px 20px -8px rgba(18, 19, 22, 0.08);
+
+  --animate-marquee: marquee 40s linear infinite;
 }
 
 body {
@@ -18,6 +36,14 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
 
 @keyframes fadeIn {
   from {

@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import { LABELS } from "@/lib/config";
+import { useLabels } from "./SettingsProvider";
 
 // Numbered links with the current page in the middle: 1 … 4 5 [6] 7 8 … 20
 function pageWindow(page: number, total: number): (number | "gap")[] {
@@ -22,6 +24,7 @@ export function Pagination({
   totalPages: number;
   params: Record<string, string | undefined>;
 }) {
+  const L = useLabels();
   if (totalPages <= 1) return null;
 
   const href = (n: number) => {
@@ -31,26 +34,26 @@ export function Pagination({
     const qs = sp.toString();
     return qs ? `/?${qs}` : "/";
   };
-  const base = "min-w-10 border border-zinc-300 px-3 py-2 text-center text-sm";
+  const base = "min-w-9 rounded-full border border-hairline bg-white px-3 py-1.5 text-center font-display text-xs font-semibold";
 
   return (
-    <nav aria-label="Pagination" className="flex flex-wrap items-center justify-center gap-1.5 pt-2">
-      {page > 1 && <Link href={href(page - 1)} className={`${base} hover:bg-sun`}>{LABELS.prev}</Link>}
+    <nav aria-label="Pagination" className="col-span-full flex flex-wrap items-center justify-center gap-1.5 pt-2">
+      {page > 1 && <Link href={href(page - 1)} className={`${base} hover:bg-subtle`}>{L.prev}</Link>}
       {pageWindow(page, totalPages).map((n, i) =>
         n === "gap" ? (
-          <span key={`gap-${i}`} className="px-1 text-zinc-400" aria-hidden>…</span>
+          <span key={`gap-${i}`} className="px-1 text-neutral-400" aria-hidden>…</span>
         ) : (
           <Link
             key={n}
             href={href(n)}
             aria-current={n === page ? "page" : undefined}
-            className={`${base} ${n === page ? "border-zinc-900 bg-zinc-900 font-semibold text-sun" : "hover:bg-sun"}`}
+            className={`${base} ${n === page ? "border-ink bg-ink text-white" : "hover:bg-subtle"}`}
           >
             {n}
           </Link>
         ),
       )}
-      {page < totalPages && <Link href={href(page + 1)} className={`${base} hover:bg-sun`}>{LABELS.next}</Link>}
+      {page < totalPages && <Link href={href(page + 1)} className={`${base} hover:bg-subtle`}>{L.next}</Link>}
     </nav>
   );
 }

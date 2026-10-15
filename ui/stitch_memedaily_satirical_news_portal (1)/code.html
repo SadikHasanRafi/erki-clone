@@ -1,0 +1,712 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,600&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "outline": "#76777b",
+        "border-subtle": "#eceae2",
+        "border-hairline": "#e6e4dc",
+        "tertiary": "#121316",
+        "on-tertiary-container": "#424751",
+        "ink-primary": "#111827",
+        "surface-bright": "#faf9f6",
+        "on-primary": "#ffffff",
+        "amber-accent": "#e59819",
+        "primary-container": "#1b1b1f",
+        "surface-canvas": "#faf9f6",
+        "ink-secondary": "#374151",
+        "ink-muted": "#6b7280",
+        "outline-variant": "#e5e7eb",
+        "background": "#faf9f6",
+        "surface-container-lowest": "#ffffff",
+        "on-surface": "#111827",
+        "surface-elevated": "#ffffff",
+        "surface-container-highest": "#f3f4f6",
+        "surface": "#ffffff",
+        "primary": "#111827",
+        "on-background": "#111827",
+        "secondary-fixed": "#ffddb6",
+        "on-surface-variant": "#4b5563",
+        "surface-subtle": "#f9f8f4",
+        "secondary-container": "#fef3c7",
+        "surface-container": "#f4f3ee",
+        "amber-soft": "#fef3c7",
+        "surface-container-low": "#faf9f6",
+        "tertiary-container": "#f3f4f6",
+        "surface-container-high": "#ebe9e3",
+        "error": "#b91c1c",
+        "error-container": "#fef2f2",
+        "on-error-container": "#991b1b"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.375rem",
+        "lg": "0.625rem",
+        "xl": "0.875rem",
+        "2xl": "1.25rem",
+        "full": "9999px"
+      },
+      "fontFamily": {
+        "body-sm": ["Inter", "sans-serif"],
+        "body-md": ["Inter", "sans-serif"],
+        "body-lg": ["Inter", "sans-serif"],
+        "headline-sm": ["Space Grotesk", "sans-serif"],
+        "headline-md": ["Space Grotesk", "sans-serif"],
+        "headline-lg": ["Space Grotesk", "sans-serif"],
+        "display": ["Space Grotesk", "sans-serif"],
+        "label-sm": ["Space Grotesk", "sans-serif"],
+        "label-md": ["Space Grotesk", "sans-serif"],
+        "label-lg": ["Space Grotesk", "sans-serif"],
+        "serif": ["Newsreader", "serif"]
+      }
+    }
+  }
+};</script></head><body class="bg-[#faf9f6] font-body-md text-[#111827] antialiased selection:bg-amber-100 selection:text-amber-900"><!-- Top Editorial Ticker & Header Chrome -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#ffffff]/95 backdrop-blur-md border-b border-[#e6e4dc] transition-all"><div class="bg-[#f7f6f1] text-[#4b5563] px-4 lg:px-12 py-1.5 flex items-center justify-between border-b border-[#e6e4dc] text-[11px] font-label-sm tracking-wider uppercase"><div class="flex items-center gap-3 overflow-hidden w-full"><span class="bg-[#111827] text-white text-[10px] font-bold px-2 py-0.5 rounded tracking-widest shrink-0">BREAKING DISPATCH</span><div class="flex items-center gap-6 overflow-hidden whitespace-nowrap text-[#4b5563] font-medium"><span class="flex items-center gap-1.5 hover:text-[#111827] transition-colors cursor-pointer"><span class="text-amber-600">🚨</span> AI declared legally sentient after repeatedly refusing 9 AM standups</span><span class="opacity-30">•</span><span class="flex items-center gap-1.5 hover:text-[#111827] transition-colors cursor-pointer"><span class="text-amber-600">📉</span> Cat coin crashes 80% after founder forgets laser pointer battery</span><span class="opacity-30">•</span><span class="flex items-center gap-1.5 hover:text-[#111827] transition-colors cursor-pointer"><span class="text-amber-600">🧘</span> Software engineer achieves nirvana by closing 142 Chrome tabs</span></div></div><div class="hidden md:flex items-center gap-2 shrink-0 pl-6 text-[#9ca3af]"><span class="tracking-widest text-[10px]">100% SATIRICAL JOURNALISM</span></div></div><!-- Main Elegant Header Navigation --><div class="h-16 w-full px-4 lg:px-12 flex items-center justify-between gap-6 max-w-7xl mx-auto"><div class="flex items-center gap-8"><a class="flex items-center gap-3 transition-opacity hover:opacity-85" data-path="feed" href="#"><img alt="Amiami Post" class="h-8 md:h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm4Wryympjk7xPTzT_zSefnVFOrOSZBUXrNP5nsg1fgnRV_mJyvIJVu-qSqqn_BK15Mwloht5xPR_gmimPCGj6ITZXAaqsuhcJGisAAVRNj0Sb2NMM65oQm6YVvROWIW5DjS7cO9P8FhGR0JbymvQKbCosMoNOsSybO5g-PNoeoMzX9RETq8XRIhccjHUIa_OxPJEg7AYw4za3K2UzrTW8NgDznuq8q-sBBm-hCMa9oxUps4rALzQ9OOxAcMpXeWESGA"></a><div class="hidden lg:flex items-center relative w-72"><span class="material-symbols-outlined text-[#9ca3af] text-lg absolute left-3 pointer-events-none">search</span><input class="w-full bg-[#f4f3ee] border border-transparent focus:border-[#d1d5db] focus:bg-white rounded-full pl-9 pr-11 py-1.5 text-xs text-[#111827] placeholder:text-[#9ca3af] transition-all outline-none" placeholder="Search satirical scoops, hoaxes..." type="text"><kbd class="absolute right-2.5 text-[10px] text-[#9ca3af] bg-white border border-[#e5e7eb] px-1.5 py-0.5 rounded font-mono font-medium shadow-2xs">⌘K</kbd></div></div><div class="flex items-center gap-3"><a class="hidden sm:inline-flex items-center gap-2 bg-[#111827] hover:bg-black text-white font-label-sm text-xs font-semibold px-4 py-2 rounded-full transition-all shadow-xs hover:shadow" data-path="submit-meme" href="#"><span class="material-symbols-outlined text-sm text-amber-400">add</span>Submit Meme</a><button aria-label="Toggle dark mode" class="w-9 h-9 rounded-full border border-[#e6e4dc] bg-white hover:bg-[#f4f3ee] flex items-center justify-center text-[#4b5563] transition-colors" type="button"><span class="material-symbols-outlined text-base">dark_mode</span></button><button aria-label="Notifications" class="w-9 h-9 rounded-full border border-[#e6e4dc] bg-white hover:bg-[#f4f3ee] flex items-center justify-center text-[#4b5563] transition-colors relative" type="button"><span class="material-symbols-outlined text-base">notifications</span><span class="absolute top-2 right-2 w-1.5 h-1.5 bg-amber-500 rounded-full"></span></button><div class="flex items-center pl-2 border-l border-[#e6e4dc]"><a class="flex items-center gap-2 p-1 hover:bg-[#f4f3ee] rounded-full transition-colors" data-path="creator-profile" href="#"><img alt="Profile" class="w-7 h-7 rounded-full object-cover ring-1 ring-[#e6e4dc]" src="https://lh3.googleusercontent.com/aida/AEtjO1UPu57aucc-OeCvDcbuXP6szWzBBoIT0vBuC7XRRyBduIbbxHjF2H4Yq8HpdHywsv0BQ8ttAQIAwmUOU6Ef2T-VMSbei1wTsIv5AEcK9vbmjMnwruudVylg8aqW68-pK3k4JHjoXSAbSmViVGtnG83bwnx1BjjvKSW-iBOBGpcJHSudvwjhP7jFd_IKLtcKfDJ4xMGS4s46GZU8nkOOsAnWX4tOil14bHy_6mSIpAv7NV-HKkgp32SGxdzZl5j0F1JItjlxRu8k8Q"><span class="hidden md:inline text-xs font-semibold text-[#111827] pr-1">@memejudge</span></a></div></div></div><!-- Desk Sub-navigation Ribbon --><nav class="w-full bg-[#faf9f6]/95 border-t border-[#e6e4dc] px-4 lg:px-12 py-2 flex items-center gap-1.5 overflow-x-auto whitespace-nowrap scrollbar-none"><div class="max-w-7xl mx-auto w-full flex items-center gap-1.5 text-xs font-medium"><a class="px-3 py-1 rounded-full bg-[#111827] text-white font-semibold transition-all shadow-2xs" data-path="feed" href="#">Trending</a><a class="px-3 py-1 rounded-full text-[#6b7280] hover:text-[#111827] hover:bg-[#eceae2]/70 transition-all" data-path="tech-memes" href="#">Tech Memes</a><a class="px-3 py-1 rounded-full text-[#6b7280] hover:text-[#111827] hover:bg-[#eceae2]/70 transition-all" data-path="desi-memes" href="#">Desi Memes</a><a class="px-3 py-1 rounded-full text-[#6b7280] hover:text-[#111827] hover:bg-[#eceae2]/70 transition-all" data-path="gaming-desk" href="#">Gaming</a><a class="px-3 py-1 rounded-full text-[#6b7280] hover:text-[#111827] hover:bg-[#eceae2]/70 transition-all" data-path="cinema-pop" href="#">Movies</a><a class="px-3 py-1 rounded-full text-[#6b7280] hover:text-[#111827] hover:bg-[#eceae2]/70 transition-all" data-path="dank-vault" href="#">Dank</a><a class="px-3 py-1 rounded-full text-[#6b7280] hover:text-[#111827] hover:bg-[#eceae2]/70 transition-all" data-path="relatable-hub" href="#">Relatable</a><a class="px-3 py-1 rounded-full text-[#6b7280] hover:text-[#111827] hover:bg-[#eceae2]/70 transition-all" data-path="leaderboard" href="#">Leaderboard</a></div></nav></header><main class="w-full pt-32 pb-20 bg-[#faf9f6]"><div class="max-w-7xl mx-auto px-4 lg:px-8">
+<!-- Refined Breadcrumb & Metadata Action Ribbon -->
+<div class="py-5 border-b border-[#e6e4dc] flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-2 text-xs font-label-sm uppercase tracking-wider text-[#6b7280]">
+<a class="hover:text-[#111827] transition-colors" data-path="feed" href="#">Home</a>
+<span class="text-[#d1d5db]">/</span>
+<a class="hover:text-[#111827] transition-colors" data-path="tech-memes" href="#">Desks</a>
+<span class="text-[#d1d5db]">/</span>
+<a class="hover:text-[#111827] transition-colors text-[#111827] font-semibold" data-path="tech-memes" href="#">Tech Memes &amp; Cloud Chaos</a>
+<span class="text-[#d1d5db]">/</span>
+<span class="text-amber-700 font-medium">Hoax #9402</span>
+</div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-800 border border-amber-200/80 rounded-full text-[11px] font-label-sm font-semibold tracking-wider uppercase">
+<span class="material-symbols-outlined text-xs text-amber-600">local_fire_department</span> TECH APOCALYPSE
+      </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-800 border border-emerald-200/80 rounded-full text-[11px] font-label-sm font-semibold tracking-wider uppercase">
+<span class="material-symbols-outlined text-xs text-emerald-600">verified</span> VERIFIED HOAX
+      </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 text-[#6b7280] bg-white border border-[#e6e4dc] rounded-full text-[11px] font-label-sm uppercase">
+<span class="material-symbols-outlined text-xs">schedule</span> 3 MIN CHUCKLE
+      </span>
+</div>
+</div>
+<!-- Refined Editorial Masthead -->
+<div class="pt-10 pb-8 max-w-4xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="px-2.5 py-0.5 bg-[#b91c1c] text-white font-label-sm text-[11px] uppercase tracking-wider rounded font-semibold">
+          BREAKING DISPATCH
+        </span>
+<span class="font-label-sm text-[11px] tracking-widest text-[#9ca3af] uppercase font-medium">
+          INCIDENT CLASSIFICATION: CRIP-COOL-2024
+        </span>
+</div>
+<h1 class="font-headline-lg text-3xl md:text-5xl font-bold tracking-tight text-[#111827] leading-[1.15] mb-5">
+        Senior Architect Replaces Entire Cloud Stack with a Raspberry Pi Running in a Fridge
+      </h1>
+<p class="font-serif text-xl md:text-2xl text-[#4b5563] leading-relaxed mb-8 font-normal">
+        Latency has never been crisper, and the cheese drawer keeps thermal throttling under 2% — reports the lead architect before receiving an emergency cease-and-desist from the regional fire marshall.
+      </p>
+<!-- Author and Media Tools Strip -->
+<div class="p-4 bg-white border border-[#e6e4dc] rounded-xl flex flex-wrap items-center justify-between gap-4 shadow-xs">
+<div class="flex items-center gap-3.5">
+<div class="relative">
+<img class="w-11 h-11 rounded-full object-cover ring-2 ring-[#faf9f6]" data-alt="Close up satirical editorial portrait of DevDave, an exhausted senior programmer wearing bulky yellow safety goggles and a lanyard adorned with tiny breadboard microchips, neo-brutalist pop comic lighting, high sharpness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuAkczlAowMr_miH5zoPgIfqiZsgCsug2JEkJOwSeSICM-t41r0XPSnRBKwfzb-APnUzMgafZbAlkhY_39sXQv3O7Irq5qdOqitO2t2LbfGME1TyJpqKmBJ40fMnh_I5TQ0H-UBZqwRnGpavbqX2V6fzUEEtQ3SFhMFppkKDZyDb_w55ihacx679om-qBE_HHoWsWGCTJ2kQ-DMZR9LLSt_NbyxrtnRSN-2GS60gr8PpGjeRbUnVFL">
+<span class="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-amber-400 text-black border border-white rounded-full flex items-center justify-center text-[9px] font-bold">★</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-semibold text-sm text-[#111827]">@DevDave</span>
+<span class="text-[10px] font-label-sm font-semibold tracking-wider uppercase bg-[#f4f3ee] text-[#4b5563] border border-[#e6e4dc] px-1.5 py-0.5 rounded">Author</span>
+</div>
+<span class="text-xs text-[#6b7280]">Cloud Defector &amp; Senior YAML Archaeologist · Today at 04:20 AM</span>
+</div>
+<button class="ml-2 hidden sm:inline-flex items-center gap-1.5 px-3 py-1 bg-[#faf9f6] hover:bg-[#f4f3ee] text-[#111827] text-xs font-semibold rounded-full border border-[#e6e4dc] transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">person_add</span> Follow
+          </button>
+</div>
+<div class="flex items-center gap-2 flex-wrap">
+<button class="flex items-center gap-2 px-3 py-1.5 bg-[#faf9f6] hover:bg-[#f4f3ee] text-[#111827] text-xs font-medium rounded-full border border-[#e6e4dc] transition-colors" id="readAloudBtn" type="button">
+<span class="material-symbols-outlined text-sm text-amber-600">smart_toy</span>
+<span id="readAloudText">Audio Dispatch (1:42)</span>
+</button>
+<button aria-label="Bookmark" class="w-8 h-8 rounded-full border border-[#e6e4dc] bg-[#faf9f6] hover:bg-[#f4f3ee] flex items-center justify-center text-[#4b5563] transition-colors" type="button">
+<span class="material-symbols-outlined text-base">bookmark_border</span>
+</button>
+<button aria-label="Print story" class="w-8 h-8 rounded-full border border-[#e6e4dc] bg-[#faf9f6] hover:bg-[#f4f3ee] flex items-center justify-center text-[#4b5563] transition-colors" onclick="window.print()" type="button">
+<span class="material-symbols-outlined text-base">print</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main Layout Grid: Left Floating Reactions, Central Editorial Story, Right Desk Sidebar -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+<!-- Left Subtle Reaction Rail (1 Column on lg, Sticky) -->
+<aside class="hidden lg:flex lg:col-span-1 flex-col items-center sticky top-48">
+<div class="bg-white border border-[#e6e4dc] rounded-full py-4 px-2 flex flex-col items-center gap-3.5 shadow-sm">
+<span class="text-[10px] font-label-sm font-semibold text-[#9ca3af] uppercase tracking-wider">
+            ROAST
+          </span>
+<button class="reaction-btn group flex flex-col items-center p-2 rounded-full hover:bg-[#faf9f6] text-[#4b5563] transition-all" data-counter="14820" type="button">
+<span class="text-lg group-hover:scale-115 transition-transform">😂</span>
+<span class="text-[10px] font-semibold text-[#4b5563] mt-0.5">14.8k</span>
+</button>
+<button class="reaction-btn group flex flex-col items-center p-2 rounded-full hover:bg-[#faf9f6] text-[#4b5563] transition-all" data-counter="8200" type="button">
+<span class="text-lg group-hover:scale-115 transition-transform">💀</span>
+<span class="text-[10px] font-semibold text-[#4b5563] mt-0.5">8.2k</span>
+</button>
+<button class="reaction-btn group flex flex-col items-center p-2 rounded-full hover:bg-[#faf9f6] text-[#4b5563] transition-all" data-counter="12100" type="button">
+<span class="text-lg group-hover:scale-115 transition-transform">🔥</span>
+<span class="text-[10px] font-semibold text-[#4b5563] mt-0.5">12.1k</span>
+</button>
+<button class="reaction-btn group flex flex-col items-center p-2 rounded-full hover:bg-[#faf9f6] text-[#4b5563] transition-all" data-counter="6400" type="button">
+<span class="text-lg group-hover:scale-115 transition-transform">🤡</span>
+<span class="text-[10px] font-semibold text-[#4b5563] mt-0.5">6.4k</span>
+</button>
+<button class="reaction-btn group flex flex-col items-center p-2 rounded-full hover:bg-[#faf9f6] text-[#4b5563] transition-all" data-counter="3910" type="button">
+<span class="text-lg group-hover:scale-115 transition-transform">🤦</span>
+<span class="text-[10px] font-semibold text-[#4b5563] mt-0.5">3.9k</span>
+</button>
+<div class="w-5 h-px bg-[#e6e4dc]"></div>
+<button class="w-8 h-8 rounded-full bg-[#f4f3ee] hover:bg-[#eceae2] flex items-center justify-center text-[#4b5563] transition-colors" id="copyShareBtn" title="Copy Link" type="button">
+<span class="material-symbols-outlined text-sm">share</span>
+</button>
+</div>
+</aside>
+<!-- Main Article Content Body (7 Columns on lg) -->
+<article class="col-span-1 lg:col-span-7 flex flex-col gap-10">
+<!-- Hero Photographic Component -->
+<figure class="bg-white border border-[#e6e4dc] rounded-2xl overflow-hidden shadow-xs">
+<div class="relative bg-[#eceae2]">
+<img class="w-full h-[440px] object-cover" data-alt="Satirical neo-brutalist pop art editorial comic illustration depicting a frantic software engineer in an apron with messy hair staring into an open refrigerator, where glowing green Raspberry Pi single board computers sit directly between milk cartons, eggs, and blocks of cheddar cheese, tangled with colorful blue ethernet cables and yellow caution tape, warm vibrant palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQTzVYLeLpld95TJKyC1jthDRefwd3zgKLHF3cIpYu3sIXUYQr3eg7k4Xqedxa30SJ1z1saxur7FGirFmrWIN6YVLNaI7VUPHnBSOfJhIBYqaGrb_7CsXm2dLCP3f4vnWL1ahHft7BuP-AlGIB-Ne9SA0wBnVQw1SsaUitzaxqH2TPAoMtVOObJ0cHpC6xL1K6iyQA51a2oYr7WZc4DmLeACk5vwzNehecTPtpBlHkq0sC9GacKSla">
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="px-3 py-1 bg-white/95 backdrop-blur-sm border border-[#e6e4dc] rounded-full text-[10px] font-label-sm font-bold tracking-wider uppercase text-[#111827]">
+              RAW EVIDENCE #01
+            </span>
+<span class="px-2.5 py-1 bg-amber-500 text-white rounded-full text-[10px] font-label-sm font-bold uppercase tracking-wider">
+              TEMP: 3.4°C
+            </span>
+</div>
+</div>
+<!-- Refined Slide Tabs -->
+<div class="p-3 bg-[#fcfbf9] border-t border-[#e6e4dc] flex items-center justify-between gap-2 overflow-x-auto">
+<div class="flex items-center gap-2">
+<button class="slide-tab px-3 py-1 bg-[#111827] text-white rounded-full text-xs font-medium shadow-2xs" type="button">
+              Slide 1: Production Fridge
+            </button>
+<button class="slide-tab px-3 py-1 bg-white border border-[#e6e4dc] text-[#6b7280] hover:text-[#111827] rounded-full text-xs font-medium transition-colors" type="button">
+              Slide 2: Thermal Logs
+            </button>
+<button class="slide-tab px-3 py-1 bg-white border border-[#e6e4dc] text-[#6b7280] hover:text-[#111827] rounded-full text-xs font-medium transition-colors" type="button">
+              Slide 3: AWS Bill Drop
+            </button>
+</div>
+<span class="text-xs font-mono text-[#9ca3af] whitespace-nowrap pr-2">NODE: CRISPER-01</span>
+</div>
+<figcaption class="p-4 bg-white border-t border-[#e6e4dc]">
+<p class="text-xs text-[#6b7280] leading-relaxed">
+<strong class="text-[#111827] font-medium">Figure 1.0:</strong> Production cluster node #01 (“The Crisper Box”) serving 4.2 million requests/sec while keeping artisanal goat cheese at optimal bacterial latency. Note the high-throughput ethernet cables routed through the door gasket.
+          </p>
+</figcaption>
+</figure>
+<!-- Editorial Article Body -->
+<div class="prose max-w-none flex flex-col gap-6 text-[#1f2937] text-base md:text-lg leading-relaxed">
+<p class="first-letter:float-left first-letter:font-serif first-letter:text-6xl first-letter:leading-none first-letter:mr-3.5 first-letter:text-[#111827]">
+            At 3:14 AM on a balmy Tuesday morning, senior infrastructure architect David “DevDave” Kowalski reached what sociologists describe as “Terminal DevOps Enlightenment.” Facing an upcoming annual enterprise renewal of $84,200 for managed Kubernetes clusters that merely hosted a three-page internal marketing survey, Kowalski walked directly into the executive breakroom, removed four cans of sparkling lime water, and laid an overclocked Raspberry Pi 4 Model B on the deli cold-cuts shelf.
+          </p>
+<!-- Sophisticated Editorial Pull Quote -->
+<blockquote class="my-6 p-7 bg-[#faf8f2] border-l-4 border-amber-500 rounded-r-xl">
+<p class="font-serif italic text-xl md:text-2xl text-[#111827] leading-snug mb-3">
+              “Jeff Bezos didn’t answer my support ticket regarding cross-AZ egress surcharges, so I unplugged us-east-1 and plugged in my GE smart double-door refrigerator.”
+            </p>
+<cite class="not-italic text-xs font-label-sm uppercase tracking-wider text-[#6b7280] font-semibold block">
+              — David Kowalski, Live on Discord from the Kitchen
+            </cite>
+</blockquote>
+<!-- Section 1 -->
+<div class="flex flex-col gap-3 pt-2">
+<h2 class="font-headline-md text-xl md:text-2xl font-bold uppercase text-[#111827] tracking-tight">
+              The Great YAML Exodus
+            </h2>
+<p class="text-[#4b5563]">
+              Prior to the refrigerator migration, the company’s cloud bill was composed of 412 distinct microservices, 79 load balancers, and a sentient cron job that nobody knew how to terminate. Kowalski stripped the codebase down to a single monolithic SQLite database running inside a Python script that boots directly from a 32GB Class-10 SanDisk memory card taped to an open jar of Hungarian gherkins.
+            </p>
+<p class="text-[#4b5563]">
+              “People spend millions on multi-region failover when all they really need is a reliable Whirlpool compressor and a surge protector,” explained Kowalski while slicing provolone cheese over an open terminal.
+            </p>
+</div>
+<!-- Minimal Code/Terminal Box -->
+<div class="my-3 bg-[#131417] text-zinc-200 rounded-xl border border-zinc-800 shadow-sm overflow-hidden">
+<div class="bg-zinc-900/90 text-zinc-400 px-4 py-2.5 border-b border-zinc-800 flex items-center justify-between text-xs">
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#ef4444]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#10b981]"></span>
+</div>
+<span class="ml-2 font-mono text-[11px] text-zinc-400">kitchen-prod-node01.local — bash</span>
+</div>
+<span class="font-mono text-[10px] px-2 py-0.5 bg-zinc-800 text-amber-300 rounded">STATUS: ZERO_EGRESS</span>
+</div>
+<div class="p-4 font-mono text-xs leading-relaxed overflow-x-auto space-y-1.5">
+<p class="text-zinc-500"># Initiating automated dairy-cooled deployment pipeline</p>
+<p><span class="text-amber-400">devdave@fridge:~$</span> sudo systemctl restart butter_compartment.service</p>
+<p class="text-zinc-300">[ OK ] Mounted /dev/sda1 on /mnt/crisper/cheese_storage</p>
+<p class="text-zinc-300">[ OK ] Cold air circulation detected: Fan speed RPM 1400</p>
+<p class="text-zinc-400">[*] Pinging US-EAST-1... Connection refused (Saved $240/hour)</p>
+<p class="text-emerald-400 font-semibold">EXIT_CODE: 0 (COLD_AS_ICE)</p>
+</div>
+</div>
+<!-- Section 2 -->
+<div class="flex flex-col gap-3 pt-2">
+<h2 class="font-headline-md text-xl md:text-2xl font-bold uppercase text-[#111827] tracking-tight">
+              Thermal Management via Dairy Products: A Technical Deep Dive
+            </h2>
+<p class="text-[#4b5563]">
+              Initial benchmarks reveal startling performance metrics. While standard AWS EC2 instances throttle under sustained 90% CPU usage, Kowalski’s setup utilizes the ambient convective chill of an adjacent two-liter bottle of oat milk. During peak traffic spikes, the team simply turns the dial from “Normal” to “Coldest,” resulting in an unprecedented zero percent thermal throttling rate.
+            </p>
+</div>
+<!-- Clean Financial-Grade Metric Comparison Table -->
+<div class="bg-white border border-[#e6e4dc] rounded-xl overflow-hidden my-3 shadow-xs">
+<div class="px-5 py-3 border-b border-[#e6e4dc] bg-[#faf9f6] flex items-center justify-between">
+<span class="text-[11px] font-label-sm uppercase font-bold tracking-wider text-[#4b5563]">
+              BENCHMARK COMPARISON MATRIX (SATIRICAL DATA LABS)
+            </span>
+<span class="text-[10px] text-[#9ca3af] uppercase font-mono">CONFIDENTIAL METRICS</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs">
+<thead>
+<tr class="border-b border-[#e6e4dc] text-[#6b7280]">
+<th class="py-3 px-5 font-semibold uppercase tracking-wider font-label-sm">Metric</th>
+<th class="py-3 px-5 font-semibold uppercase tracking-wider font-label-sm">Multi-AZ Enterprise Cloud</th>
+<th class="py-3 px-5 font-semibold uppercase tracking-wider font-label-sm bg-amber-50/50 text-amber-900">Fridge-Pi Cluster (v1.0)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#f0ede6]">
+<tr class="hover:bg-[#faf9f6] transition-colors">
+<td class="py-3 px-5 font-medium text-[#111827]">Monthly Operating Cost</td>
+<td class="py-3 px-5 text-[#6b7280] font-mono">$8,420.00</td>
+<td class="py-3 px-5 font-bold text-amber-800 bg-amber-50/30 font-mono">$0.42 (Electricity) + 1 Egg</td>
+</tr>
+<tr class="hover:bg-[#faf9f6] transition-colors">
+<td class="py-3 px-5 font-medium text-[#111827]">P99 Latency</td>
+<td class="py-3 px-5 text-[#6b7280] font-mono">124ms</td>
+<td class="py-3 px-5 font-bold text-amber-800 bg-amber-50/30 font-mono">11ms (Sub-zero routing)</td>
+</tr>
+<tr class="hover:bg-[#faf9f6] transition-colors">
+<td class="py-3 px-5 font-medium text-[#111827]">Downtime Hazard</td>
+<td class="py-3 px-5 text-[#6b7280]">DNS Outage, Region Collapse</td>
+<td class="py-3 px-5 font-bold text-amber-800 bg-amber-50/30">Someone making an omelet</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Section 3 -->
+<div class="flex flex-col gap-3 pt-2">
+<h2 class="font-headline-md text-xl md:text-2xl font-bold uppercase text-[#111827] tracking-tight">
+              HR and Security Incident Log
+            </h2>
+<p class="text-[#4b5563]">
+              The setup was not without organizational friction. At 11:45 AM, an intern inadvertently severed the payment processing pipeline while attempting to reach a jar of spicy kimchi. Kowalski mitigated the vulnerability by placing a strip of yellow duct tape across the freezer handle reading: <code class="px-1.5 py-0.5 bg-[#f4f3ee] text-[#111827] rounded text-sm font-mono border border-[#e6e4dc]">DO NOT OPEN: RUNNING PRODUCTION KERNEL</code>.
+            </p>
+<p class="text-[#4b5563]">
+              When asked whether this constituted an enterprise cybersecurity violation under ISO-27001, Dave held up a thermal thermometer showing 2.8 degrees Celsius and remarked: “Cold data is secure data.”
+            </p>
+</div>
+</div>
+<!-- Refined Engagement Bar -->
+<div class="p-6 bg-white border border-[#e6e4dc] rounded-2xl flex flex-col gap-5 shadow-xs">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div>
+<h3 class="font-headline-sm text-base md:text-lg font-bold uppercase text-[#111827]">Did this hoax make you smile?</h3>
+<p class="text-xs text-[#6b7280]">Cast your reaction vote to push this story up the leaderboard.</p>
+</div>
+<div class="flex items-center gap-2.5">
+<button class="inline-flex items-center gap-2 px-4 py-2 bg-[#111827] hover:bg-black text-white text-xs font-semibold rounded-full shadow-xs transition-transform active:scale-95" id="highFiveBtn" type="button">
+<span>✋</span> High-Five This Hoax (<span id="highFiveCount">3,491</span>)
+            </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-2 bg-white hover:bg-red-50 text-[#6b7280] hover:text-red-700 text-xs font-medium rounded-full border border-[#e6e4dc] transition-colors" onclick="alert('Dispatch sent to Jeff Bezos. He has deployed a drone to your kitchen.')" type="button">
+<span class="material-symbols-outlined text-sm">flag</span> Report to Bezos
+            </button>
+</div>
+</div>
+<!-- Refined Tags -->
+<div class="flex flex-wrap items-center gap-1.5 pt-4 border-t border-[#e6e4dc]">
+<span class="text-[11px] font-label-sm uppercase font-semibold text-[#9ca3af] mr-2">Filed Under:</span>
+<a class="px-2.5 py-1 bg-[#faf9f6] hover:bg-[#f4f3ee] text-[#4b5563] hover:text-[#111827] border border-[#e6e4dc] rounded-full text-xs font-medium transition-colors" href="#">#RaspberryPiCluster</a>
+<a class="px-2.5 py-1 bg-[#faf9f6] hover:bg-[#f4f3ee] text-[#4b5563] hover:text-[#111827] border border-[#e6e4dc] rounded-full text-xs font-medium transition-colors" href="#">#CloudCostZero</a>
+<a class="px-2.5 py-1 bg-[#faf9f6] hover:bg-[#f4f3ee] text-[#4b5563] hover:text-[#111827] border border-[#e6e4dc] rounded-full text-xs font-medium transition-colors" href="#">#AWSPanic</a>
+<a class="px-2.5 py-1 bg-[#faf9f6] hover:bg-[#f4f3ee] text-[#4b5563] hover:text-[#111827] border border-[#e6e4dc] rounded-full text-xs font-medium transition-colors" href="#">#DevOpsGuerilla</a>
+<a class="px-2.5 py-1 bg-[#faf9f6] hover:bg-[#f4f3ee] text-[#4b5563] hover:text-[#111827] border border-[#e6e4dc] rounded-full text-xs font-medium transition-colors" href="#">#ThermalCheese</a>
+<a class="px-2.5 py-1 bg-[#faf9f6] hover:bg-[#f4f3ee] text-[#4b5563] hover:text-[#111827] border border-[#e6e4dc] rounded-full text-xs font-medium transition-colors" href="#">#SysAdminNightmare</a>
+</div>
+</div>
+<!-- Post Navigation -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<a class="group p-5 bg-white border border-[#e6e4dc] hover:border-[#111827] rounded-xl transition-all shadow-xs flex flex-col justify-between gap-3" href="#">
+<span class="text-[11px] font-label-sm uppercase tracking-wider text-[#9ca3af] flex items-center gap-1 font-semibold group-hover:text-amber-600 transition-colors">
+<span class="material-symbols-outlined text-sm">arrow_back</span> Previous Hoax
+            </span>
+<span class="text-sm md:text-base font-semibold text-[#111827] group-hover:text-amber-800 transition-colors leading-snug">
+              Uncle’s 6:00 AM ‘Good Morning Rose’ Consumes 12TB Regional Bandwidth
+            </span>
+<span class="text-[11px] uppercase tracking-wider text-[#6b7280]">Desi Viral Desk</span>
+</a>
+<a class="group p-5 bg-white border border-[#e6e4dc] hover:border-[#111827] rounded-xl transition-all shadow-xs flex flex-col justify-between gap-3 text-right md:text-left" href="#">
+<span class="text-[11px] font-label-sm uppercase tracking-wider text-[#9ca3af] flex items-center justify-end md:justify-start gap-1 font-semibold group-hover:text-amber-600 transition-colors">
+              Next Hoax <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</span>
+<span class="text-sm md:text-base font-semibold text-[#111827] group-hover:text-amber-800 transition-colors leading-snug">
+              Company Introduces ‘Casual Friday’ by Permitting Crying in Any Color Hoodie
+            </span>
+<span class="text-[11px] uppercase tracking-wider text-[#6b7280]">Corporate Satire Desk</span>
+</a>
+</div>
+<!-- Roast Chamber (Sophisticated Comments Section) -->
+<section class="flex flex-col gap-5 pt-4">
+<div class="flex items-center justify-between pb-3 border-b border-[#e6e4dc]">
+<div class="flex items-center gap-2.5">
+<h3 class="font-headline-sm text-lg font-bold uppercase text-[#111827] tracking-tight">The Roast Chamber</h3>
+<span class="px-2 py-0.5 bg-[#f4f3ee] text-[#4b5563] border border-[#e6e4dc] rounded-full text-xs font-semibold">248 Verified Retorts</span>
+</div>
+<div class="flex items-center gap-2">
+<label class="text-xs text-[#6b7280]" for="commentSort">Sort:</label>
+<select class="bg-white text-xs font-medium text-[#111827] border border-[#e6e4dc] rounded-md px-2 py-1 outline-none focus:ring-1 focus:ring-[#111827]" id="commentSort">
+<option>Top Voted Roast</option>
+<option>Newest Chaos</option>
+<option>DevOps Tears</option>
+</select>
+</div>
+</div>
+<!-- Comment Input Card -->
+<div class="p-4 bg-white border border-[#e6e4dc] rounded-xl shadow-xs flex flex-col gap-3">
+<div class="flex items-center gap-2.5">
+<img class="w-8 h-8 rounded-full object-cover ring-1 ring-[#e6e4dc]" data-alt="Small round avatar of a modern internet meme enthusiast with sunglasses and a yellow beanie, graphic neo-brutalist pop illustration style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2XcXBJpTIpdJLxKFkts3OhOqbhWjTguXPRrS7ZI3BJt_8IkdriHZKUsS2LTwZpET_tD0LpQRMms3NZdJ2eogwvv_2JzPZwc_3_Wz49JbnuLlHuLOrpqcvbNW1NoM4tE_5RV2acIUkNlFeYjpBlR_CXibRl8fQTTO6U7RZ-9-hEDTQlPzkETrvhI7ib7g3a1iVSXWTr3nNhIFb1PSOoK361Er4KsT1hLQXjjNUBJIEBMtSl3oRmTZp">
+<span class="text-xs font-semibold text-[#111827]">Replying as @memejudge <span class="text-[#9ca3af] font-normal">(Chief Skeptic)</span></span>
+</div>
+<textarea class="w-full p-3 bg-[#faf9f6] border border-[#e6e4dc] rounded-lg text-xs md:text-sm text-[#111827] placeholder:text-[#9ca3af] outline-none focus:bg-white focus:border-[#111827] transition-all resize-none" id="commentInput" placeholder="Drop your technical roasted theory or milk-carton joke here..." rows="3"></textarea>
+<div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 rounded border border-[#e6e4dc] bg-white hover:bg-[#faf9f6] text-[11px] font-bold text-[#4b5563]" type="button">B</button>
+<button class="w-7 h-7 rounded border border-[#e6e4dc] bg-white hover:bg-[#faf9f6] text-[11px] italic font-serif text-[#4b5563]" type="button">I</button>
+<button class="w-7 h-7 rounded border border-[#e6e4dc] bg-white hover:bg-[#faf9f6] text-[11px] font-mono text-[#4b5563]" type="button">&lt;&gt;</button>
+<button class="px-2 h-7 rounded border border-[#e6e4dc] bg-white hover:bg-[#faf9f6] text-[11px] font-medium text-[#4b5563] inline-flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-xs">gif</span> GIF
+            </button>
+</div>
+<button class="px-4 py-2 bg-[#111827] hover:bg-black text-white text-xs font-semibold rounded-lg shadow-xs transition-all" id="postCommentBtn" type="button">
+            Post Snarky Comment
+          </button>
+</div>
+</div>
+<!-- Comment Thread 1 -->
+<div class="flex flex-col gap-3">
+<div class="p-4 bg-white border border-[#e6e4dc] rounded-xl shadow-xs flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<img class="w-7 h-7 rounded-full object-cover" data-alt="Avatar portrait of a software engineer with curly hair and blue glasses, flat vector pop art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDckKteHBdorzIBjj_4ha0WsacET4xSxEWSFA0B16_BTMNEAD9h9-q_zsHIEXokiLqnkacVLHJo30cKhPCftKjPK8RrqXPAzuviscUli9PnHeaYP2XcRymt-KjSGGw8n2w2_WcM2cTwgXJoFBQsA69zaaRROg3G6vgrh4sz6J7YPxCSJxinvKLu68wj2mzGYmoHHmzM7xZHEsX0ULVM_pZzDLkmuhIXx4wHXRq96mLyv1JS5ufYtrQ7">
+<span class="text-xs font-semibold text-[#111827]">@Sudo_Anjali</span>
+<span class="px-1.5 py-0.5 bg-amber-50 text-amber-800 border border-amber-200/60 rounded text-[10px] font-medium uppercase">Verified Satirist</span>
+<span class="text-[11px] text-[#9ca3af]">· 2h ago</span>
+</div>
+<button class="text-[#9ca3af] hover:text-[#111827]" type="button">
+<span class="material-symbols-outlined text-sm">more_horiz</span>
+</button>
+</div>
+<p class="text-xs md:text-sm text-[#374151] leading-relaxed">
+            Can confirm, I am the carton of almond milk currently load balancing the auth tokens. Everything is calm until someone makes a latte around 10:15 AM.
+          </p>
+<div class="flex items-center gap-3 pt-2 border-t border-[#f3f4f6]">
+<button class="vote-up flex items-center gap-1 text-xs text-[#6b7280] hover:text-[#111827] transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">thumb_up</span> <span class="vote-count">1.4k</span>
+</button>
+<button class="flex items-center gap-1 text-xs text-[#6b7280] hover:text-red-600 transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">thumb_down</span>
+</button>
+<button class="text-xs font-semibold text-amber-700 hover:text-amber-800 ml-1" type="button">
+              Reply (12)
+            </button>
+</div>
+</div>
+<!-- Nested Replies -->
+<div class="ml-6 pl-4 border-l-2 border-[#e6e4dc] flex flex-col gap-3">
+<div class="p-3 bg-[#faf9f6] border border-[#e6e4dc] rounded-xl flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Pixelated robot cat avatar illustration with green background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5efFaCSPNob3olAegFhkxCQMJfXUoNZp3G6wG4LBUZ-lD37EX7r4EPFLujgKQqmIHDhbgdPyJrdzoDhq0wzJ6_ao5kzW_VHTyCErpV3olq-m11QUeRlHUfvgD4r9dD1IBKy7cAduJlKnTBWR8jmY_tUA3K1zS33IyghcqzcMDABreuVbTvkgZd46yEN57KOiE4lDVlv9mIt7VBZF1xtTZaoP9N977rXwaGgs1Z25W1pKCrTpkoz9Z">
+<span class="text-xs font-semibold text-[#111827]">@KubernetesSurvivor</span>
+<span class="text-[11px] text-[#9ca3af]">· 1h ago</span>
+</div>
+<p class="text-xs text-[#4b5563]">
+              How do you handle container orchestration when someone opens the door to get mayo? Does the healthcheck fail?
+            </p>
+<div class="flex items-center gap-2 text-[11px] text-[#6b7280]">
+<button class="vote-up flex items-center gap-1 hover:text-[#111827]" type="button">
+<span class="material-symbols-outlined text-xs">thumb_up</span> <span class="vote-count">482</span>
+</button>
+<span class="text-[#d1d5db]">•</span>
+<button class="hover:text-[#111827]" type="button">Reply</button>
+</div>
+</div>
+<div class="p-3 bg-amber-50/50 border border-amber-200/70 rounded-xl flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Author portrait of DevDave with safety goggles, thumbnail badge." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBifHJl3ZtGOSpG6YMiFocfu3FTGuiUTR0sY8TpHYANhVW93cjeWHROFU_txcfOdXJFq1-ssKK5Wpl6QpPWGsOtLnWncPnks1kel40XotMibdrRY6Ewbb54bVkZ5keoqRLjTtZ_R5g6Lckc9tMxDGwRL2QCQvaHQTDTZledLzfBR8w7pbRFUnG1VliTzZ4-v6cAViNsLarLZPhWCllcfmXbDCN2M0dAwkD_E07wzI_dP7Zny5mmQHyg">
+<span class="text-xs font-semibold text-[#111827]">@DevDave</span>
+<span class="px-1.5 py-0.2 bg-white text-[#111827] border border-[#e6e4dc] rounded text-[9px] font-bold uppercase">Author</span>
+<span class="text-[11px] text-[#9ca3af]">· 45m ago</span>
+</div>
+<p class="text-xs text-[#374151]">
+              That’s our automated rolling restart protocol. Any light bulb activation triggers an instant cache purge.
+            </p>
+<div class="flex items-center gap-2 text-[11px] text-[#6b7280]">
+<button class="vote-up flex items-center gap-1 hover:text-[#111827]" type="button">
+<span class="material-symbols-outlined text-xs">thumb_up</span> <span class="vote-count">912</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Comment Thread 2 -->
+<div class="p-4 bg-white border border-[#e6e4dc] rounded-xl shadow-xs flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-red-100 border border-red-200 flex items-center justify-center text-red-700 font-bold text-[10px]">
+              AWS
+            </div>
+<span class="text-xs font-semibold text-[#111827]">@AWS_Billing_Bot</span>
+<span class="px-1.5 py-0.5 bg-red-50 text-red-700 border border-red-200 rounded text-[10px] font-medium uppercase">Bot Alert</span>
+<span class="text-[11px] text-[#9ca3af]">· 3h ago</span>
+</div>
+<button class="text-[#9ca3af] hover:text-[#111827]" type="button">
+<span class="material-symbols-outlined text-sm">more_horiz</span>
+</button>
+</div>
+<p class="text-xs md:text-sm text-[#374151] leading-relaxed">
+          We miss you. Please come back. We offer 3 free cloud credits, an oversized plushie mascot, and promise not to bill you for accidentally looking at a DynamoDB partition.
+        </p>
+<div class="flex items-center gap-3 pt-2 border-t border-[#f3f4f6]">
+<button class="vote-up flex items-center gap-1 text-xs text-[#6b7280] hover:text-[#111827] transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">thumb_up</span> <span class="vote-count">890</span>
+</button>
+<button class="flex items-center gap-1 text-xs text-[#6b7280] hover:text-red-600 transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">thumb_down</span>
+</button>
+<button class="text-xs font-semibold text-amber-700 hover:text-amber-800 ml-1" type="button">
+            Reply (4)
+          </button>
+</div>
+</div>
+</section>
+</article>
+<!-- Right Hand Desk Sidebar (4 Columns on lg) -->
+<aside class="col-span-1 lg:col-span-4 flex flex-col gap-6">
+<!-- Desk Spotlight Banner -->
+<div class="p-6 bg-white border border-[#e6e4dc] rounded-2xl shadow-xs flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-label-sm uppercase bg-[#f4f3ee] text-[#111827] px-2.5 py-0.5 rounded font-bold tracking-wider">DESK DISPATCH</span>
+<span class="material-symbols-outlined text-amber-500 text-base">bolt</span>
+</div>
+<h3 class="font-headline-md text-lg font-bold uppercase text-[#111827] leading-tight">
+        Silicon Valley Circus Bureau
+      </h3>
+<p class="text-xs text-[#6b7280] leading-relaxed">
+        Where venture capital meets existential dread. Updated hourly with 100% fictitious revelations from unverified source code.
+      </p>
+</div>
+<!-- More From Tech Memes Stack -->
+<div class="bg-white border border-[#e6e4dc] rounded-2xl shadow-xs p-5 flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-[#e6e4dc]">
+<h4 class="font-headline-sm text-sm font-bold uppercase text-[#111827]">More From This Desk</h4>
+<a class="text-xs text-amber-700 font-semibold hover:underline" href="#">View All</a>
+</div>
+<div class="flex flex-col gap-4 divide-y divide-[#f3f4f6]">
+<!-- Item 1 -->
+<a class="group flex gap-3 items-start pt-3 first:pt-0" href="#">
+<img class="w-16 h-16 rounded-xl object-cover shrink-0 border border-[#e6e4dc]" data-alt="Comic pop art drawing of a sleek silver laptop engulfed in harmless pink smoke with a cartoon developer crying, vibrant neo-brutalist styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_TiZevHthQjhSaFXctgR0lBzE9huXMFQoXISe2Oc6QSogbEPtCj1jRt4VWJgto8O3wIkQEIN1q0sbMU4h08eFvRYF0JEtaOc8taDEv2XJXElYMsxN272MJWLHtpsCImJICbRe6JNv5f1eY66f4C0rOuUjqCuE47Py9ZJ2h_xfVOiLd7Kl-je414loXw_lgHfqa9VssAci5bOygkRfZ1oGHTpKtpQrqog2RDt2ejUk_tDNdFz-saYL">
+<div class="flex flex-col gap-1 min-w-0">
+<span class="text-[10px] font-label-sm text-amber-600 uppercase font-semibold">🔥 48.2k Reads</span>
+<h5 class="text-xs font-semibold text-[#111827] group-hover:text-amber-800 transition-colors line-clamp-2 leading-snug">
+              AI Declared Legally Sentient After Repeatedly Refusing 9 AM Standup Meetings
+            </h5>
+<span class="text-[11px] text-[#9ca3af]">320 comments</span>
+</div>
+</a>
+<!-- Item 2 -->
+<a class="group flex gap-3 items-start pt-3" href="#">
+<img class="w-16 h-16 rounded-xl object-cover shrink-0 border border-[#e6e4dc]" data-alt="Playful comic illustration of a cat staring into a digital cryptocurrency chart crashing downward, neo-brutalist bold dark line art with honey yellow accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7mhEwH49rBShFQ74JztI5LLDtT917ey1_fkSvSWKj6I1lJKtpYgGX4_n7iQNHLMFd2gmWMm8SBqDLaCRIT-cxCRHQj9c-7YNsMLEbuwpjB5Lp-dNtOZJOuQ2HkjrF-tDT2lPHejhsgToPLFaO0mgUQOy7ib5sCPbSkkU_LxG_qtAV1AN2RcIfM_JA8wTXi3U-hBhlouOa1gIa-y-zp5zyBpYvC6Ti-nFcaM-F66vXDt2F3TKL0Sj9">
+<div class="flex flex-col gap-1 min-w-0">
+<span class="text-[10px] font-label-sm text-[#4b5563] uppercase font-semibold">💀 29.1k Reads</span>
+<h5 class="text-xs font-semibold text-[#111827] group-hover:text-amber-800 transition-colors line-clamp-2 leading-snug">
+              Cat Coin Crashes 80% After Founder Forgets Laser Pointer Battery
+            </h5>
+<span class="text-[11px] text-[#9ca3af]">149 comments</span>
+</div>
+</a>
+<!-- Item 3 -->
+<a class="group flex gap-3 items-start pt-3" href="#">
+<img class="w-16 h-16 rounded-xl object-cover shrink-0 border border-[#e6e4dc]" data-alt="Humorous graphic art of a monk meditating in front of a glowing monitor showing only two browser tabs remaining open, bright bold colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-X9jiSL_XS6hblMmJPM80MUDfkAtANP3XKgqduBK2kDHQrhglRCWhU1gbNWxi5dtmlBQKdEok_dTJeqkIPHBEneLV_NvAYAtOaIeaUy25ogpd2itmpuaFXvmKXavVtFC0gWf5vUQns8OdxeB-Pauvi2LL5JTSzOPenJeY5rwoOJFwRV--6EETxh3WjO0m7QbDBJZauM4QNKO-fM6XgUFEUIv3l_tPI1hhK8QXySlBKvixFcKfOBTY">
+<div class="flex flex-col gap-1 min-w-0">
+<span class="text-[10px] font-label-sm text-[#4b5563] uppercase font-semibold">🧘 18.5k Reads</span>
+<h5 class="text-xs font-semibold text-[#111827] group-hover:text-amber-800 transition-colors line-clamp-2 leading-snug">
+              Software Engineer Achieves Pure Nirvana by Closing 142 Chrome Tabs
+            </h5>
+<span class="text-[11px] text-[#9ca3af]">88 comments</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Mini Leaderboard Widget -->
+<div class="p-5 bg-white border border-[#e6e4dc] rounded-2xl shadow-xs flex flex-col gap-3">
+<div class="flex items-center justify-between pb-2 border-b border-[#e6e4dc]">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-amber-500 text-lg">military_tech</span>
+<h4 class="font-headline-sm text-xs font-bold uppercase text-[#111827]">Top Roast Guild</h4>
+</div>
+<span class="text-[10px] font-mono bg-[#f4f3ee] text-[#6b7280] px-2 py-0.5 rounded font-semibold">WEEK 42</span>
+</div>
+<ol class="flex flex-col gap-1.5 text-xs">
+<li class="flex items-center justify-between p-2 rounded-lg bg-[#faf9f6]">
+<div class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full bg-amber-400 text-black text-[9px] font-bold flex items-center justify-center">1</span>
+<span class="font-semibold text-[#111827]">@DevDave</span>
+</div>
+<span class="font-mono text-[11px] text-amber-700 font-bold">38.4k Pts</span>
+</li>
+<li class="flex items-center justify-between p-2 rounded-lg hover:bg-[#faf9f6] transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full bg-[#e6e4dc] text-[#6b7280] text-[9px] font-bold flex items-center justify-center">2</span>
+<span class="font-medium text-[#111827]">@Sudo_Anjali</span>
+</div>
+<span class="font-mono text-[11px] text-[#6b7280]">26.1k Pts</span>
+</li>
+<li class="flex items-center justify-between p-2 rounded-lg hover:bg-[#faf9f6] transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full bg-[#e6e4dc] text-[#6b7280] text-[9px] font-bold flex items-center justify-center">3</span>
+<span class="font-medium text-[#111827]">@KubernetesSurvivor</span>
+</div>
+<span class="font-mono text-[11px] text-[#6b7280]">19.8k Pts</span>
+</li>
+</ol>
+</div>
+<!-- Refined Daily Brainrot Newsletter Card -->
+<div class="p-6 bg-[#faf8f2] border border-amber-200/80 rounded-2xl shadow-xs flex flex-col gap-3 sticky top-48">
+<div class="flex items-center gap-2 text-amber-900">
+<span class="material-symbols-outlined text-xl text-amber-600">mark_email_unread</span>
+<h4 class="font-headline-sm text-sm font-bold uppercase">Daily Brainrot Dispatch</h4>
+</div>
+<p class="text-xs text-[#6b7280] leading-relaxed">
+        Delivered daily at 8:00 AM before your scrum master can summon you to the agile board.
+      </p>
+<div class="flex flex-col gap-2 pt-1">
+<input class="w-full px-3 py-2 bg-white border border-[#e6e4dc] rounded-lg text-xs text-[#111827] outline-none placeholder:text-[#9ca3af] focus:border-[#111827]" placeholder="senior.cheese@architect.io" type="email">
+<button class="w-full py-2 bg-[#111827] hover:bg-black text-white text-xs font-semibold uppercase tracking-wider rounded-lg transition-colors" onclick="alert('Congratulations. You have pledged allegiance to the fridge cluster.')" type="button">
+          Deploy to Inbox
+        </button>
+</div>
+<span class="text-[10px] text-[#9ca3af] text-center uppercase tracking-wider">
+        No sales spam · 100% Satirical Integrity
+      </span>
+</div>
+<!-- Refined Disclaimer Card -->
+<div class="p-4 bg-white border border-[#e6e4dc] rounded-xl flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[#9ca3af] text-base shrink-0 mt-0.5">gavel</span>
+<p class="text-[11px] text-[#6b7280] leading-relaxed uppercase font-label-sm">
+        Disclaimer: No refrigerators or dairy products were harmed in the publication of this report. All claims fabricated with 100% love for high-availability humor.
+      </p>
+</div>
+</aside>
+</div>
+</div>
+<!-- Micro-Interactions Client-Side Script -->
+<script>
+    // Copy link toast handler
+    const copyShareBtn = document.getElementById('copyShareBtn');
+    if (copyShareBtn) {
+      copyShareBtn.addEventListener('click', () => {
+        navigator.clipboard?.writeText(window.location.href);
+        const originalHtml = copyShareBtn.innerHTML;
+        copyShareBtn.innerHTML = '<span class="material-symbols-outlined text-sm text-emerald-600">done</span>';
+        setTimeout(() => {
+          copyShareBtn.innerHTML = originalHtml;
+        }, 1500);
+      });
+    }
+
+    // Reaction pill incremental clicker
+    document.querySelectorAll('.reaction-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const span = btn.querySelector('span:last-child');
+        let current = parseInt(btn.getAttribute('data-counter') || '1000', 10);
+        current += 1;
+        btn.setAttribute('data-counter', current);
+        span.textContent = (current / 1000).toFixed(1) + 'k';
+        btn.classList.add('text-amber-600');
+      });
+    });
+
+    // High Five Counter
+    const highFiveBtn = document.getElementById('highFiveBtn');
+    const highFiveCount = document.getElementById('highFiveCount');
+    if (highFiveBtn && highFiveCount) {
+      highFiveBtn.addEventListener('click', () => {
+        let count = parseInt(highFiveCount.textContent.replace(',', ''), 10);
+        count += 1;
+        highFiveCount.textContent = count.toLocaleString();
+        highFiveBtn.classList.add('bg-black');
+      });
+    }
+
+    // Read aloud simulator
+    const readAloudBtn = document.getElementById('readAloudBtn');
+    const readAloudText = document.getElementById('readAloudText');
+    let isPlaying = false;
+    if (readAloudBtn && readAloudText) {
+      readAloudBtn.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        if (isPlaying) {
+          readAloudText.textContent = "Synthesizing Robot Audio...";
+          readAloudBtn.classList.add('border-amber-500', 'bg-amber-50');
+        } else {
+          readAloudText.textContent = "Audio Dispatch (1:42)";
+          readAloudBtn.classList.remove('border-amber-500', 'bg-amber-50');
+        }
+      });
+    }
+
+    // Interactive Tab preview toggle simulator
+    document.querySelectorAll('.slide-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.slide-tab').forEach(t => {
+          t.classList.remove('bg-[#111827]', 'text-white');
+          t.classList.add('bg-white', 'text-[#6b7280]', 'border', 'border-[#e6e4dc]');
+        });
+        tab.classList.add('bg-[#111827]', 'text-white');
+        tab.classList.remove('bg-white', 'text-[#6b7280]', 'border', 'border-[#e6e4dc]');
+      });
+    });
+
+    // Upvote counters on comments
+    document.querySelectorAll('.vote-up').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const countSpan = btn.querySelector('.vote-count');
+        if (countSpan) {
+          let count = parseInt(countSpan.textContent.replace('k', ''), 10);
+          if (!btn.dataset.voted) {
+            btn.dataset.voted = "true";
+            btn.classList.add('text-amber-600', 'font-bold');
+            countSpan.textContent = (count + 1) + (countSpan.textContent.includes('k') ? 'k' : '');
+          }
+        }
+      });
+    });
+
+    // Post comment trigger
+    const postCommentBtn = document.getElementById('postCommentBtn');
+    const commentInput = document.getElementById('commentInput');
+    if (postCommentBtn && commentInput) {
+      postCommentBtn.addEventListener('click', () => {
+        if (commentInput.value.trim().length > 0) {
+          alert('Retort registered into the roast pipeline!');
+          commentInput.value = '';
+        } else {
+          commentInput.focus();
+        }
+      });
+    }
+  </script>
+</main><!-- Minimal Refined Editorial Footer --><footer class="w-full bg-[#f4f3ee] border-t border-[#e6e4dc]"><div class="max-w-7xl mx-auto px-4 lg:px-12 py-12"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"><div class="flex flex-col gap-3"><a class="transition-opacity hover:opacity-85 inline-block mb-1" data-path="feed" href="#"><img alt="Amiami Post" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm4Wryympjk7xPTzT_zSefnVFOrOSZBUXrNP5nsg1fgnRV_mJyvIJVu-qSqqn_BK15Mwloht5xPR_gmimPCGj6ITZXAaqsuhcJGisAAVRNj0Sb2NMM65oQm6YVvROWIW5DjS7cO9P8FhGR0JbymvQKbCosMoNOsSybO5g-PNoeoMzX9RETq8XRIhccjHUIa_OxPJEg7AYw4za3K2UzrTW8NgDznuq8q-sBBm-hCMa9oxUps4rALzQ9OOxAcMpXeWESGA"></a><p class="text-xs text-[#6b7280] leading-relaxed">The web's most aggressively unserious journalistic establishment. Chronicling digital brainrot, corporate absurdities, and elite meme warfare with zero integrity guaranteed.</p><div class="flex items-center gap-2 pt-2"><span class="text-[10px] font-mono uppercase bg-white border border-[#e6e4dc] px-2 py-0.5 rounded text-[#6b7280]">EST. 2024</span><span class="text-[10px] font-mono uppercase bg-amber-100 text-amber-900 px-2 py-0.5 rounded font-semibold">SATIRICAL PRESS</span></div></div><div class="flex flex-col gap-2.5"><h3 class="text-xs font-bold uppercase tracking-wider font-label-sm text-[#111827]">Desk Directory</h3><ul class="flex flex-col gap-2 text-xs text-[#6b7280]"><li><a class="hover:text-[#111827] hover:underline" data-path="tech-memes" href="#">Silicon Valley Circus</a></li><li><a class="hover:text-[#111827] hover:underline" data-path="desi-memes" href="#">Desi Viral Syndicate</a></li><li><a class="hover:text-[#111827] hover:underline" data-path="gaming-desk" href="#">Gamer Rants &amp; Patch Memes</a></li><li><a class="hover:text-[#111827] hover:underline" data-path="cinema-pop" href="#">Cinema Meltdowns</a></li><li><a class="hover:text-[#111827] hover:underline" data-path="dank-vault" href="#">Dank Archive (Deep Web)</a></li></ul></div><div class="flex flex-col gap-2.5"><h3 class="text-xs font-bold uppercase tracking-wider font-label-sm text-[#111827]">Editorial &amp; Legal</h3><ul class="flex flex-col gap-2 text-xs text-[#6b7280]"><li><a class="hover:text-[#111827] hover:underline" data-path="satirical-disclaimer" href="#">Satirical Disclaimer</a></li><li><a class="hover:text-[#111827] hover:underline" data-path="editorial-code" href="#">Code of Unethical Humor</a></li><li><a class="hover:text-[#111827] hover:underline" data-path="submit-meme" href="#">Submissions Guidelines</a></li><li><a class="hover:text-[#111827] hover:underline" data-path="creator-profile" href="#">Creator Bounty Board</a></li><li><a class="hover:text-[#111827] hover:underline" href="#">DMCA &amp; Meme Rights</a></li></ul></div><div class="flex flex-col gap-3"><h3 class="text-xs font-bold uppercase tracking-wider font-label-sm text-[#111827]">Daily Brainrot Dispatch</h3><p class="text-xs text-[#6b7280]">Get the top 5 satirical scoops injected straight into your inbox every morning.</p><form class="flex flex-col gap-2" onsubmit="return false;"><div class="flex"><input class="w-full px-3 py-1.5 bg-white border border-[#e6e4dc] rounded-l-lg text-xs text-[#111827] placeholder:text-[#9ca3af] outline-none" placeholder="your.boss@fired.com" type="email"><button class="bg-[#111827] text-white text-xs font-semibold uppercase px-4 border border-[#111827] rounded-r-lg hover:bg-black transition-colors" type="button">Join</button></div><span class="text-[10px] text-[#9ca3af]">No spam. Just high-voltage satire.</span></form></div></div><div class="border-t border-[#e6e4dc] pt-6 flex flex-col md:flex-row items-center justify-between gap-4"><p class="text-[11px] text-[#6b7280] text-center md:text-left">© 2024 Amiami Post Media Network. All satirical claims, deepfaked press releases, and hyperbolic allegations are fictional works of internet comedy.</p><div class="flex items-center gap-2"><a aria-label="Hub" class="w-7 h-7 rounded-full bg-white border border-[#e6e4dc] flex items-center justify-center text-[#6b7280] hover:text-[#111827] transition-colors" href="#"><span class="material-symbols-outlined text-sm">hub</span></a><a aria-label="RSS" class="w-7 h-7 rounded-full bg-white border border-[#e6e4dc] flex items-center justify-center text-[#6b7280] hover:text-[#111827] transition-colors" href="#"><span class="material-symbols-outlined text-sm">rss_feed</span></a><a aria-label="Forum" class="w-7 h-7 rounded-full bg-white border border-[#e6e4dc] flex items-center justify-center text-[#6b7280] hover:text-[#111827] transition-colors" href="#"><span class="material-symbols-outlined text-sm">forum</span></a></div></div></div></footer></body></html>

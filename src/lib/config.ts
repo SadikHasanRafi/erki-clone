@@ -1,7 +1,9 @@
 // Pure constants only: this file is imported by client components too, so no Node APIs here.
 
-export const SITE_NAME = "Erki Clone";
-export const SITE_TAGLINE = "Bangla memes, fresh every day";
+export const SITE_NAME = "Amiami Post";
+export const SITE_TAGLINE = "The web's most aggressively unserious journalistic establishment. Chronicling digital brainrot, corporate absurdities, and elite meme warfare.";
+// Logo lives in /public; the space-containing file name is URL-encoded.
+export const LOGO_SRC = "/Glossy%20Amiami%20Post%20Mascot%20Sticker.png";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 // Edit this list to change the sections shown on the site and in the dashboard.
@@ -26,32 +28,80 @@ export const CATEGORY_COLORS: Record<string, string> = {
   Random: "#52525b",
 };
 
-// Everything below controls how the public site is laid out. Edit it here; no code changes needed.
+// Defaults for the public site's text and layout. The dashboard's Settings page overrides them.
 export const LABELS = {
-  popular: "জনপ্রিয়",
-  latest: "টাটকা",
-  more: "আরও দেখুন",
-  related: "আরও",
-  loadMore: "আরও লোড করুন",
-  tags: "ট্যাগ",
-  source: "মূল পোস্ট",
-  prev: "‹ আগের",
-  next: "পরের ›",
-  home: "প্রচ্ছদ",
-  search: "মিম খুঁজুন…",
-  submitTitle: "আপনার মিম ও আইডিয়া পাঠান",
-  submitButton: "পাঠান",
+  tickerBadge: "Breaking",
+  tickerNote: "100% Satirical News",
+  wire: "Wire Dispatch",
+  wireNote: "Live Feed 24/7",
+  trending: "Trending",
+  edition: "Amiami Edition",
+  spicy: "Spicy Dispatches",
+  spicyNote: "Top Satire",
+  hallOfShame: "Viral Hall of Shame",
+  hallNote: "Real-Time Ranking",
+  memeOfDay: "Meme of the Day",
+  curatorPicks: "Curator Picks",
+  vault: "The Satire Vault",
+  vaultNote: "Fresh Run",
+  leaderboard: "Leaderboard: Most Viewed",
+  leaderboardNote: "All Time",
+  tags: "Trending Meme Tags",
+  viewAll: "View All",
+  loadMore: "Load More Absurdities",
+  loading: "Loading…",
+  loadError: "Couldn't load more. Check your connection and try again.",
+  empty: "Nothing here yet. Check back soon!",
+  emptyFiltered: "No memes match this filter.",
+  home: "Home",
+  desks: "Desks",
+  search: "Search memes, hoaxes, takes...",
+  searchButton: "Search",
+  submit: "Submit Meme",
+  prev: "‹ Prev",
+  next: "Next ›",
+  source: "Original post",
+  filedUnder: "Filed Under",
+  prevPost: "Previous Hoax",
+  nextPost: "Next Hoax",
+  deskDispatch: "Desk Dispatch",
+  moreFromDesk: "More From This Desk",
+  mostRead: "Most Read",
+  articleReader: "Article Reader",
+  share: "Share",
+  copyLink: "Copy link",
+  copied: "Copied!",
+  download: "Download",
+  views: "views",
+  minRead: "min read",
+  footerDesks: "Desk Directory",
+  rights: "All satirical claims are fictional works of internet comedy.",
+  latest: "Latest News",
+  latestNote: "Fresh Off The Press",
+  about: "About Us",
+  contact: "Contact Us",
+  pages: "Company",
+  visits: "visits",
+  backToTop: "Back to top",
+  formName: "Your name",
+  formEmail: "Your email",
+  formSubject: "Subject",
+  formMessage: "Your message",
+  formSend: "Send message",
+  formSending: "Sending…",
+  formError: "Couldn't send your message. Please try again.",
 };
 
-// Links in the "more" box. Use ?category=<name> to point at a section.
-export const MORE_LINKS: { label: string; href: string }[] = [
-  { label: "ক্রিকেট মিম", href: "/?category=Cricket" },
-  { label: "রাজনীতির মিম", href: "/?category=Politics" },
-  { label: "ক্যাম্পাসের মিম", href: "/?category=Campus" },
-];
-
 // Number of memes in each home-page block.
-export const LAYOUT = { latestPageSize: 6, popularCount: 6, stripCount: 10, sidebarRecent: 6, perCategoryBlock: 4 };
+export const LAYOUT = {
+  tickerCount: 6, // header ticker and home wire headlines
+  spicyCount: 3, // cards beside the hero
+  hallCount: 5, // Viral Hall of Shame
+  leaderboardCount: 5,
+  perCategoryBlock: 3, // cards per desk in the Satire Vault
+  latestPageSize: 6, // results per page when filtering by desk, tag or search
+  relatedCount: 4,
+};
 
 // Leave empty to hide the matching footer item.
 export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "";

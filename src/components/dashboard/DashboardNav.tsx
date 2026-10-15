@@ -5,11 +5,15 @@ import { usePathname } from "next/navigation";
 
 const LINKS = [
   { href: "/dashboard", label: "All memes" },
+  { href: "/dashboard/homepage", label: "Homepage" },
+  { href: "/dashboard/pages", label: "Pages" },
+  { href: "/dashboard/messages", label: "Messages" },
   { href: "/dashboard/categories", label: "Categories" },
+  { href: "/dashboard/settings", label: "Settings" },
   { href: "/dashboard/insights", label: "Insights" },
 ];
 
-export function DashboardNav() {
+export function DashboardNav({ unread = 0 }: { unread?: number }) {
   const pathname = usePathname();
   // "All memes" also owns the edit pages (/dashboard/<id>) and "New meme" is highlighted on its own.
   const isActive = (href: string) =>
@@ -27,6 +31,9 @@ export function DashboardNav() {
           className={`rounded px-2 py-1 ${isActive(l.href) ? "bg-white/15 font-semibold text-white" : "text-white/80 hover:bg-white/10 hover:text-white"}`}
         >
           {l.label}
+          {l.href === "/dashboard/messages" && unread > 0 && (
+            <span className="ml-1.5 rounded-full bg-accent px-1.5 py-0.5 text-[10px] font-bold text-white">{unread}</span>
+          )}
         </Link>
       ))}
       <Link

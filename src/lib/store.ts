@@ -42,6 +42,7 @@ type ListOpts = {
   sort?: "latest" | "views";
   featured?: boolean;
   excludeId?: string;
+  excludeIds?: string[];
 };
 
 function buildFilter(opts: ListOpts): Record<string, unknown> {
@@ -50,7 +51,8 @@ function buildFilter(opts: ListOpts): Record<string, unknown> {
   if (opts.category) filter.category = opts.category;
   if (opts.tag) filter.tags = opts.tag;
   if (opts.featured) filter.featured = true;
-  if (opts.excludeId) filter._id = { $ne: opts.excludeId };
+  const exclude = [...(opts.excludeIds ?? []), ...(opts.excludeId ? [opts.excludeId] : [])];
+  if (exclude.length) filter._id = { $nin: exclude };
 
   const q = opts.q?.trim();
   if (q) {
@@ -90,6 +92,27 @@ export async function listMemes(opts: ListOpts = {}): Promise<Meme[]> {
     .limit(opts.limit ?? 0)
     .toArray();
   return docs.map(toMeme);
+}
+
+// The published memes posted just before and just after the given one, for article prev/next links.
+export async function getAdjacentMemes(meme: Meme): Promise<{ prev: Meme | null; next: Meme | null }> {
+  const collection = await memesCollection();
+  // createdAt is an ISO string, so string order is time order.
+  const { createdAt } = meme;
+  const base = { status: "published" as const, _id: { $ne: meme.id } };
+  const [prev, next] = await Promise.all([
+    collection.find({ ...base, createdAt: { $lt: createdAt } }).sort({ createdAt: -1 }).limit(1).next(),
+    collection.find({ ...base, createdAt: { $gt: createdAt } }).sort({ createdAt: 1 }).limit(1).next(),
+  ]);
+  return { prev: prev ? toMeme(prev) : null, next: next ? toMeme(next) : null };
+}
+
+// Published memes with the given ids, in the order the ids were given. Missing or draft ids are skipped.
+export async function getMemesByIds(ids: string[]): Promise<Meme[]> {
+  if (ids.length === 0) return [];
+  const docs = await (await memesCollection()).find({ _id: { $in: ids }, status: "published" }).toArray();
+  const byId = new Map(docs.map((d) => [d._id, toMeme(d)]));
+  return ids.map((id) => byId.get(id)).filter((m): m is Meme => Boolean(m));
 }
 
 export async function getMemeBySlug(slug: string): Promise<Meme | null> {

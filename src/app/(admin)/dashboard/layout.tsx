@@ -2,17 +2,20 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { DashboardNav } from "@/components/dashboard/DashboardNav";
 import { LogoutButton } from "@/components/dashboard/LogoutButton";
+import { countUnreadMessages } from "@/lib/messages";
+import { getSettings } from "@/lib/settings";
 
-export default function DashboardLayout({ children }: { children: ReactNode }) {
+export default async function DashboardLayout({ children }: { children: ReactNode }) {
+  const [unread, { siteName }] = await Promise.all([countUnreadMessages().catch(() => 0), getSettings()]);
   return (
     <div className="min-h-screen">
       <header className="bg-zinc-900 text-white">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3">
           <Link href="/dashboard" className="text-lg font-bold">
-            Meme CRM
+            {siteName} · Admin
           </Link>
           <nav className="flex flex-wrap items-center gap-2 text-sm">
-            <DashboardNav />
+            <DashboardNav unread={unread} />
             <Link href="/" target="_blank" className="rounded px-2 py-1 text-white/80 hover:bg-white/10 hover:text-white">
               View site ↗
             </Link>

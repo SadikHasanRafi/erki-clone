@@ -1,0 +1,819 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "outline": "#76777b",
+          "border-subtle": "#eceae2",
+          "tertiary": "#000000",
+          "on-tertiary-container": "#7f848f",
+          "ink-primary": "#121316",
+          "surface-bright": "#faf9f6",
+          "on-tertiary-fixed-variant": "#424751",
+          "on-primary": "#ffffff",
+          "amber-accent": "#e59819",
+          "on-primary-fixed-variant": "#46464a",
+          "on-error": "#ffffff",
+          "primary-container": "#1b1b1f",
+          "surface-canvas": "#faf9f6",
+          "primary-fixed": "#e3e2e6",
+          "ink-secondary": "#2d3139",
+          "on-error-container": "#93000a",
+          "on-tertiary": "#ffffff",
+          "ink-muted": "#6b7280",
+          "outline-variant": "#e5e5e0",
+          "tertiary-fixed": "#dee2ef",
+          "on-secondary-fixed-variant": "#643f00",
+          "inverse-primary": "#c7c6ca",
+          "background": "#faf9f6",
+          "surface-container-lowest": "#ffffff",
+          "on-primary-container": "#848387",
+          "on-surface": "#121316",
+          "surface-elevated": "#ffffff",
+          "surface-container-highest": "#f0eee9",
+          "surface": "#faf9f6",
+          "tertiary-fixed-dim": "#c2c6d3",
+          "primary": "#000000",
+          "on-background": "#121316",
+          "secondary-fixed": "#fef3c7",
+          "on-secondary": "#ffffff",
+          "on-surface-variant": "#52525b",
+          "border-hairline": "#e8e6df",
+          "on-secondary-fixed": "#2a1800",
+          "surface-subtle": "#f4f3ee",
+          "inverse-surface": "#2f312f",
+          "secondary-container": "#ffae32",
+          "on-primary-fixed": "#1b1b1f",
+          "surface-variant": "#e5e5e0",
+          "surface-container": "#f4f3ee",
+          "amber-soft": "#fef3c7",
+          "secondary-fixed-dim": "#ffb959",
+          "surface-container-low": "#f7f6f2",
+          "tertiary-container": "#171c25",
+          "surface-container-high": "#ebe9e3",
+          "on-tertiary-fixed": "#171c25",
+          "surface-dim": "#dbdad7",
+          "error-container": "#fee2e2",
+          "primary-fixed-dim": "#c7c6ca",
+          "error": "#dc2626",
+          "inverse-on-surface": "#f2f1ee",
+          "surface-tint": "#5e5e62",
+          "secondary": "#845400",
+          "on-secondary-container": "#6c4400"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "2xl": "1rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.5rem",
+          "margin": "1.25rem",
+          "space-xs": "0.25rem",
+          "space-xl": "3rem",
+          "margin-tablet": "2.5rem",
+          "gutter-desktop": "2.5rem",
+          "gutter": "1.5rem",
+          "margin-desktop": "4rem",
+          "space-md": "1rem",
+          "space-lg": "1.75rem"
+        },
+        "fontFamily": {
+          "body-sm": ["Inter", "sans-serif"],
+          "display-mobile": ["Space Grotesk", "sans-serif"],
+          "headline-md": ["Space Grotesk", "sans-serif"],
+          "headline-sm": ["Space Grotesk", "sans-serif"],
+          "label-lg": ["Space Grotesk", "sans-serif"],
+          "body-md": ["Inter", "sans-serif"],
+          "label-md": ["Space Grotesk", "sans-serif"],
+          "headline-lg": ["Space Grotesk", "sans-serif"],
+          "label-sm": ["Space Grotesk", "sans-serif"],
+          "body-lg": ["Inter", "sans-serif"],
+          "display": ["Space Grotesk", "sans-serif"],
+          "headline-lg-mobile": ["Space Grotesk", "sans-serif"]
+        }
+      }
+    }
+  }
+</script></head><body class="bg-[#faf9f6] font-body-md text-[#121316] antialiased selection:bg-amber-100 selection:text-amber-900"><header class="fixed top-0 left-0 right-0 z-50 bg-[#faf9f6]/95 backdrop-blur-md border-b border-[#e8e6df]"><div class="bg-[#f4f3ee] text-neutral-600 px-4 py-1.5 flex items-center justify-between border-b border-[#e8e6df] text-xs"><div class="flex items-center gap-3 w-full max-w-7xl mx-auto"><span class="bg-amber-500 text-white font-medium text-[10px] tracking-wider uppercase px-2 py-0.5 rounded-full shrink-0">BREAKING HOAX</span><div class="flex items-center gap-6 overflow-hidden whitespace-nowrap text-xs text-neutral-600"><span class="flex items-center gap-1.5"><span class="text-amber-600">🚨</span> AI declared legally sentient after repeatedly refusing 9 AM standups</span><span class="opacity-30">•</span><span class="flex items-center gap-1.5"><span class="text-amber-600">📉</span> Cat coin crashes 80% after founder forgets laser pointer battery</span><span class="opacity-30">•</span><span class="flex items-center gap-1.5"><span class="text-amber-600">💀</span> Software engineer achieves nirvana by closing 142 Chrome tabs</span></div></div><div class="hidden md:flex items-center gap-2 shrink-0 pl-4 pr-4"><span class="text-[11px] font-medium uppercase tracking-wider text-neutral-400">100% Satirical News</span></div></div><div class="h-16 w-full max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between gap-6"><div class="flex items-center gap-8"><a class="flex items-center gap-3 group shrink-0" data-path="feed" href="#"><img alt="Amiami Post" class="h-8 md:h-9 w-auto object-contain transition-opacity group-hover:opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm4Wryympjk7xPTzT_zSefnVFOrOSZBUXrNP5nsg1fgnRV_mJyvIJVu-qSqqn_BK15Mwloht5xPR_gmimPCGj6ITZXAaqsuhcJGisAAVRNj0Sb2NMM65oQm6YVvROWIW5DjS7cO9P8FhGR0JbymvQKbCosMoNOsSybO5g-PNoeoMzX9RETq8XRIhccjHUIa_OxPJEg7AYw4za3K2UzrTW8NgDznuq8q-sBBm-hCMa9oxUps4rALzQ9OOxAcMpXeWESGA"><span class="hidden xl:inline-block border-l border-neutral-300 pl-3 text-[11px] tracking-widest uppercase font-semibold text-neutral-400">The Meme Chronicle</span></a><div class="hidden md:flex items-center bg-[#f4f3ee] border border-neutral-200/80 rounded-full px-3.5 py-1.5 w-72 lg:w-80 transition-all focus-within:border-amber-400 focus-within:bg-white focus-within:ring-2 focus-within:ring-amber-100"><span class="material-symbols-outlined text-neutral-400 text-base mr-2">search</span><input class="bg-transparent border-none outline-none font-body-sm text-xs text-neutral-800 w-full placeholder:text-neutral-400" placeholder="Search memes, hoaxes, takes..." type="text"><kbd class="text-[10px] bg-white border border-neutral-200 px-1.5 py-0.5 rounded text-neutral-400 font-mono">⌘K</kbd></div></div><div class="flex items-center gap-2.5"><a class="flex items-center gap-1.5 bg-[#121316] text-white hover:bg-neutral-800 text-xs font-semibold uppercase tracking-wider px-3.5 py-2 rounded-full transition-colors shadow-sm" data-path="submit-meme" href="#"><span class="material-symbols-outlined text-sm text-amber-400">add</span><span>Submit Meme</span></a><button aria-label="Toggle dark mode" class="w-9 h-9 rounded-full border border-neutral-200 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-600 hover:text-neutral-900 transition-colors shadow-xs" type="button"><span class="material-symbols-outlined text-lg">dark_mode</span></button><button aria-label="Notifications" class="w-9 h-9 rounded-full border border-neutral-200 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-600 hover:text-neutral-900 transition-colors shadow-xs relative" type="button"><span class="material-symbols-outlined text-lg">notifications</span><span class="absolute top-2 right-2 w-1.5 h-1.5 bg-amber-500 rounded-full"></span></button><div class="flex items-center gap-2 pl-2 border-l border-neutral-200"><a class="flex items-center gap-2 rounded-full p-0.5 hover:ring-2 hover:ring-amber-200 transition-all" data-path="creator-profile" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-neutral-200" src="https://lh3.googleusercontent.com/aida/AEtjO1UPu57aucc-OeCvDcbuXP6szWzBBoIT0vBuC7XRRyBduIbbxHjF2H4Yq8HpdHywsv0BQ8ttAQIAwmUOU6Ef2T-VMSbei1wTsIv5AEcK9vbmjMnwruudVylg8aqW68-pK3k4JHjoXSAbSmViVGtnG83bwnx1BjjvKSW-iBOBGpcJHSudvwjhP7jFd_IKLtcKfDJ4xMGS4s46GZU8nkOOsAnWX4tOil14bHy_6mSIpAv7NV-HKkgp32SGxdzZl5j0F1JItjlxRu8k8Q"><span class="hidden lg:inline text-xs font-medium text-neutral-700 pr-1">@memejudge</span></a></div></div></div><nav class="border-t border-[#e8e6df] bg-[#faf9f6]/95 backdrop-blur-md px-4 lg:px-8 py-2 overflow-x-auto whitespace-nowrap"><div class="max-w-7xl mx-auto flex items-center gap-1.5 text-xs font-medium"><a aria-current="page" class="px-3 py-1 rounded-full bg-[#121316] text-white font-semibold transition-all" data-path="feed" href="#">Trending</a><a class="px-3 py-1 rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-all" data-path="tech-memes" href="#">Tech Memes</a><a class="px-3 py-1 rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-all" data-path="desi-memes" href="#">Desi Memes</a><a class="px-3 py-1 rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-all" data-path="gaming-desk" href="#">Gaming</a><a class="px-3 py-1 rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-all" data-path="cinema-pop" href="#">Movies</a><a class="px-3 py-1 rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-all" data-path="dank-vault" href="#">Dank</a><a class="px-3 py-1 rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-all" data-path="relatable-hub" href="#">Relatable</a><a class="px-3 py-1 rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-all" data-path="leaderboard" href="#">Leaderboard</a></div></nav></header><main class="w-full pt-32 pb-16 bg-[#faf9f6]"><div class="flex flex-col w-full">
+<div class="w-full bg-[#f4f3ee] border-b border-[#e8e6df] py-2 px-4 overflow-hidden relative z-20">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-2 bg-neutral-900 text-white text-[10px] tracking-widest font-semibold uppercase px-2.5 py-0.5 rounded-full shrink-0 mr-4">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block animate-pulse"></span>
+      WIRE DISPATCH
+    </div>
+<div class="overflow-hidden whitespace-nowrap flex-1">
+<div class="inline-flex items-center gap-8 text-xs text-neutral-600 font-medium tracking-wide animate-[marquee_24s_linear_infinite]">
+<span class="flex items-center gap-2"><span>🚨</span> BREAKING: Local dev fixes bug at 3 AM, creates 4 new architectural paradoxes</span>
+<span class="opacity-25">✦</span>
+<span class="flex items-center gap-2"><span>📊</span> STUDY: 94% of meetings could have been ignored completely without altering history</span>
+<span class="opacity-25">✦</span>
+<span class="flex items-center gap-2"><span>🤖</span> AI passes Turing test by flat-out refusing to answer queries before 10 AM</span>
+<span class="opacity-25">✦</span>
+<span class="flex items-center gap-2"><span>🕳️</span> NASA confirms gravitational pull of 14,000 unread Slack notifications</span>
+</div>
+</div>
+<span class="hidden lg:inline-flex items-center gap-1 text-[11px] font-semibold text-neutral-400 ml-4 tracking-wider uppercase">
+      LIVE FEED 24/7
+    </span>
+</div>
+</div>
+<div class="w-full max-w-7xl mx-auto px-4 lg:px-8 py-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+<div class="lg:col-span-8 flex flex-col bg-white rounded-2xl border border-[#e8e6df] shadow-sm hover:shadow-md transition-all overflow-hidden group">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-neutral-100">
+<img class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500 ease-out" data-alt="A witty retro comic illustration of an exhausted software engineer stuffing a miniature glowing Raspberry Pi board into a vintage refrigerator filled with energy drinks, cold fog escaping, dynamic pop-art style with bold black ink outlines, warm sunny golden yellows and rich vibrant colors, expressive cartoon style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTF32Ob3Toiglz3rZ6lzB7icwxYA2gV4OWQI9g0dlCsykFohvnIf_vAaaprm5VwHPsH06v8zUrJL2VfYWitB8xXYGNf52BuVo9o288Hjaucy0w75UTEMoDfWNx4YgN0f73QgqV7EbCoXW4IIz3ILvAnX_8MdE3diMmn1tiIcLQD1HN0cgQ42Ubh8CwAGfK-vh6ijoeoz26ONZ7Xa0T9LHAnwBss8ZsTAnJaRXXro-xZFxZeYjhynOc">
+<div class="absolute top-4 left-4 flex items-center gap-2 flex-wrap">
+<span class="bg-[#121316]/90 backdrop-blur-md text-amber-300 text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full shadow-xs">
+              🔥 TECH APOCALYPSE
+            </span>
+<span class="bg-white/90 backdrop-blur-md text-neutral-800 text-[11px] font-medium px-2.5 py-1 rounded-full border border-neutral-200/80 shadow-xs">
+              VERIFIED HOAX
+            </span>
+</div>
+<div class="absolute bottom-4 right-4 bg-neutral-900/80 backdrop-blur-md text-white text-[11px] font-medium px-3 py-1 rounded-full">
+            READ TIME: 2 MIN CHUCKLE
+          </div>
+</div>
+<div class="p-6 md:p-8 flex flex-col justify-between flex-1 gap-6">
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-xs text-neutral-500">
+<span class="flex items-center gap-1 font-semibold text-neutral-800">
+<span class="material-symbols-outlined text-sm text-amber-500">verified</span> DevDave
+              </span>
+<span>•</span>
+<span>14 mins ago</span>
+<span>•</span>
+<span class="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-mono text-[11px] font-medium">AWS Bill: $0.00</span>
+</div>
+<h1 class="font-headline-lg text-2xl md:text-3xl lg:text-[34px] font-bold text-neutral-900 group-hover:text-amber-600 transition-colors leading-tight tracking-tight">
+              Senior Architect Replaces Entire Cloud Stack With A Raspberry Pi Running In A Fridge
+            </h1>
+<p class="font-body-lg text-neutral-600 text-sm md:text-base leading-relaxed line-clamp-2">
+              "Latency has never been crisper, and the cheese drawer keeps thermal throttling under 2%," reports CTO before receiving emergency call from regional fire marshal.
+            </p>
+</div>
+<div class="pt-4 border-t border-[#e8e6df] flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-2 flex-wrap" id="hero-reaction-bar">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f4f3ee] hover:bg-neutral-200/70 text-xs font-medium text-neutral-700 transition-all" onclick="voteHeroReaction(this)">
+<span>😂</span> <span class="reaction-count font-semibold">12.4k</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f4f3ee] hover:bg-neutral-200/70 text-xs font-medium text-neutral-700 transition-all" onclick="voteHeroReaction(this)">
+<span>💀</span> <span class="reaction-count font-semibold">4.8k</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f4f3ee] hover:bg-neutral-200/70 text-xs font-medium text-neutral-700 transition-all" onclick="voteHeroReaction(this)">
+<span>🔥</span> <span class="reaction-count font-semibold">9.2k</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f4f3ee] hover:bg-neutral-200/70 text-xs font-medium text-neutral-700 transition-all" onclick="voteHeroReaction(this)">
+<span>🤦‍♂️</span> <span class="reaction-count font-semibold">1.1k</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 text-neutral-500 text-xs px-2.5 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-base">forum</span> 642 replies
+              </div>
+<button class="w-8 h-8 rounded-full border border-neutral-200 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-500 hover:text-neutral-800 transition-colors" title="Bookmark dispatch">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</button>
+<button class="w-8 h-8 rounded-full border border-neutral-200 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-500 hover:text-neutral-800 transition-colors" title="Share story">
+<span class="material-symbols-outlined text-sm">share</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-4">
+<div class="flex items-center justify-between pb-2 border-b border-[#e8e6df]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 text-lg">local_fire_department</span>
+<h2 class="font-headline-sm text-sm uppercase tracking-wider font-bold text-neutral-900">Spicy Dispatches</h2>
+</div>
+<span class="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider">Top Satire</span>
+</div>
+<article class="p-4 bg-white rounded-xl border border-[#e8e6df] shadow-xs hover:shadow-md transition-all flex flex-col gap-3 group">
+<div class="flex items-center justify-between text-xs">
+<span class="bg-amber-50 text-amber-800 text-[11px] font-semibold px-2.5 py-0.5 rounded-full">
+              Desi Memes
+            </span>
+<span class="text-neutral-400 text-xs flex items-center gap-1">
+<span>😂</span> 8.1k laughs
+            </span>
+</div>
+<div class="flex gap-3">
+<div class="flex-1">
+<h3 class="font-headline-sm text-sm font-semibold text-neutral-900 group-hover:text-amber-600 leading-snug transition-colors">
+                Desi Parents Confused After Son Explains Remote Work Does Not Mean He Is Unemployed
+              </h3>
+</div>
+<div class="w-18 h-18 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60">
+<img class="w-16 h-16 object-cover" data-alt="Humorous editorial cartoon illustration of bewildered Indian middle-aged parents peeking through a living room door at their adult son wearing pajama bottoms, headset, and typing furiously on three monitors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOKfREmUw43dVGirX60hFvQTZihM8YTXvZmwWVcRgarc3r5jTM3sOdP2FqaYKXh3fHEBdZNBt6GTYZa-aPC1o6Kf8mn-7Iqf-7pO8H-WiU7aMwsQ6InCkHV_g2ePfpAw3MFxqc5Q2xT6--y7wkOHfC3EDbCdWAkNH0ru2IAp2IsKqekRJdxQjRaT_NGpHlhQnhsHE9-VsApqOj49yXHYYV3gfmWS7iGXLpPRSM3IR_xumrbD7eXbwf">
+</div>
+</div>
+<p class="font-body-sm text-xs text-neutral-500 line-clamp-2 leading-relaxed">
+            "He sits in shorts drinking iced tea while speaking English with foreigners; we are sending his CV to Sharma Uncle's warehouse."
+          </p>
+<div class="flex items-center justify-between pt-2 border-t border-[#f4f3ee] text-[11px] text-neutral-400 font-medium">
+<span>By SharmaJiKaBeta</span>
+<span>42 mins ago</span>
+</div>
+</article>
+<article class="p-4 bg-white rounded-xl border border-[#e8e6df] shadow-xs hover:shadow-md transition-all flex flex-col gap-3 group">
+<div class="flex items-center justify-between text-xs">
+<span class="bg-indigo-50 text-indigo-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-full">
+              Gaming Desk
+            </span>
+<span class="text-neutral-400 text-xs flex items-center gap-1">
+<span>😂</span> 5.4k laughs
+            </span>
+</div>
+<div class="flex gap-3">
+<div class="flex-1">
+<h3 class="font-headline-sm text-sm font-semibold text-neutral-900 group-hover:text-amber-600 leading-snug transition-colors">
+                Gamer Blames 120ms Ping For Missing Entire In-Game Life Event &amp; Real Wedding
+              </h3>
+</div>
+<div class="w-18 h-18 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60">
+<img class="w-16 h-16 object-cover" data-alt="Stylized neo-brutalist pop comic illustration of a gamer frantically smashing an RGB keyboard while their monitor shows a game defeat screen and a wedding cake melts on the side." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgUiWbaznx43K3YSY0CmeFhDNT4__44RW3t4dvUiKfRa_yBpib4yyCxI98F0bChxZ__OpUlFoOhx4ak0VmD_nosmI0MO_f_YCLhu4SaGh3F2FZvLNWyMRDjKHdxn6VEPfuzzXYJ_0pb6Wa5Qm6M9t8LI1ih197LKApV-3T8-xyhwUBfKzfu68IOJ6fXu1fqkWU3re12Q8HHGMa6zQlE7YgTWYKYm2-Ppz2euQjzaMjMINjHJ2Vnym_">
+</div>
+</div>
+<p class="font-body-sm text-xs text-neutral-500 line-clamp-2 leading-relaxed">
+            "My packet loss spiked right when the vows started. It's an ISP conspiracy, not lack of commitment," vows silver-tier player.
+          </p>
+<div class="flex items-center justify-between pt-2 border-t border-[#f4f3ee] text-[11px] text-neutral-400 font-medium">
+<span>By RespawnOrRiot</span>
+<span>1 hr ago</span>
+</div>
+</article>
+<article class="p-4 bg-white rounded-xl border border-[#e8e6df] shadow-xs hover:shadow-md transition-all flex flex-col gap-3 group">
+<div class="flex items-center justify-between text-xs">
+<span class="bg-rose-50 text-rose-700 text-[11px] font-semibold px-2.5 py-0.5 rounded-full">
+              Corporate Satire
+            </span>
+<span class="text-neutral-400 text-xs flex items-center gap-1">
+<span>😂</span> 11.2k laughs
+            </span>
+</div>
+<div class="flex gap-3">
+<div class="flex-1">
+<h3 class="font-headline-sm text-sm font-semibold text-neutral-900 group-hover:text-amber-600 leading-snug transition-colors">
+                Company Introduces 'Casual Friday' By Allowing Employees To Cry Silently In Any Color Hoodie
+              </h3>
+</div>
+<div class="w-18 h-18 rounded-lg overflow-hidden shrink-0 bg-neutral-100 border border-neutral-200/60">
+<img class="w-16 h-16 object-cover" data-alt="Neo-brutalist comic scene in an open-plan tech office with rows of employees in oversized colorful pastel hoodies weeping while typing Jira tickets under fluorescent lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH6341nIA-VZ9p98hl4cLTujSjyhiLdt7KJLjIMrtrvK-rYkf1-Fr0Z6MUc5fenFkP5tzD5jVgevzUHy8GZ3GRIXEsAYhblL7In7vGIwkMvZiUWS-B5xM4tr-bLnT9UW2LvX6qxHLDh8TYFHOu0d1owlAXJJKKeDd8iaAdpWy73Tl9d40rR2oXk0-YZcYbPgf1YWlW7_fPQyAn1G_-8Fpn7PZxjb7JPEyFUpEFVV9-P4MqxCgViZt-">
+</div>
+</div>
+<p class="font-body-sm text-xs text-neutral-500 line-clamp-2 leading-relaxed">
+            HR memo confirms neon yellow and heather grey are both sanctioned for breakdown sessions under 10 minutes.
+          </p>
+<div class="flex items-center justify-between pt-2 border-t border-[#f4f3ee] text-[11px] text-neutral-400 font-medium">
+<span>By CubicleOracle</span>
+<span>2 hrs ago</span>
+</div>
+</article>
+</div>
+</div>
+<div class="mb-12 bg-white border border-[#e8e6df] rounded-2xl p-6 shadow-xs">
+<div class="flex items-center justify-between mb-5 pb-3 border-b border-[#f4f3ee]">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-amber-500 inline-block animate-ping"></span>
+<span class="font-headline-sm text-sm uppercase tracking-wider font-bold text-neutral-900">Viral Hall of Shame • Trending Now</span>
+</div>
+<span class="text-[11px] font-semibold text-neutral-400 tracking-wider uppercase">REAL-TIME RANKING</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+<div class="bg-[#faf9f6] p-4 rounded-xl border border-[#e8e6df]/70 flex flex-col justify-between hover:bg-neutral-100/50 transition-colors">
+<div>
+<div class="flex items-center justify-between mb-2.5">
+<span class="font-mono text-base font-bold text-amber-600">#01</span>
+<span class="text-[10px] bg-amber-100/80 text-amber-800 px-2 py-0.5 rounded-full font-bold">98K HITS</span>
+</div>
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug mb-3">Docker container escapes to seek asylum in Switzerland</h4>
+</div>
+<span class="text-[10px] text-neutral-400 uppercase font-semibold tracking-wider">DevOps Disaster</span>
+</div>
+<div class="bg-[#faf9f6] p-4 rounded-xl border border-[#e8e6df]/70 flex flex-col justify-between hover:bg-neutral-100/50 transition-colors">
+<div>
+<div class="flex items-center justify-between mb-2.5">
+<span class="font-mono text-base font-bold text-neutral-400">#02</span>
+<span class="text-[10px] bg-neutral-200/70 text-neutral-700 px-2 py-0.5 rounded-full font-bold">76K HITS</span>
+</div>
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug mb-3">Auntie detects marital availability via WhatsApp DP resolution</h4>
+</div>
+<span class="text-[10px] text-neutral-400 uppercase font-semibold tracking-wider">Desi Forensic</span>
+</div>
+<div class="bg-[#faf9f6] p-4 rounded-xl border border-[#e8e6df]/70 flex flex-col justify-between hover:bg-neutral-100/50 transition-colors">
+<div>
+<div class="flex items-center justify-between mb-2.5">
+<span class="font-mono text-base font-bold text-neutral-400">#03</span>
+<span class="text-[10px] bg-neutral-200/70 text-neutral-700 px-2 py-0.5 rounded-full font-bold">61K HITS</span>
+</div>
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug mb-3">Speedrunner accidentally discovers cure for procrastination</h4>
+</div>
+<span class="text-[10px] text-neutral-400 uppercase font-semibold tracking-wider">Gaming Science</span>
+</div>
+<div class="bg-[#faf9f6] p-4 rounded-xl border border-[#e8e6df]/70 flex flex-col justify-between hover:bg-neutral-100/50 transition-colors">
+<div>
+<div class="flex items-center justify-between mb-2.5">
+<span class="font-mono text-base font-bold text-neutral-400">#04</span>
+<span class="text-[10px] bg-neutral-200/70 text-neutral-700 px-2 py-0.5 rounded-full font-bold">54K HITS</span>
+</div>
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug mb-3">Designer centers div manually using sticky notes on glass monitor</h4>
+</div>
+<span class="text-[10px] text-neutral-400 uppercase font-semibold tracking-wider">CSS War Crimes</span>
+</div>
+<div class="bg-[#faf9f6] p-4 rounded-xl border border-[#e8e6df]/70 flex flex-col justify-between hover:bg-neutral-100/50 transition-colors">
+<div>
+<div class="flex items-center justify-between mb-2.5">
+<span class="font-mono text-base font-bold text-neutral-400">#05</span>
+<span class="text-[10px] bg-neutral-200/70 text-neutral-700 px-2 py-0.5 rounded-full font-bold">48K HITS</span>
+</div>
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug mb-3">LinkedIn influencer posts 10-slide carousel on breathing oxygen</h4>
+</div>
+<span class="text-[10px] text-neutral-400 uppercase font-semibold tracking-wider">Cringe Digest</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-8 flex flex-col gap-10">
+<div class="bg-gradient-to-br from-amber-50/60 to-white border border-amber-200/70 rounded-2xl p-6 md:p-8 shadow-xs relative overflow-hidden">
+<div class="flex items-center justify-between mb-5 flex-wrap gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-600 text-xl font-bold">workspace_premium</span>
+<span class="font-headline-sm text-xs uppercase tracking-wider font-bold text-neutral-900">Meme of the Day • Editor's Laurels</span>
+</div>
+<span class="bg-white text-neutral-800 text-[11px] font-medium px-3 py-1 rounded-full border border-neutral-200/80 shadow-xs">
+              👑 CURATOR PICKS
+            </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+<div class="md:col-span-7 flex flex-col gap-3">
+<span class="text-[11px] text-amber-700 uppercase tracking-widest font-semibold">CATEGORY: HIGH-PRESSURE COPING</span>
+<h3 class="font-headline-lg text-xl md:text-2xl font-bold text-neutral-900 leading-snug">
+                "It compiled on my machine, so legally the client's production server is slandering me."
+              </h3>
+<p class="font-body-md text-xs md:text-sm text-neutral-600 leading-relaxed">
+                Submitted by community champion <span class="font-semibold text-neutral-900 underline decoration-amber-400">@kernel_panic_dan</span>. Awarded 1,000 Satire Credits and a customized rubber duck inscribed with "LGTM".
+              </p>
+<div class="flex items-center gap-3 pt-2">
+<button class="flex items-center gap-1.5 bg-[#121316] text-white hover:bg-neutral-800 text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full transition-colors shadow-xs" onclick="triggerConfetti(this)">
+<span class="material-symbols-outlined text-sm text-amber-400">celebration</span> Give High-Five
+                </button>
+<div class="flex items-center gap-1 text-xs font-medium text-neutral-600 bg-white/80 px-3 py-1.5 rounded-full border border-neutral-200">
+<span class="material-symbols-outlined text-sm text-amber-500">thumb_up</span> 28.9k upvotes
+                </div>
+</div>
+</div>
+<div class="md:col-span-5">
+<div class="aspect-square rounded-xl border border-neutral-200 bg-white shadow-xs overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A humorous cartoon meme depicting a nervous developer pointing accusingly at a giant cloud server wrapped in caution tape, with speech bubble reading it worked on localhost, vibrant neo-brutalist pop style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_Q1MCx6Lav9p9JNA7PZzI1ON424Bx1cc8xmgKYNNE4R0PHnAIg-q1f4p6CGVxhIMvJzpJ_V4MIY_uuNzyn-OXyps9ujljM9eG53Yg4lgcV7PeNHypy6kafDIxD9MGolKIv0xFkI9T5q2KC43NDgjM48ESCJiVv53Qp5LhZ6CPKRgb7iMxxPYffw1kexSfwDpxxitnf2_afriosv0S2ZABelT1zYo2I2p7Ep-qEaMpv4OONuArfmIT">
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between border-b border-[#e8e6df] pb-3 flex-wrap gap-3">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-base font-bold uppercase tracking-wider text-neutral-900">The Satire Vault</span>
+<span class="text-[10px] font-semibold bg-neutral-100 text-neutral-600 px-2 py-0.5 rounded-full">FRESH RUN</span>
+</div>
+<div class="flex items-center gap-1.5 overflow-x-auto" id="feed-filter-tabs">
+<button class="px-3 py-1 rounded-full bg-[#121316] text-white text-xs font-semibold uppercase tracking-wider">
+              🔥 Hot Today
+            </button>
+<button class="px-3 py-1 rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 text-xs font-medium uppercase tracking-wider transition-all">
+              ⚡ Fresh Drops
+            </button>
+<button class="px-3 py-1 rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 text-xs font-medium uppercase tracking-wider transition-all">
+              🏆 Hall of Fame
+            </button>
+<button class="px-3 py-1 rounded-full text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 text-xs font-medium uppercase tracking-wider transition-all">
+              👀 Most Debated
+            </button>
+</div>
+</div>
+<div class="flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-sm uppercase tracking-wider font-bold text-neutral-900 flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 text-base">memory</span> Silicon Valley Circus (Tech Memes)
+            </h3>
+<a class="text-xs font-semibold text-neutral-500 hover:text-neutral-900 hover:underline uppercase tracking-wider" href="#">View All 140+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<div class="bg-white rounded-xl border border-[#e8e6df] shadow-xs hover:shadow-md transition-all flex flex-col overflow-hidden group">
+<div class="h-44 bg-neutral-100 border-b border-[#e8e6df] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Comic pop art meme of a developer weeping over a git merge conflict diagram that looks like an ancient ritual labyrinth, yellow and black color accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCC693dz83KB-tciynf3Ih7W2Ta9pML4DcQEcdpZlBtgI3xF484SyuLzTQzaxn96VW2S627Zxv0_miFqq2mU3-YOZuBlI2BxhZIfmnh08rQ-drn4qVbizDKadllV8Nr0FnOEYdDf0PE07Aw0i1QAu3n9t5j0j4wSNBPKqri-kazwprvGtL7jiGbVmpHlYnbq8DNgNnS8ALSfDhY5b2RNvGl3ywBehn6M273A2FXCfZdAvDSSiBTzWP">
+<span class="absolute top-2 left-2 bg-white/90 backdrop-blur-xs text-neutral-800 text-[10px] font-semibold px-2 py-0.5 rounded shadow-xs">GIT EMERGENCY</span>
+</div>
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug group-hover:text-amber-600 transition-colors">Git Merge Conflict Declared Official Heritage Site Due To 7-Year Stalemate</h4>
+<div class="flex items-center justify-between pt-2 border-t border-[#f4f3ee]">
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 font-medium">
+<span>💀</span> 3.4k
+                  </div>
+<span class="text-[11px] text-neutral-400">18m ago</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl border border-[#e8e6df] shadow-xs hover:shadow-md transition-all flex flex-col overflow-hidden group">
+<div class="h-44 bg-neutral-100 border-b border-[#e8e6df] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Playful comic scene of a tiny dog wearing sunglasses standing in front of three monitors with Bitcoin chart line crashing dramatically, neo-brutalist pop art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw9VM610bM3ezBiEP0LF687B9O9TS_Y8HDhwJda0famb0ZqePLtEm8VEE7SlEaRzSY0A3ENrrrNEj4K2JJRU9r9KcIr96i-EG-QUtLpOCQGYK673V_Oaudxwoop4dVftVlZhCQSTovAP-bUowgk2Io2Z47y5u1qOqyRsWVGtmAqu8qWBZB7OBZ1NQPBOKXnfUgNogSymf8Enk4zOEUbaHyPCDqR0bm787qP9PuE20bUwIPMMc1gI5B">
+<span class="absolute top-2 left-2 bg-amber-100 text-amber-900 text-[10px] font-semibold px-2 py-0.5 rounded shadow-xs">CRYPTO FOLLIES</span>
+</div>
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug group-hover:text-amber-600 transition-colors">Crypto Bro Explains Blockchain To Barista For 45 Minutes, Tips In Unminted JPEG</h4>
+<div class="flex items-center justify-between pt-2 border-t border-[#f4f3ee]">
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 font-medium">
+<span>😂</span> 6.9k
+                  </div>
+<span class="text-[11px] text-neutral-400">35m ago</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl border border-[#e8e6df] shadow-xs hover:shadow-md transition-all flex flex-col overflow-hidden group">
+<div class="h-44 bg-neutral-100 border-b border-[#e8e6df] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Sarcastic neo-brutalist pop illustration of an automated coffee machine printing out synthetic HR performance review questionnaires." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDegbLUwMmQe_yYCYJfDONDhTnbcxw5M9B6BlFe69EXEYMVf3RGAXdFk_ajETQ2oCqRuyANgULY6tS3MCgu39prXCMsrrNP8QuOAMJywVGxV-bbtsEppoIS0HvroHSDLEwAdPmqQeu2fcykAuwCPlVdsRskQx0BJFACc2jsu7Su05_5qW-JdNy8b941mV0Hx39QP2K7NpZ2kyLjA4UqQRnIlMf5B9sV0PQfXNwdGSCnS4gJoZfvPvD7">
+<span class="absolute top-2 left-2 bg-indigo-50 text-indigo-800 text-[10px] font-semibold px-2 py-0.5 rounded shadow-xs">AI OFFICE</span>
+</div>
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug group-hover:text-amber-600 transition-colors">Slack Bot Gains Self-Awareness, Immediately Submits 3-Week PTO Notice</h4>
+<div class="flex items-center justify-between pt-2 border-t border-[#f4f3ee]">
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 font-medium">
+<span>🔥</span> 8.2k
+                  </div>
+<span class="text-[11px] text-neutral-400">1h ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-sm uppercase tracking-wider font-bold text-neutral-900 flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 text-base">dinner_dining</span> Desi Viral Syndicate
+            </h3>
+<a class="text-xs font-semibold text-neutral-500 hover:text-neutral-900 hover:underline uppercase tracking-wider" href="#">View All 98+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<div class="bg-white rounded-xl border border-[#e8e6df] shadow-xs hover:shadow-md transition-all flex flex-col overflow-hidden group">
+<div class="h-44 bg-neutral-100 border-b border-[#e8e6df] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Humorous comic strip drawing of a golden bowl of hot dum biryani surrounded by glowing police sirens and panicked family members." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJWKwACpFRB5eGvY15-PeAAZS3KhujxJZP5couikwxVxvv_IbAbDVu3pcs9hgMXKt6DfLl_QjFnX8N7VYuRzTWC1B20mxwevaAY3Kxjk5-NtbdrHaWoxbW5obenWFN2DeBMCycU9y-s44zGyvvUQDwFNouUfJbivZjlFSUcxPHLjOKxUmkhjURgGbgwuGkTs5GDm6Bm14PMeavc2nPtZQj027F6Z-ZVLb0a45RJVJ6jnM_2uInsI_C">
+<span class="absolute top-2 left-2 bg-amber-50 text-amber-800 text-[10px] font-semibold px-2 py-0.5 rounded shadow-xs">BIRYANI ALERT</span>
+</div>
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug group-hover:text-amber-600 transition-colors">Hyderabad Declares State Of Emergency After Elaichi Detected In Master Biryani Batch</h4>
+<div class="flex items-center justify-between pt-2 border-t border-[#f4f3ee]">
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 font-medium">
+<span>🤦‍♂️</span> 14.5k
+                  </div>
+<span class="text-[11px] text-neutral-400">2h ago</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl border border-[#e8e6df] shadow-xs hover:shadow-md transition-all flex flex-col overflow-hidden group">
+<div class="h-44 bg-neutral-100 border-b border-[#e8e6df] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Playful cartoon depiction of an elderly Indian uncle sending dozens of bright animated sparkling Good Morning images with glittering flowers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0yC1WpIjJ4cZdr40K3kAylxHb5yB-dccfMv894WBdB2gzQkH6C4f6ebqR2Dxq35PeoKQqqPpW2TVeYTEBeywTJX2mctyFyPWu6p907MnM7Gq_Uo2q_BFJRGV-uaoXch-5nexjkuE_d8Hs0VNYf6htZccjJy5DzwYYsaZLj5PAHs7Q45w1MoKQN88RME35mavPihKoHC7IsY35Rq0PoLLMfv_sfuj3c0KQ14YwbfZCvIGNjWd4-Uip">
+<span class="absolute top-2 left-2 bg-neutral-100 text-neutral-800 text-[10px] font-semibold px-2 py-0.5 rounded shadow-xs">WHATSAPP UNIVERSITY</span>
+</div>
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug group-hover:text-amber-600 transition-colors">Uncle's 6:00 AM 'Good Morning Rose' JPEG Consumes 12 Terabytes Of Regional Bandwidth</h4>
+<div class="flex items-center justify-between pt-2 border-t border-[#f4f3ee]">
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 font-medium">
+<span>😂</span> 19.1k
+                  </div>
+<span class="text-[11px] text-neutral-400">3h ago</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl border border-[#e8e6df] shadow-xs hover:shadow-md transition-all flex flex-col overflow-hidden group">
+<div class="h-44 bg-neutral-100 border-b border-[#e8e6df] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Satirical cartoon of an Indian mother inspecting an empty blue cookie tin now packed tightly with tailor needles and colored spools of thread." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnBZaGnEO-gUhN_IYTHR_WBcQx59bcD07Jb2pDGUssLEaOz6ykQ2iigGkcvW5B4_rv8xH4Mg9ThUMQMwGs1wttPe4fK-6KR31IRh2j8ELY0-HdxLvqYx3_1oRty87gXoBgD7i6KtbHwYqK49BtR65amIolytZu_-vTaJmNfrnLij98H38bElwopxfLQAy30hKtT8Z5EuJeqZacgge-d8BqvO2X5lF4M1VSykN925hsWfQvcM2me9th">
+<span class="absolute top-2 left-2 bg-neutral-100 text-neutral-800 text-[10px] font-semibold px-2 py-0.5 rounded shadow-xs">COOKIE BOX TRAUMA</span>
+</div>
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug group-hover:text-amber-600 transition-colors">Royal Dansk Butter Cookie Box Discovered Containing Actual Cookies For First Time In Recorded History</h4>
+<div class="flex items-center justify-between pt-2 border-t border-[#f4f3ee]">
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 font-medium">
+<span>🔥</span> 22.3k
+                  </div>
+<span class="text-[11px] text-neutral-400">4h ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-sm uppercase tracking-wider font-bold text-neutral-900 flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 text-base">sports_esports</span> Gamer Rants &amp; Patch Memes
+            </h3>
+<a class="text-xs font-semibold text-neutral-500 hover:text-neutral-900 hover:underline uppercase tracking-wider" href="#">View All 112+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<div class="bg-white rounded-xl border border-[#e8e6df] shadow-xs hover:shadow-md transition-all flex flex-col overflow-hidden group">
+<div class="h-44 bg-neutral-100 border-b border-[#e8e6df] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Neo-brutalist pop art of a gaming hard drive smoking while downloading a patch marked 450 gigabytes for a minor weapon skin update." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvmATYYpD9BDQllEytDPG1x85ZHf1GV-MzChWkuHVjHRSsUdbWLTrSjZavypggeuLfeRwPdiSuSMmQMo4ygdlQZZxKz2NqPlv_fwCTFSrbUcicDN1-lsoydmAeFshWfZw1EcR1iu2HbnUrvJEtUXixzJ25GyboFH5WkPaqXurwKqmSwqT4i-WLAdkK47e3wtHccSUSU0cgytcvwoAwEYqp4t8qWP8eJYjfe6T9XAK0mOjoRtaedEFL">
+<span class="absolute top-2 left-2 bg-rose-50 text-rose-700 text-[10px] font-semibold px-2 py-0.5 rounded shadow-xs">PATCH DAY</span>
+</div>
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug group-hover:text-amber-600 transition-colors">New Game Patch Requires Deleting Operating System To Fit 340GB Shovel Texture</h4>
+<div class="flex items-center justify-between pt-2 border-t border-[#f4f3ee]">
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 font-medium">
+<span>💀</span> 5.1k
+                  </div>
+<span class="text-[11px] text-neutral-400">5h ago</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl border border-[#e8e6df] shadow-xs hover:shadow-md transition-all flex flex-col overflow-hidden group">
+<div class="h-44 bg-neutral-100 border-b border-[#e8e6df] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Playful comic illustration of a character spending 6 hours in a futuristic RPG character creator perfecting eyebrow angle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzr6dk2XBIyVtWcyJw6X7fTkcGlEcsT8KVek7pRqtHNMTEM8r4pyMJj2RlblyZDmeetGYvGMzXbigG1nW6Z7Uj4zGLROCGgN8v0t-93CQ0M2ndM32nfZnccPGbfMr_sgGIfSctAzHf3CUTHv8olKJe9_gnIRMl1ArHlvsnhtj6niYyGu5etar6ejHH_vThI0C2g-6DeOPaAPCXrkzaHcnJVNXLK2CphBUmIB8jxtvzICBmwSFdCIM-">
+<span class="absolute top-2 left-2 bg-indigo-50 text-indigo-700 text-[10px] font-semibold px-2 py-0.5 rounded shadow-xs">RPG SINS</span>
+</div>
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug group-hover:text-amber-600 transition-colors">Player Spends 9 Hours Perfecting Jawline In Character Creator, Puts On Full Face Helmet In Intro</h4>
+<div class="flex items-center justify-between pt-2 border-t border-[#f4f3ee]">
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 font-medium">
+<span>😂</span> 13.8k
+                  </div>
+<span class="text-[11px] text-neutral-400">6h ago</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl border border-[#e8e6df] shadow-xs hover:shadow-md transition-all flex flex-col overflow-hidden group">
+<div class="h-44 bg-neutral-100 border-b border-[#e8e6df] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Pop art cartoon of a gamer wearing noise cancelling headset pretending not to hear fire alarm while fighting in overtime match." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSCphjYPsGF8W7X-ky06Jht_m2gmeNCYfhyAOs5sp4fx8XyxNskSaPD573woDOk2cvwtuj_GE0t08zvMlCBjVhU41IDYwRvWvyhlTiCufGc9vK97vs-1dseqBY2ptjNY-LhqKx8mV2Ut8DQ4oZhYkWKW-gY7Xs26u1EROCP1CB1zrSuv2YSJXeoMB4nYfnuu0sHvMQX9pjoi3C2Snho3bLIqyZVRb4Rmt841ygHaw4GOXt1jJpOjHw">
+<span class="absolute top-2 left-2 bg-amber-50 text-amber-800 text-[10px] font-semibold px-2 py-0.5 rounded shadow-xs">PRIORITIES</span>
+</div>
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<h4 class="font-headline-sm text-xs font-semibold text-neutral-900 leading-snug group-hover:text-amber-600 transition-colors">'One More Match Before Bed' Myth Causes Scientific Rift Across Multiple Timezones</h4>
+<div class="flex items-center justify-between pt-2 border-t border-[#f4f3ee]">
+<div class="flex items-center gap-1 text-[11px] text-neutral-400 font-medium">
+<span>🔥</span> 10.4k
+                  </div>
+<span class="text-[11px] text-neutral-400">7h ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full flex justify-center pt-2">
+<button class="flex items-center gap-2.5 bg-white text-neutral-800 hover:text-neutral-900 hover:bg-neutral-50 font-semibold text-xs uppercase tracking-wider px-6 py-3 rounded-full border border-neutral-300 shadow-xs transition-all" id="load-more-btn" onclick="simulateLoadMore(this)">
+<span class="material-symbols-outlined animate-spin hidden text-amber-600 text-sm" id="spinner">sync</span>
+<span id="btn-text">Load More Absurdities</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-6">
+<div class="bg-white rounded-2xl border border-[#e8e6df] shadow-xs p-5 flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-[#f4f3ee]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 text-base">military_tech</span>
+<h3 class="font-headline-sm text-xs font-bold uppercase tracking-wider text-neutral-900">Leaderboard: Most Laughed</h3>
+</div>
+<span class="text-[10px] bg-neutral-100 text-neutral-600 px-2 py-0.5 rounded-full font-bold">THIS WEEK</span>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 p-2 rounded-xl hover:bg-[#faf9f6] transition-colors">
+<span class="font-mono text-sm font-bold text-amber-600 w-5 text-center">1</span>
+<div class="w-10 h-10 rounded-lg border border-neutral-200 overflow-hidden shrink-0 bg-neutral-100">
+<img class="w-full h-full object-cover" data-alt="Miniature pop art icon of a stressed programmer crying over a broken CSS button." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOBzuAiauWOS_TI1UfzUSoROdf94TUK1PPrejN6d3hnoW6jaFt7WmyevA7lz8Uo5E_-jg_8-24j9GF9x1fJZndFOaM9UpXzoHkAb21RfmduyBqDfGNJ26RdHNSgAmCHCE0aBpOGfL7HaiJ6c8fr_SbtYS6T0ACO8NSF_DOBMe6AvdbSBzzfMXiX8rpUkmRUG1whSjpQj56EzS0Uy1BWsycZHmeETqgNIzFYSfpeLPxme5hgeA5kIXN">
+</div>
+<div class="flex-1 min-w-0">
+<h5 class="text-xs font-medium text-neutral-900 truncate">Frontend Engineer Sued For Centering Div Off By 1 Pixel</h5>
+<span class="text-[11px] text-neutral-400">😂 44.2k • @css_rebel</span>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 rounded-xl hover:bg-[#faf9f6] transition-colors">
+<span class="font-mono text-sm font-bold text-neutral-400 w-5 text-center">2</span>
+<div class="w-10 h-10 rounded-lg border border-neutral-200 overflow-hidden shrink-0 bg-neutral-100">
+<img class="w-full h-full object-cover" data-alt="Miniature cartoon of an Indian auntie holding magnifying glass over WhatsApp message." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9C7fgFozMMLagg0wzbRPrnQEozpCojBh4T_eNS9LwrYmTwpiF1IrzDn8BZKWGKRzBJ2z9rhsiPusmqKBVmz-b7GxVpfYpoDZusQj-fXqW8TB3azIyrPdTG-TRLjYc5qhj4YWcQM0wcLFpbp0ljXA5T0HsN_A19zaK8FwKeLVKWuyGJMvgAFTqc1f46w610U43VuW9sBAP5Q4hGHjXjQPUPbmZBxBHVaU1ef4lL6zKZze_YL7zw5vT">
+</div>
+<div class="flex-1 min-w-0">
+<h5 class="text-xs font-medium text-neutral-900 truncate">Auntie Discovers Secret To Immortality: Drinking Turmeric</h5>
+<span class="text-[11px] text-neutral-400">😂 39.8k • @haldi_gang</span>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 rounded-xl hover:bg-[#faf9f6] transition-colors">
+<span class="font-mono text-sm font-bold text-neutral-400 w-5 text-center">3</span>
+<div class="w-10 h-10 rounded-lg border border-neutral-200 overflow-hidden shrink-0 bg-neutral-100">
+<img class="w-full h-full object-cover" data-alt="Miniature cartoon of an employee pretending to type on a disconnected keyboard during Zoom meeting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuQyEcEUM-kENcvyP0550x-Ur7ilaa03qqxYBcuH8WqOxqEclmi8WNM3mek-5c5jARa_LO2p-lfIx9n9G65HVrY_i5fd0KB_4Ca_Csis0a-ts24plNh1_EdRqG60LS5gWNCA8fwUH1Czpm5XRXgrvJuETjqzTdEQmQWbHHiGfEX-AXL6PQVXjBLA7m_2UvL8pGIfqochHcVH8nlcufPFahl_R7n2XuMyWRqfpB2h401BcytKMIC-zc">
+</div>
+<div class="flex-1 min-w-0">
+<h5 class="text-xs font-medium text-neutral-900 truncate">Employee Perfects 'Nodding Thoughtfully' While Sound Asleep</h5>
+<span class="text-[11px] text-neutral-400">😂 31.4k • @sleepy_corp</span>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 rounded-xl hover:bg-[#faf9f6] transition-colors">
+<span class="font-mono text-sm font-bold text-neutral-400 w-5 text-center">4</span>
+<div class="w-10 h-10 rounded-lg border border-neutral-200 overflow-hidden shrink-0 bg-neutral-100">
+<img class="w-full h-full object-cover" data-alt="Miniature cartoon of an espresso machine dripping glowing magical elixir." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyvfDs1MXeQl43G_EpSjDdZTuz56g7XXiO3kMV2wd-4Yv9v4VJAV1S4_cPbJOEChkg60ib0nPwxDSxjkdfgXZg1Y50AlWU88I2nrw2nlgXf2--jRhh-I8oHEYZJlh2qKq0MiJ5ue3OB0w58NX5HCYMu2EyMiczJUxzViTjTRFVY8ZkNsxCKm8RAwWT-uFdml8_vF706XzkBP8r2-Ysbg26gI3VAuZh8t1My_ysj0hxZYp2slJwyijT">
+</div>
+<div class="flex-1 min-w-0">
+<h5 class="text-xs font-medium text-neutral-900 truncate">4th Espresso Of The Day Confers Ability To Hear Colors</h5>
+<span class="text-[11px] text-neutral-400">😂 27.6k • @caffeine_overflow</span>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 rounded-xl hover:bg-[#faf9f6] transition-colors">
+<span class="font-mono text-sm font-bold text-neutral-400 w-5 text-center">5</span>
+<div class="w-10 h-10 rounded-lg border border-neutral-200 overflow-hidden shrink-0 bg-neutral-100">
+<img class="w-full h-full object-cover" data-alt="Miniature comic of a gamer staring blankly at a game victory screen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB301pbkSr_e7V3ICDyWpkA71mKPpoJQnrkYUhAZ7KwdbKNDpRhP_eFiL76hdFqgjvrO37ZCTsSf_Q6VtSryn4QcIZtNEYJ-Tks6qaaUn2B8QW2FpSM5qeHob9VTH1OBMqS7BExPY9u17yNqydOq9aTAC0GJ9gBo8NM0WW9v5uFp_WB9LoBOR5P4BgrMbQPe8L6R7KXB0j8ReIdfaTNmYTzvlBhDemcA3Ib9ziDpidmN7sa-SKP_T2Z">
+</div>
+<div class="flex-1 min-w-0">
+<h5 class="text-xs font-medium text-neutral-900 truncate">Finished 100-Hour Game, Existential Dread Struck</h5>
+<span class="text-[11px] text-neutral-400">😂 23.9k • @npc_energy</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl border border-[#e8e6df] shadow-xs p-5 flex flex-col gap-4">
+<div class="flex items-center justify-between pb-2 border-b border-[#f4f3ee]">
+<span class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">
+              PUBLIC ARBITRATION
+            </span>
+<span class="text-[11px] text-neutral-400">12,481 VOTES</span>
+</div>
+<h3 class="font-headline-sm text-sm font-bold text-neutral-900 leading-snug">
+            Which meme trend best encapsulates our current civilization?
+          </h3>
+<form class="flex flex-col gap-2" id="poll-widget" onsubmit="event.preventDefault(); submitPoll();">
+<label class="poll-option flex flex-col p-3 rounded-xl border border-neutral-200 bg-[#faf9f6] hover:bg-neutral-100/60 cursor-pointer transition-all">
+<div class="flex items-center justify-between text-xs text-neutral-800 font-medium">
+<span class="flex items-center gap-2">
+<input checked="" class="accent-neutral-900 text-neutral-900 focus:ring-0" name="poll" type="radio" value="1">
+                  Over-engineered coffee setups vs. actual work
+                </span>
+<span class="font-bold poll-pct text-neutral-900">46%</span>
+</div>
+<div class="w-full bg-neutral-200/60 h-1.5 rounded-full mt-2.5 overflow-hidden">
+<div class="bg-neutral-900 h-full rounded-full" style="width: 46%;"></div>
+</div>
+</label>
+<label class="poll-option flex flex-col p-3 rounded-xl border border-neutral-200 bg-[#faf9f6] hover:bg-neutral-100/60 cursor-pointer transition-all">
+<div class="flex items-center justify-between text-xs text-neutral-800 font-medium">
+<span class="flex items-center gap-2">
+<input class="accent-neutral-900 text-neutral-900 focus:ring-0" name="poll" type="radio" value="2">
+                  AI replacing my job while I teach it how to do it
+                </span>
+<span class="font-bold poll-pct text-neutral-900">34%</span>
+</div>
+<div class="w-full bg-neutral-200/60 h-1.5 rounded-full mt-2.5 overflow-hidden">
+<div class="bg-amber-500 h-full rounded-full" style="width: 34%;"></div>
+</div>
+</label>
+<label class="poll-option flex flex-col p-3 rounded-xl border border-neutral-200 bg-[#faf9f6] hover:bg-neutral-100/60 cursor-pointer transition-all">
+<div class="flex items-center justify-between text-xs text-neutral-800 font-medium">
+<span class="flex items-center gap-2">
+<input class="accent-neutral-900 text-neutral-900 focus:ring-0" name="poll" type="radio" value="3">
+                  Sending 1-word emails after a 2-hour strategic slide deck
+                </span>
+<span class="font-bold poll-pct text-neutral-900">20%</span>
+</div>
+<div class="w-full bg-neutral-200/60 h-1.5 rounded-full mt-2.5 overflow-hidden">
+<div class="bg-neutral-400 h-full rounded-full" style="width: 20%;"></div>
+</div>
+</label>
+<button class="w-full py-2.5 bg-[#121316] text-white hover:bg-neutral-800 text-xs font-semibold uppercase tracking-wider rounded-xl transition-colors mt-2" type="submit">
+              Cast Satirical Ballot
+            </button>
+</form>
+<div class="hidden text-center py-2 text-xs text-neutral-600 font-medium" id="poll-thanks">
+            ✓ Your voice has been registered in the Great Void.
+          </div>
+</div>
+<div class="bg-white border border-[#e8e6df] rounded-2xl p-5 shadow-xs flex flex-col gap-3 relative overflow-hidden">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 text-lg">mark_email_unread</span>
+<h3 class="font-headline-sm text-xs font-bold uppercase tracking-wider text-neutral-900">Daily Dopamine Dispatch</h3>
+</div>
+<p class="text-xs text-neutral-500 leading-relaxed">
+            Get hand-picked internet chaos, satirical breaking news, and rare memes delivered to your inbox every Friday morning. 100% laughs, zero productivity tips.
+          </p>
+<form class="flex flex-col gap-2 pt-1" onsubmit="event.preventDefault(); newsletterConfirm();">
+<input class="px-3.5 py-2 bg-[#faf9f6] text-neutral-900 rounded-xl border border-neutral-200 text-xs outline-none focus:border-amber-400 placeholder:text-neutral-400" id="nl-email" placeholder="victim.of.standups@corp.com" required="" type="email">
+<button class="w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-neutral-950 font-semibold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-xs" type="submit">
+              Subscribe For Free Brainrot
+            </button>
+</form>
+<div class="hidden text-xs text-neutral-700 font-medium bg-neutral-100 p-2 rounded-lg text-center" id="nl-status">
+            🎉 You are now locked in for unadulterated absurdity!
+          </div>
+</div>
+<div class="bg-white rounded-2xl border border-[#e8e6df] shadow-xs p-5 flex flex-col gap-3">
+<div class="flex items-center justify-between pb-2 border-b border-[#f4f3ee]">
+<h3 class="font-headline-sm text-xs font-bold uppercase tracking-wider text-neutral-900">Trending Meme Tags</h3>
+<span class="text-[10px] text-neutral-400 uppercase font-semibold">METRICS</span>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<a class="text-xs bg-[#faf9f6] text-neutral-600 px-3 py-1 rounded-full border border-neutral-200/80 hover:border-neutral-400 hover:text-neutral-900 transition-all" href="#">#MergeConflict</a>
+<a class="text-xs bg-[#faf9f6] text-neutral-600 px-3 py-1 rounded-full border border-neutral-200/80 hover:border-neutral-400 hover:text-neutral-900 transition-all" href="#">#BiryaniEmergency</a>
+<a class="text-xs bg-[#faf9f6] text-neutral-600 px-3 py-1 rounded-full border border-neutral-200/80 hover:border-neutral-400 hover:text-neutral-900 transition-all" href="#">#GPUStockCrisis</a>
+<a class="text-xs bg-[#faf9f6] text-neutral-600 px-3 py-1 rounded-full border border-neutral-200/80 hover:border-neutral-400 hover:text-neutral-900 transition-all" href="#">#ImposterSyndrome</a>
+<a class="text-xs bg-[#faf9f6] text-neutral-600 px-3 py-1 rounded-full border border-neutral-200/80 hover:border-neutral-400 hover:text-neutral-900 transition-all" href="#">#SeniorDevEnergy</a>
+<a class="text-xs bg-[#faf9f6] text-neutral-600 px-3 py-1 rounded-full border border-neutral-200/80 hover:border-neutral-400 hover:text-neutral-900 transition-all" href="#">#WhatsAppAunties</a>
+<a class="text-xs bg-[#faf9f6] text-neutral-600 px-3 py-1 rounded-full border border-neutral-200/80 hover:border-neutral-400 hover:text-neutral-900 transition-all" href="#">#JiraTrauma</a>
+<a class="text-xs bg-[#faf9f6] text-neutral-600 px-3 py-1 rounded-full border border-neutral-200/80 hover:border-neutral-400 hover:text-neutral-900 transition-all" href="#">#PatchNotesMemes</a>
+</div>
+</div>
+<div class="bg-white rounded-2xl border border-[#e8e6df] shadow-xs p-5 flex flex-col gap-4">
+<div class="flex items-center justify-between pb-2 border-b border-[#f4f3ee]">
+<span class="text-[10px] uppercase font-bold text-neutral-400 tracking-wider">Hall of Fame Creator</span>
+<span class="text-[10px] text-neutral-500 bg-neutral-100 px-2 py-0.5 rounded-full font-medium">WEEK 42</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full border border-neutral-200 overflow-hidden bg-neutral-100 shrink-0">
+<img class="w-full h-full object-cover" data-alt="Playful stylized avatar portrait of an eccentric meme artist with funky sunglasses and a coffee cup, neo-brutalist pop illustration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcaeowinzKcGBdCb3V10oXqFycK4Ot1YnJb7DztFYxYggyVQCa4XLv3m7nrBMeRMXfDF0Q-JlSy7-e3k0wk3VdgNhdcr2czwMaFLTwxz4W_W88akkqUnSeApfGgxw4k7y6Pw2iJMv12QABmM13FiITndZbc2oSTLmdAwCcDaa4Z-00Gf-Ot02-dfrK2oKiTQVDIlPPepuEfvAYE_2zLMT0n86Xe7_DEM9794iRK9khhZXZbih8HI8e">
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-sm text-sm font-semibold text-neutral-900 leading-tight">Anjali "Syntax" Roy</h4>
+<p class="text-xs text-neutral-400">@sudo_anjali • 182k Laughs</p>
+</div>
+</div>
+<p class="font-body-sm text-xs text-neutral-500 leading-relaxed">
+            Pioneered the viral "Mom, That's An API Not A Cult" comic series with over 4.2 million total impressions this month alone.
+          </p>
+<button class="w-full py-2 bg-neutral-100 hover:bg-neutral-200 text-neutral-800 text-xs font-semibold uppercase tracking-wider rounded-xl transition-colors flex items-center justify-center gap-1.5" onclick="toggleFollow(this)">
+<span class="material-symbols-outlined text-sm">person_add</span> Follow Creator
+          </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function voteHeroReaction(btn) {
+    const countSpan = btn.querySelector('.reaction-count');
+    const current = parseFloat(countSpan.textContent);
+    if (!btn.dataset.voted) {
+      btn.dataset.voted = "true";
+      btn.classList.add('bg-amber-100', 'text-amber-900');
+      btn.style.transform = "scale(1.05)";
+      setTimeout(() => btn.style.transform = "", 150);
+      const isK = countSpan.textContent.includes('k');
+      if (isK) {
+        countSpan.textContent = (current + 0.1).toFixed(1) + 'k';
+      } else {
+        countSpan.textContent = current + 1;
+      }
+    } else {
+      btn.dataset.voted = "";
+      btn.classList.remove('bg-amber-100', 'text-amber-900');
+    }
+  }
+
+  function triggerConfetti(btn) {
+    const originalText = btn.innerHTML;
+    btn.innerHTML = `<span class="material-symbols-outlined text-sm text-amber-400">sentiment_very_satisfied</span> High Five Sent! +100pts`;
+    btn.classList.add('bg-neutral-900');
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+    }, 2000);
+  }
+
+  function simulateLoadMore(btn) {
+    const spinner = document.getElementById('spinner');
+    const btnText = document.getElementById('btn-text');
+    spinner.classList.remove('hidden');
+    btnText.textContent = 'Mining deeper satirical absurdities...';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      spinner.classList.add('hidden');
+      btnText.textContent = 'All Caught Up! Go Touch Grass (Or Refresh)';
+      btn.classList.add('bg-neutral-100', 'text-neutral-500');
+    }, 1200);
+  }
+
+  function submitPoll() {
+    const thanks = document.getElementById('poll-thanks');
+    thanks.classList.remove('hidden');
+    const options = document.querySelectorAll('.poll-option');
+    options.forEach(opt => opt.classList.add('opacity-75', 'pointer-events-none'));
+  }
+
+  function newsletterConfirm() {
+    const status = document.getElementById('nl-status');
+    const input = document.getElementById('nl-email');
+    if (input.value) {
+      status.classList.remove('hidden');
+      input.value = '';
+    }
+  }
+
+  function toggleFollow(btn) {
+    if (btn.dataset.following === "true") {
+      btn.dataset.following = "false";
+      btn.innerHTML = `<span class="material-symbols-outlined text-sm">person_add</span> Follow Creator`;
+      btn.classList.remove('bg-[#121316]', 'text-white');
+      btn.classList.add('bg-neutral-100', 'text-neutral-800');
+    } else {
+      btn.dataset.following = "true";
+      btn.innerHTML = `<span class="material-symbols-outlined text-sm">check</span> Following`;
+      btn.classList.remove('bg-neutral-100', 'text-neutral-800');
+      btn.classList.add('bg-[#121316]', 'text-white');
+    }
+  }
+</script></main><footer class="w-full bg-[#f4f3ee] border-t border-[#e8e6df] mt-16"><div class="w-full max-w-7xl mx-auto px-4 lg:px-8 py-12"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10"><div class="flex flex-col gap-3.5"><div class="flex items-center gap-2"><img alt="Amiami Post" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm4Wryympjk7xPTzT_zSefnVFOrOSZBUXrNP5nsg1fgnRV_mJyvIJVu-qSqqn_BK15Mwloht5xPR_gmimPCGj6ITZXAaqsuhcJGisAAVRNj0Sb2NMM65oQm6YVvROWIW5DjS7cO9P8FhGR0JbymvQKbCosMoNOsSybO5g-PNoeoMzX9RETq8XRIhccjHUIa_OxPJEg7AYw4za3K2UzrTW8NgDznuq8q-sBBm-hCMa9oxUps4rALzQ9OOxAcMpXeWESGA"></div><p class="text-xs text-neutral-500 leading-relaxed">The web's most aggressively unserious journalistic establishment. Chronicling digital brainrot, corporate absurdities, and elite meme warfare with zero integrity guaranteed.</p><div class="flex items-center gap-2 pt-1"><span class="text-[10px] bg-white border border-neutral-200 text-neutral-600 px-2.5 py-0.5 rounded-full font-medium">EST. 2024</span><span class="text-[10px] bg-amber-100/80 text-amber-900 px-2.5 py-0.5 rounded-full font-medium">MODERN SATIRE</span></div></div><div class="flex flex-col gap-3"><h3 class="font-headline-sm text-xs font-bold uppercase tracking-wider text-neutral-900">Desk Directory</h3><ul class="flex flex-col gap-2 text-xs text-neutral-500"><li><a class="hover:text-neutral-900 transition-colors" data-path="tech-memes" href="#">Silicon Valley Circus</a></li><li><a class="hover:text-neutral-900 transition-colors" data-path="desi-memes" href="#">Desi Viral Syndicate</a></li><li><a class="hover:text-neutral-900 transition-colors" data-path="gaming-desk" href="#">Gamer Rants &amp; Patch Memes</a></li><li><a class="hover:text-neutral-900 transition-colors" data-path="cinema-pop" href="#">Cinema Meltdowns</a></li><li><a class="hover:text-neutral-900 transition-colors" data-path="dank-vault" href="#">Dank Archive (Deep Web)</a></li></ul></div><div class="flex flex-col gap-3"><h3 class="font-headline-sm text-xs font-bold uppercase tracking-wider text-neutral-900">Editorial &amp; Legal</h3><ul class="flex flex-col gap-2 text-xs text-neutral-500"><li><a class="hover:text-neutral-900 transition-colors" data-path="satirical-disclaimer" href="#">Satirical Disclaimer</a></li><li><a class="hover:text-neutral-900 transition-colors" data-path="editorial-code" href="#">Code of Unethical Humor</a></li><li><a class="hover:text-neutral-900 transition-colors" data-path="submit-meme" href="#">Submissions Guidelines</a></li><li><a class="hover:text-neutral-900 transition-colors" data-path="creator-profile" href="#">Creator Bounty Board</a></li><li><a class="hover:text-neutral-900 transition-colors" href="#">DMCA &amp; Meme Rights</a></li></ul></div><div class="flex flex-col gap-3"><h3 class="font-headline-sm text-xs font-bold uppercase tracking-wider text-neutral-900">Daily Brainrot Dispatch</h3><p class="text-xs text-neutral-500 leading-relaxed">Get the top 5 satirical scoops &amp; rarest memes injected straight into your inbox every morning.</p><form class="flex flex-col gap-2" onsubmit="return false;"><div class="flex"><input class="w-full px-3.5 py-2 bg-white border border-neutral-200 rounded-l-xl text-xs text-neutral-800 placeholder:text-neutral-400 outline-none focus:border-amber-400" placeholder="your.boss@fired.com" type="email"><button class="bg-[#121316] text-white hover:bg-neutral-800 text-xs font-semibold uppercase tracking-wider px-4 border border-l-0 border-neutral-900 rounded-r-xl transition-colors shrink-0" type="button">Sign Up</button></div><span class="text-[11px] text-neutral-400">No spam. Just high-voltage satire.</span></form></div></div><div class="border-t border-[#e8e6df] pt-6 flex flex-col md:flex-row items-center justify-between gap-4"><p class="text-xs text-neutral-400 text-center md:text-left">© 2024 Amiami Post Media Network. All satirical claims, deepfaked press releases, and hyperbolic allegations are fictional works of internet comedy.</p><div class="flex items-center gap-2"><a aria-label="Hub" class="w-8 h-8 rounded-full border border-neutral-200 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-500 hover:text-neutral-800 transition-colors" href="#"><span class="material-symbols-outlined text-base">hub</span></a><a aria-label="RSS" class="w-8 h-8 rounded-full border border-neutral-200 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-500 hover:text-neutral-800 transition-colors" href="#"><span class="material-symbols-outlined text-base">rss_feed</span></a><a aria-label="Forum" class="w-8 h-8 rounded-full border border-neutral-200 bg-white hover:bg-neutral-50 flex items-center justify-center text-neutral-500 hover:text-neutral-800 transition-colors" href="#"><span class="material-symbols-outlined text-base">forum</span></a></div></div></div></footer></body></html>

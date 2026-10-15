@@ -53,3 +53,36 @@ export async function categoriesCollection(): Promise<Collection<CategoryDoc>> {
   await categoryIndexReady;
   return collection;
 }
+
+// Single "site" document holding everything the dashboard's Settings, Pages and Homepage screens edit.
+export type SettingsDoc = { _id: string; data: unknown; updatedAt: string };
+
+export async function settingsCollection(): Promise<Collection<SettingsDoc>> {
+  return (await getClient()).db(dbName).collection<SettingsDoc>("settings");
+}
+
+export type MessageDoc = {
+  _id: string;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  read: boolean;
+  createdAt: string;
+};
+
+let messageIndexReady: Promise<void> | null = null;
+
+export async function messagesCollection(): Promise<Collection<MessageDoc>> {
+  const collection = (await getClient()).db(dbName).collection<MessageDoc>("messages");
+  messageIndexReady ??= collection.createIndex({ createdAt: -1 }).then(() => undefined);
+  await messageIndexReady;
+  return collection;
+}
+
+// Site-wide counters, one document per counter name.
+export type StatDoc = { _id: string; value: number };
+
+export async function statsCollection(): Promise<Collection<StatDoc>> {
+  return (await getClient()).db(dbName).collection<StatDoc>("stats");
+}

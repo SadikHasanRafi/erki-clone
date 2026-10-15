@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useSettings } from "@/components/site/SettingsProvider";
 
 // Counts one view per page load. If the request fails, the server-rendered count stays on screen.
 export function ViewCounter({ slug, initial }: { slug: string; initial: number }) {
+  const { labels, display } = useSettings();
   const [views, setViews] = useState(initial);
   const counted = useRef(false);
 
@@ -18,5 +20,7 @@ export function ViewCounter({ slug, initial }: { slug: string; initial: number }
       .catch(() => {});
   }, [slug]);
 
-  return <span>{views.toLocaleString("bn-BD")} বার দেখা</span>;
+  // The view is still counted when the number is hidden from readers.
+  if (!display.showPostViews) return null;
+  return <span> · {views.toLocaleString("en")} {labels.views}</span>;
 }
