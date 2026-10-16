@@ -168,7 +168,7 @@ export default async function MemePage({ params }: Props) {
           )}
         </div>
 
-        <aside className="flex flex-col gap-6 lg:col-span-4">
+        <aside className="flex flex-col gap-6 lg:col-span-4 lg:sticky lg:top-40 lg:max-h-[calc(100vh-11rem)] lg:self-start lg:overflow-y-auto no-scrollbar">
           <section className="flex flex-col gap-3 rounded-2xl border border-hairline bg-white p-6 shadow-card">
             <div className="flex items-center justify-between">
               <span className="rounded bg-subtle px-2.5 py-0.5 font-display text-[10px] font-bold uppercase tracking-wider text-ink">{L.deskDispatch}</span>

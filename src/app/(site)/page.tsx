@@ -186,7 +186,7 @@ export default async function HomePage({ searchParams }: Props) {
         {(mainBlocks.length > 0 || sideBlocks.length > 0) && (
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
             <div className={`flex min-w-0 flex-col gap-10 ${sideBlocks.length > 0 ? "lg:col-span-8" : "lg:col-span-12"}`}>{mainBlocks}</div>
-            {sideBlocks.length > 0 && <aside className="flex flex-col gap-6 lg:col-span-4">{sideBlocks}</aside>}
+            {sideBlocks.length > 0 && <aside className="flex flex-col gap-6 lg:col-span-4 lg:sticky lg:top-40 lg:max-h-[calc(100vh-11rem)] lg:self-start lg:overflow-y-auto no-scrollbar">{sideBlocks}</aside>}
           </div>
         )}
       </div>
@@ -285,7 +285,7 @@ async function FilteredFeed({
           )}
         </section>
 
-        <aside className="flex flex-col gap-6 lg:col-span-4">
+        <aside className="flex flex-col gap-6 lg:col-span-4 lg:sticky lg:top-40 lg:max-h-[calc(100vh-11rem)] lg:self-start lg:overflow-y-auto no-scrollbar">
           <Leaderboard memes={top} title={category ? `${L.mostRead}: ${category}` : L.leaderboard} />
           <TagCloud tags={tags} active={tag} />
         </aside>
