@@ -86,3 +86,11 @@ export type StatDoc = { _id: string; value: number };
 export async function statsCollection(): Promise<Collection<StatDoc>> {
   return (await getClient()).db(dbName).collection<StatDoc>("stats");
 }
+
+// One document per calendar day (_id = "YYYY-MM-DD"), copied from Vercel Web Analytics so history
+// outlives the plan's retention window (31 days on the free Hobby plan).
+export type AnalyticsDayDoc = { _id: string; pageviews: number; visitors: number };
+
+export async function analyticsDailyCollection(): Promise<Collection<AnalyticsDayDoc>> {
+  return (await getClient()).db(dbName).collection<AnalyticsDayDoc>("analytics_daily");
+}

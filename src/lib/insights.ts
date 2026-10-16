@@ -1,13 +1,26 @@
 // Reads Web Analytics data from Vercel's REST API. Server-only: the access token must never reach the browser.
 // Docs: https://vercel.com/docs/analytics/web-analytics-api
 
+import { analyticsDailyCollection } from "./db";
+
 const API = "https://api.vercel.com/v1/query/web-analytics";
 
+// Longest range the dashboard offers. Vercel only serves 31 days on the free plan, so anything
+// older comes from the daily totals this dashboard saves in MongoDB (see saveDaily).
+export const RANGES = [7, 30, 90, 180, 365];
+// Vercel refuses day-by-day queries longer than this on any plan.
+const MAX_DAILY_QUERY = 62;
+
 export type Row = { label: string; pageviews: number; visitors: number };
-export type DayPoint = { date: string; pageviews: number; visitors: number };
+// known=false marks a day with no data from Vercel or the saved history (not the same as zero visits).
+export type DayPoint = { date: string; pageviews: number; visitors: number; known: boolean };
 
 export type Insights = {
-  days: number;
+  days: number; // range asked for
+  coveredDays: number; // days actually shown, counted from the oldest day with data
+  liveDays: number; // days Vercel itself provided on this request
+  savedDays: number; // days filled in from the saved history
+  breakdownDays: number; // period the lists below cover (limited by Vercel)
   lifetime: { pageviews: number; visitors: number } | null;
   daily: DayPoint[];
   topPages: Row[];
@@ -72,6 +85,57 @@ async function aggregate(by: string, days: number, limit: number, c: Config): Pr
     c,
   )) as { data?: AggregateRow[] };
   return json.data ?? [];
+}
+
+const dayOffset = (days: number) => isoDay(new Date(Date.now() - days * 86_400_000));
+
+// Asks for the daily series; if the plan only allows a shorter window, retries with the limit Vercel names.
+async function fetchDaily(days: number, c: Config): Promise<{ rows: AggregateRow[]; liveDays: number }> {
+  let n = Math.min(days, MAX_DAILY_QUERY);
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      return { rows: await aggregate("day", n, n + 1, c), liveDays: n };
+    } catch (err) {
+      const allowed = err instanceof ApiError && err.status === 400 ? Number(/latest (\d+) days/.exec(err.message)?.[1]) : NaN;
+      if (allowed > 0 && allowed < n) {
+        n = allowed;
+        continue;
+      }
+      throw err;
+    }
+  }
+  throw new ApiError("Could not find a date range Vercel accepts.", 400);
+}
+
+async function saveDaily(points: { date: string; pageviews: number; visitors: number }[]): Promise<void> {
+  if (points.length === 0) return;
+  await (await analyticsDailyCollection()).bulkWrite(
+    points.map((p) => ({
+      updateOne: {
+        filter: { _id: p.date },
+        update: { $set: { pageviews: p.pageviews, visitors: p.visitors } },
+        upsert: true,
+      },
+    })),
+    { ordered: false },
+  );
+}
+
+async function loadSaved(since: string): Promise<Map<string, { pageviews: number; visitors: number }>> {
+  const docs = await (await analyticsDailyCollection()).find({ _id: { $gte: since } }).toArray();
+  return new Map(docs.map((d) => [d._id, { pageviews: d.pageviews, visitors: d.visitors }]));
+}
+
+// Copies the latest daily totals Vercel will give us into MongoDB. Run daily by the cron route and on every Insights view.
+export async function snapshotAnalytics(): Promise<{ saved: number }> {
+  const cfg = readConfig();
+  if ("missing" in cfg) throw new Error(`Missing ${cfg.missing.join(", ")}`);
+  const { rows } = await fetchDaily(MAX_DAILY_QUERY, cfg.config);
+  const points = rows
+    .map((r) => ({ date: String(r.timestamp ?? "").slice(0, 10), pageviews: Number(r.pageviews ?? 0), visitors: Number(r.visitors ?? 0) }))
+    .filter((p) => /^\d{4}-\d{2}-\d{2}$/.test(p.date));
+  await saveDaily(points);
+  return { saved: points.length };
 }
 
 const toRows = (rows: AggregateRow[], key: string): Row[] =>
@@ -155,26 +219,55 @@ export async function getInsights(days: number): Promise<InsightsResult> {
     }
   };
 
-  const [dailyRaw, pages, countries, referrers, devices, browsers] = await Promise.all([
-    settle("Daily traffic", aggregate("day", days, days + 1, c), []),
-    settle("Top pages", aggregate("route", days, 10, c), []),
-    settle("Countries", aggregate("country", days, 10, c), []),
-    settle("Referrers", aggregate("referrerHostname", days, 10, c), []),
-    settle("Devices", aggregate("deviceType", days, 5, c), []),
-    settle("Browsers", aggregate("browserName", days, 8, c), []),
+  // The daily series goes first: it tells us how far back Vercel lets this plan look.
+  let live: { rows: AggregateRow[]; liveDays: number };
+  try {
+    live = await fetchDaily(days, c);
+  } catch (err) {
+    errors.push(`Daily traffic: ${explain(err).problem}`);
+    live = { rows: [], liveDays: Math.min(days, 31) };
+  }
+  const { liveDays } = live;
+
+  const [pages, countries, referrers, devices, browsers, saved] = await Promise.all([
+    settle("Top pages", aggregate("route", liveDays, 10, c), []),
+    settle("Countries", aggregate("country", liveDays, 10, c), []),
+    settle("Referrers", aggregate("referrerHostname", liveDays, 10, c), []),
+    settle("Devices", aggregate("deviceType", liveDays, 5, c), []),
+    settle("Browsers", aggregate("browserName", liveDays, 8, c), []),
+    loadSaved(dayOffset(days - 1)).catch(() => new Map<string, { pageviews: number; visitors: number }>()),
   ]);
 
-  const byDate = new Map(dailyRaw.map((r) => [String(r.timestamp ?? "").slice(0, 10), r]));
-  const daily: DayPoint[] = Array.from({ length: days }, (_, i) => {
-    const date = isoDay(new Date(Date.now() - (days - 1 - i) * 86_400_000));
-    const r = byDate.get(date);
-    return { date, pageviews: Number(r?.pageviews ?? 0), visitors: Number(r?.visitors ?? 0) };
+  const liveByDate = new Map(live.rows.map((r) => [String(r.timestamp ?? "").slice(0, 10), r]));
+  const liveStart = dayOffset(liveDays - 1);
+
+  // Fresh numbers from Vercel win; older days come from the saved history.
+  const full: DayPoint[] = Array.from({ length: days }, (_, i) => {
+    const date = dayOffset(days - 1 - i);
+    if (date >= liveStart && live.rows.length > 0) {
+      const r = liveByDate.get(date);
+      return { date, pageviews: Number(r?.pageviews ?? 0), visitors: Number(r?.visitors ?? 0), known: true };
+    }
+    const s = saved.get(date);
+    return s ? { date, ...s, known: true } : { date, pageviews: 0, visitors: 0, known: false };
   });
+
+  // Keep the history growing; a failure here must never break the page.
+  await saveDaily(full.filter((d) => d.known && d.date >= liveStart && live.rows.length > 0)).catch(() => undefined);
+
+  // Start the chart at the oldest day we actually have data for.
+  const firstKnown = Math.max(0, full.findIndex((d) => d.known));
+  const daily = full.slice(firstKnown);
+  const savedDays = daily.filter((d) => d.known && d.date < liveStart).length;
 
   return {
     ok: true,
     data: {
       days,
+      coveredDays: daily.length,
+      liveDays,
+      savedDays,
+      breakdownDays: liveDays,
       lifetime,
       daily,
       topPages: toRows(pages, "route"),
