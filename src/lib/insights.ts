@@ -5,9 +5,9 @@ import { analyticsDailyCollection } from "./db";
 
 const API = "https://api.vercel.com/v1/query/web-analytics";
 
-// Longest range the dashboard offers. Vercel only serves 31 days on the free plan, so anything
-// older comes from the daily totals this dashboard saves in MongoDB (see saveDaily).
-export const RANGES = [7, 30, 90, 180, 365];
+// Ranges the Insights page offers. Daily totals are also saved in MongoDB (see saveDaily), so history
+// survives beyond what the analytics provider keeps.
+export const RANGES = [7, 30];
 // Vercel refuses day-by-day queries longer than this on any plan.
 const MAX_DAILY_QUERY = 62;
 
