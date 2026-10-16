@@ -48,7 +48,7 @@ export function SiteHeader({ categories, headlines }: { categories: string[]; he
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-hairline bg-canvas/95 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-hairline bg-white shadow-[0_2px_8px_rgba(18,19,22,0.06)]">
         {/* Breaking ticker: the newest headlines, tablet and up. */}
         {display.showTicker && headlines.length > 0 && (
           <div className="hidden border-b border-hairline bg-subtle md:block">
@@ -191,7 +191,7 @@ export function SiteHeader({ categories, headlines }: { categories: string[]; he
 
       {/* Phone bottom bar from the mobile design. Article pages use their own share bar instead. */}
       {!isArticle && (
-        <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-hairline bg-canvas/90 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl md:hidden" aria-label="Quick">
+        <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-hairline bg-white pb-[env(safe-area-inset-bottom)] shadow-[0_-2px_8px_rgba(18,19,22,0.06)] md:hidden" aria-label="Quick">
           <div className="flex h-16 items-center justify-around px-1">
             <BottomItem icon="home" label={L.home} href="/" on={pathname === "/" && !menuOpen && !searchOpen} onClick={close} />
             <BottomItem
