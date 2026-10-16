@@ -14,7 +14,7 @@ export async function createMessage(input: Pick<MessageDoc, "name" | "email" | "
   });
 }
 
-export async function listMessages(limit = 200): Promise<ContactMessage[]> {
+export async function listMessages(limit = 1000): Promise<ContactMessage[]> {
   const docs = await (await messagesCollection()).find().sort({ createdAt: -1 }).limit(limit).toArray();
   return docs.map(toMessage);
 }
@@ -29,4 +29,8 @@ export async function setMessageRead(id: string, read: boolean): Promise<boolean
 
 export async function deleteMessage(id: string): Promise<boolean> {
   return (await (await messagesCollection()).deleteOne({ _id: id })).deletedCount > 0;
+}
+
+export async function markAllMessagesRead(): Promise<number> {
+  return (await (await messagesCollection()).updateMany({ read: false }, { $set: { read: true } })).modifiedCount;
 }

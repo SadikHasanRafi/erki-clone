@@ -38,7 +38,7 @@ export default async function InsightsPage({ searchParams }: { searchParams: Pro
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-bold text-brand">Site insights</h1>
-          <p className="text-sm text-zinc-500">Live from Vercel Web Analytics. Production traffic only.</p>
+          <p className="text-sm text-zinc-500">Visitors and page views on the live site.</p>
         </div>
         <div className="flex flex-wrap gap-1 rounded-lg bg-white p-1 ring-1 ring-black/10">
           {RANGES.map((r) => (
@@ -66,7 +66,6 @@ export default async function InsightsPage({ searchParams }: { searchParams: Pro
         <Report data={result.data} />
       )}
 
-      <SpeedInsightsNote />
     </div>
   );
 }
@@ -102,10 +101,8 @@ function Report({ data }: { data: Extract<Awaited<ReturnType<typeof getInsights>
       {limited && (
         <div className="rounded-lg bg-zinc-100 px-4 py-3 text-sm text-zinc-700">
           <p>
-            Showing <strong>{data.coveredDays} days</strong> of data{earliest ? ` (since ${earliest})` : ""}, not the full {rangeLabel(data.days)}.
-            Vercel&apos;s free plan only provides the latest {data.liveDays} days.
-            {data.savedDays > 0 ? ` ${data.savedDays} older days come from totals saved by this dashboard.` : ""} This dashboard now saves each day&apos;s totals
-            automatically, so this history keeps growing, up to a year. Upgrading the Vercel plan makes more history available.
+            Showing <strong>{data.coveredDays} days</strong> of data{earliest ? ` (since ${earliest})` : ""}, not the full {rangeLabel(data.days)}. Daily totals are saved
+            automatically, so older history builds up over time.
           </p>
         </div>
       )}
@@ -143,7 +140,7 @@ function Report({ data }: { data: Extract<Awaited<ReturnType<typeof getInsights>
       </section>
 
       {data.breakdownDays < data.coveredDays && (
-        <p className="text-xs text-zinc-500">The lists below cover the latest {data.breakdownDays} days, the most Vercel provides on this plan.</p>
+        <p className="text-xs text-zinc-500">The lists below cover the latest {data.breakdownDays} days.</p>
       )}
       <div className="grid gap-4 md:grid-cols-2">
         <List title="Top pages" rows={data.topPages} />
@@ -178,18 +175,6 @@ function List({ title, rows }: { title: string; rows: Row[] }) {
           ))}
         </ul>
       )}
-    </section>
-  );
-}
-
-function SpeedInsightsNote() {
-  return (
-    <section className="rounded-xl bg-white p-5 text-sm shadow-sm ring-1 ring-black/5">
-      <h2 className="mb-1 font-bold text-brand">Speed Insights (Core Web Vitals)</h2>
-      <p className="text-zinc-600">
-        Collection is on, but Vercel has no read API for Speed Insights, so those charts can only be viewed in the Vercel dashboard: Project &rarr; Speed
-        Insights tab.
-      </p>
     </section>
   );
 }

@@ -15,3 +15,40 @@ export function TopBar() {
     </div>
   );
 }
+
+// Placeholder for the home page and for desk, tag and search results while the next page streams in.
+export function FeedSkeleton({ filtered = false }: { filtered?: boolean }) {
+  return (
+    <div className="mx-auto w-full max-w-7xl animate-pulse px-5 py-6 md:px-10 md:py-8 lg:px-8" aria-busy aria-label="Loading">
+      {filtered ? (
+        <>
+          <div className="mb-4 h-3 w-40 rounded bg-subtle" />
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
+            <div className="flex flex-col gap-5 lg:col-span-8">
+              <div className="h-5 w-48 rounded bg-subtle" />
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
+                {[0, 1, 2, 3, 4, 5].map((i) => (
+                  <div key={i} className="h-64 rounded-xl bg-subtle" />
+                ))}
+              </div>
+            </div>
+            <div className="hidden flex-col gap-6 lg:col-span-4 lg:flex">
+              <div className="h-72 rounded-2xl bg-subtle" />
+              <div className="h-40 rounded-2xl bg-subtle" />
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div className="h-[420px] rounded-2xl bg-subtle lg:col-span-8" />
+          <div className="hidden flex-col gap-4 lg:col-span-4 lg:flex">
+            {[0, 1, 2].map((i) => (
+              <div key={i} className="h-36 rounded-xl bg-subtle" />
+            ))}
+          </div>
+          <div className="h-40 rounded-2xl bg-subtle lg:col-span-12" />
+        </div>
+      )}
+    </div>
+  );
+}

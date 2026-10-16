@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { MemeImage } from "@/components/MemeImage";
 import { ConfirmModal } from "@/components/dashboard/ConfirmModal";
+import { Pager, usePaging } from "@/components/dashboard/Pager";
 import type { Meme } from "@/lib/types";
 
 type Filter = "all" | "published" | "draft";
@@ -31,7 +32,9 @@ export function MemeTable({ memes }: { memes: Meme[] }) {
   const [error, setError] = useState("");
   const [toDelete, setToDelete] = useState<Meme | null>(null);
 
-  const rows = memes.filter((m) => filter === "all" || m.status === filter);
+  const filtered = memes.filter((m) => filter === "all" || m.status === filter);
+  const paging = usePaging(filtered.length);
+  const rows = paging.slice(filtered);
 
   async function update(meme: Meme, overrides: Partial<Pick<Meme, "status" | "featured">>) {
     setBusyId(meme.id);
@@ -82,7 +85,10 @@ export function MemeTable({ memes }: { memes: Meme[] }) {
           {(["all", "published", "draft"] as const).map((f) => (
             <button
               key={f}
-              onClick={() => setFilter(f)}
+              onClick={() => {
+                setFilter(f);
+                paging.setPage(1);
+              }}
               className={`rounded-md px-3 py-1.5 font-medium capitalize ${
                 filter === f ? "bg-white text-brand shadow-sm" : "text-zinc-600"
               }`}
@@ -94,7 +100,7 @@ export function MemeTable({ memes }: { memes: Meme[] }) {
         {error && <p className="text-sm text-accent">{error}</p>}
       </div>
 
-      {rows.length === 0 ? (
+      {filtered.length === 0 ? (
         <p className="p-10 text-center text-zinc-500">
           Nothing here yet.{" "}
           <Link href="/dashboard/new" className="font-semibold text-brand underline">
@@ -184,6 +190,7 @@ export function MemeTable({ memes }: { memes: Meme[] }) {
           </table>
         </div>
       )}
+      <Pager total={filtered.length} page={paging.page} pageSize={paging.pageSize} pageCount={paging.pageCount} onPage={paging.setPage} onPageSize={paging.setPageSize} noun="memes" />
     </section>
   );
 }

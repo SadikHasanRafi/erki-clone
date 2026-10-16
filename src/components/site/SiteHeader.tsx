@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link, { useLinkStatus } from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Icon, type IconName } from "./Icon";
@@ -9,6 +9,12 @@ import { useSettings } from "./SettingsProvider";
 import { SiteVisits } from "./SiteVisits";
 
 type Headline = { title: string; slug: string };
+
+// Small spinner inside a link while its page is loading, so a click always gives instant feedback.
+function LinkPending() {
+  const { pending } = useLinkStatus();
+  return pending ? <span aria-hidden className="ml-1.5 inline-block h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent align-[-2px]" /> : null;
+}
 
 function SearchForm({ autoFocus = false, className = "" }: { autoFocus?: boolean; className?: string }) {
   const L = useSettings().labels;
@@ -152,10 +158,12 @@ export function SiteHeader({ categories, headlines }: { categories: string[]; he
           <nav className="grid grid-cols-2 gap-2 border-t border-hairline p-4 md:hidden" aria-label="Desks">
             <Link href="/" onClick={close} className={`${pill(!active && pathname === "/")} py-2 text-center`}>
               {L.trending}
+              <LinkPending />
             </Link>
             {categories.map((c) => (
               <Link key={c} href={`/?category=${encodeURIComponent(c)}`} onClick={close} className={`${pill(active === c)} border border-hairline bg-white py-2 text-center`}>
                 {c}
+                <LinkPending />
               </Link>
             ))}
             <Link href="/about" onClick={close} className={`${pill(pathname === "/about")} border border-hairline bg-white py-2 text-center`}>
@@ -172,10 +180,12 @@ export function SiteHeader({ categories, headlines }: { categories: string[]; he
           <div className="mx-auto flex max-w-7xl items-center gap-1.5 whitespace-nowrap">
             <Link href="/" aria-current={!active && pathname === "/" ? "page" : undefined} className={pill(!active && pathname === "/")}>
               {L.trending}
+              <LinkPending />
             </Link>
             {categories.map((c) => (
               <Link key={c} href={`/?category=${encodeURIComponent(c)}`} aria-current={active === c ? "page" : undefined} className={pill(active === c)}>
                 {c}
+                <LinkPending />
               </Link>
             ))}
             <span className="mx-1 h-4 w-px shrink-0 bg-hairline" aria-hidden />

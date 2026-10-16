@@ -11,14 +11,34 @@ import { getSettings } from "@/lib/settings";
 import type { HomeSectionId, SectionToggle, SiteSettings } from "@/lib/site-settings";
 import { countMemes, getMemesByIds, listMemes, listTags } from "@/lib/store";
 import type { Meme } from "@/lib/types";
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
+import { FeedSkeleton, TopBar } from "@/components/Loader";
 
 type Props = { searchParams: Promise<{ category?: string; tag?: string; q?: string; page?: string }> };
 
 const shell = "mx-auto w-full max-w-7xl px-5 md:px-10 lg:px-8";
 
+// Reads only the search params, then streams the real content inside Suspense. The key changes with every
+// filter, so moving between desks shows the skeleton right away instead of freezing on the old page.
 export default async function HomePage({ searchParams }: Props) {
-  const { category = "", tag = "", q = "", page: pageParam } = await searchParams;
+  const sp = await searchParams;
+  const filtered = Boolean(sp.category || sp.tag || sp.q);
+  return (
+    <Suspense
+      key={JSON.stringify([sp.category, sp.tag, sp.q, sp.page])}
+      fallback={
+        <>
+          <TopBar />
+          <FeedSkeleton filtered={filtered} />
+        </>
+      }
+    >
+      <HomeContent {...sp} />
+    </Suspense>
+  );
+}
+
+async function HomeContent({ category = "", tag = "", q = "", page: pageParam }: Awaited<Props["searchParams"]>) {
   const [settings, categories] = await Promise.all([getSettings(), listCategories()]);
   const activeCategory = categories.some((c) => c.name === category) ? category : "";
 
@@ -123,7 +143,7 @@ export default async function HomePage({ searchParams }: Props) {
           {latestItems.map((m) => (
             <VaultCard key={m.id} meme={m} />
           ))}
-          {hasMoreLatest && <LoadMore initialSkip={autoShown} pageSize={layout.latestPageSize} exclude={latestPinned.map((m) => m.id)} />}
+          {hasMoreLatest && <LoadMore initialSkip={autoShown} pageSize={layout.latestPageSize} auto={false} exclude={latestPinned.map((m) => m.id)} />}
         </div>
       </section>
     ),
@@ -280,7 +300,10 @@ async function FilteredFeed({
                 // Keyed so that moving to another page or filter starts the button from scratch.
                 <LoadMore key={`${page}|${category}|${tag}|${q}`} initialSkip={page * size} pageSize={size} {...filter} />
               )}
-              <Pagination page={page} totalPages={totalPages} params={{ category, tag, q }} />
+              {/* Scrolling loads more automatically; numbered links remain for browsers without JavaScript. */}
+              <noscript>
+                <Pagination page={page} totalPages={totalPages} params={{ category, tag, q }} />
+              </noscript>
             </div>
           )}
         </section>
